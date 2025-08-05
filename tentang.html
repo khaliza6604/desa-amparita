@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tentang KKN 114 - Kelurahan Amparita</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome untuk ikon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Google Fonts - Montserrat -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* Mengatur font-family global ke Montserrat */
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #f7f9fc; /* Default body background, can be overridden by section */
+            color: #334155;
+        }
+
+        /* Keyframes untuk animasi modal */
+        @keyframes modal-in {
+            from {
+                transform: scale(0.95) translateY(20px);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1) translateY(0);
+                opacity: 1;
+            }
+        }
+
+        /* Menerapkan animasi ke modal */
+        .animate-modal-in {
+            animation: modal-in 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        /* Keyframes untuk animasi fade-in-up */
+        @keyframes fade-in-up {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fade-in-up {
+            animation: fade-in-up 0.8s ease-out forwards;
+        }
+
+        /* Keyframes for hero content scale */
+        @keyframes hero-scale-in {
+            from {
+                transform: scale(0.9);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .animate-hero-scale-in {
+            animation: hero-scale-in 1s ease-out forwards;
+            animation-delay: 0.2s; /* Delay to allow background to load slightly */
+        }
+
+        /* Modernized section titles */
+        .section-title {
+            position: relative;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+            font-size: 2.5rem; /* Larger font */
+            font-weight: 800; /* Extra bold */
+            color: #1C4532; /* Darker green for emphasis */
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 80px; /* Wider underline */
+            height: 4px; /* Thicker underline */
+            background-color: #2B643B; /* Accent color */
+            border-radius: 2px;
+        }
+
+        /* Hero section specific styles */
+        .hero-section {
+            background-image: url('https://placehold.co/1920x600/1C4532/FFFFFF?text=KKN+114+Amparita'); /* Specific image for KKN page */
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            color: white;
+            text-align: center;
+            padding: 8rem 1rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border-radius: 1rem;
+            overflow: hidden;
+            margin-top: 2rem;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2); /* Added shadow for depth */
+            animation: pan-background 30s infinite alternate linear;
+        }
+
+        @keyframes pan-background {
+            0% {
+                background-position: 0% 50%;
+            }
+            100% {
+                background-position: 100% 50%;
+            }
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, rgba(28, 69, 50, 0.4) 0%, rgba(28, 69, 50, 0.9) 100%);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+            animation: hero-scale-in 1s ease-out forwards;
+        }
+
+        .hero-title {
+            font-size: 4rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+            text-shadow: 4px 4px 8px rgba(0,0,0,0.5);
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            font-weight: 500;
+            margin-bottom: 2rem;
+            opacity: 0.98;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        /* About KKN section styling */
+        .about-kkn-section {
+            background-color: #ffffff;
+            border-radius: 1rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        /* Team member card styling */
+        .team-member-card {
+            background-color: #ffffff;
+            border-radius: 1rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 280px; /* Fixed width for cards in horizontal scroll */
+            flex-shrink: 0; /* Prevent cards from shrinking */
+        }
+
+        .team-member-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .team-member-card img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 1rem;
+            border: 4px solid #2B643B; /* Green border for profile pics */
+        }
+
+        .team-member-card h3 {
+            font-weight: 700;
+            font-size: 1.25rem;
+            color: #1C4532;
+            margin-bottom: 0.25rem;
+        }
+
+        .team-member-card p {
+            font-size: 0.95rem;
+            color: #6B7280;
+        }
+
+        /* Team logo section */
+        .team-logo-section {
+            background-color: #ffffff;
+            border-radius: 1rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            padding: 2.5rem;
+            margin-top: 2rem;
+            text-align: center;
+        }
+
+        .team-logo-section img {
+            max-width: 200px;
+            height: auto;
+            margin: 0 auto;
+        }
+
+        /* Styling for slide buttons */
+        .slide-button {
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            padding: 0.75rem 1rem;
+            border-radius: 9999px; /* Full rounded */
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 10;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .slide-button:hover {
+            background-color: rgba(0, 0, 0, 0.7);
+            transform: translateY(-50%) scale(1.05);
+        }
+
+        .slide-button.left {
+            left: -20px; /* Adjust as needed for spacing */
+        }
+
+        .slide-button.right {
+            right: -20px; /* Adjust as needed for spacing */
+        }
+
+        /* Hide scrollbar for horizontal scroll sections */
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+        }
+
+        .scrollbar-hide {
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+    <!-- Header/Navbar -->
+    <header class="fixed top-0 left-0 right-0 z-[100] bg-white shadow-lg py-4">
+        <nav class="container mx-auto flex items-center justify-between px-4">
+            <!-- Logo, Nama Desa, dan Menu Navigasi (kiri) -->
+            <div class="flex items-center space-x-6">
+                <!-- Logo berupa gambar -->
+                <img src="https://placehold.co/40x40/1C4532/FFFFFF?text=Logo" alt="Logo Kelurahan Amparita" class="h-10 w-10 rounded-full">
+                <h1 class="text-xl md:text-2xl font-extrabold text-[#1C4532]">Kelurahan Amparita</h1>
+                <!-- Menu Navigasi -->
+                <ul class="hidden lg:flex items-center space-x-4 ml-6">
+                    <li class="group relative">
+                        <a class="relative z-10 font-semibold px-4 py-2 rounded-lg hover:bg-[#1C4532] hover:text-white transition-all duration-300" href="index.html">Beranda</a>
+                    </li>
+                    <li class="group relative">
+                        <a class="relative z-10 font-semibold px-4 py-2 rounded-lg hover:bg-[#1C4532] hover:text-white transition-all duration-300" href="profile.html">
+                            Profil Kelurahan
+                        </a>
+                    </li>
+                    <li class="group relative">
+                        <a class="relative z-10 font-semibold px-4 py-2 rounded-lg hover:bg-[#1C4532] hover:text-white transition-all duration-300" href="infografis.html">Infografis</a>
+                    </li>
+                    <li class="group relative">
+                        <a class="relative z-10 font-semibold px-4 py-2 rounded-lg hover:bg-[#1C4532] hover:text-white transition-all duration-300" href="umkm.html">UMKM</a>
+                    </li>
+                    <li class="group relative">
+                        <a class="relative z-10 font-semibold px-4 py-2 rounded-lg hover:bg-[#1C4532] hover:text-white transition-all duration-300" href="galeri.html">Galeri</a></li>
+                    <li class="group relative">
+                        <a class="relative z-10 font-semibold px-4 py-2 rounded-lg bg-[#1C4532] text-white" href="tentang.html">Tentang</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- Tombol Kontak Desa (kanan) -->
+            <button id="openContactModalBtn" class="hidden lg:inline-flex items-center justify-center bg-[#2B643B] text-white font-bold py-2 px-6 rounded-full shadow-lg hover:bg-[#1A3F2A] transition-all duration-300 transform hover:scale-105 group text-sm">
+                Kontak Desa
+                <i class="fas fa-phone-alt ml-2 group-hover:rotate-6 transition-transform duration-200"></i>
+            </button>
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-button" class="lg:hidden text-gray-800 focus:outline-none">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu-overlay" class="fixed inset-0 bg-black bg-opacity-50 z-[90] hidden"></div>
+    <div id="mobile-menu" class="fixed top-0 right-0 h-full w-64 bg-white shadow-lg z-[95] transform translate-x-full transition-transform duration-300 ease-in-out">
+        <div class="p-6">
+            <button id="close-mobile-menu" class="absolute top-4 right-4 text-gray-600 hover:text-gray-900">
+                <i class="fas fa-times text-2xl"></i>
+            </button>
+            <img src="https://placehold.co/60x60/1C4532/FFFFFF?text=Logo" alt="Logo Kelurahan Amparita" class="h-16 w-16 rounded-full mx-auto mb-6">
+            <h2 class="text-xl font-extrabold text-[#1C4532] text-center mb-8">Kelurahan Amparita</h2>
+            <ul class="space-y-4">
+                <li><a class="block font-semibold px-4 py-2 rounded-lg text-gray-800 hover:bg-[#1C4532] hover:text-white transition-all duration-300" href="index.html">Beranda</a></li>
+                <li><a class="block font-semibold px-4 py-2 rounded-lg text-gray-800 hover:bg-[#1C4532] hover:text-white transition-all duration-300" href="profile.html">Profil Kelurahan</a></li>
+                <li><a class="block font-semibold px-4 py-2 rounded-lg text-gray-800 hover:bg-[#1C4532] hover:text-white transition-all duration-300" href="infografis.html">Infografis</a></li>
+                <li><a class="block font-semibold px-4 py-2 rounded-lg text-gray-800 hover:bg-[#1C4532] hover:text-white transition-all duration-300" href="umkm.html">UMKM</a></li>
+                <li><a class="block font-semibold px-4 py-2 rounded-lg text-gray-800 hover:bg-[#1C4532] hover:text-white transition-all duration-300" href="galeri.html">Galeri</a></li>
+                <li><a class="block font-semibold px-4 py-2 rounded-lg bg-[#1C4532] text-white" href="tentang.html">Tentang</a></li>
+                <li>
+                    <button id="openContactModalBtnMobile" class="w-full bg-[#2B643B] text-white font-bold py-2 px-6 rounded-full shadow-lg hover:bg-[#1A3F2A] transition-all duration-300 transform hover:scale-105 group text-sm mt-4">
+                        Kontak Desa
+                        <i class="fas fa-phone-alt ml-2 group-hover:rotate-6 transition-transform duration-200"></i>
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="relative pt-24 md:pt-32 flex-grow"> <!-- Adjusted padding top for fixed header -->
+
+        <!-- Hero Section for Tentang KKN -->
+        <div class="hero-section mx-auto container animate-fade-in-up">
+            <div class="hero-overlay rounded-lg"></div>
+            <div class="hero-content">
+                <h1 class="hero-title">Tentang KKN 114 Kelurahan Amparita</h1>
+                <p class="hero-subtitle">Membangun desa bersama mahasiswa KKN.</p>
+            </div>
+        </div>
+
+        <!-- Section: Mengenal KKN 114 -->
+        <div class="container mx-auto px-4 py-8 md:px-8 md:py-12 about-kkn-section animate-fade-in-up">
+            <h1 class="section-title">Mengenal KKN 114</h1>
+            <p class="text-lg text-gray-700 leading-relaxed mb-4">
+                Kuliah Kerja Nyata (KKN) adalah salah satu bentuk pengabdian kepada masyarakat yang dilakukan oleh mahasiswa. KKN 114 di Kelurahan Amparita merupakan program yang bertujuan untuk mengaplikasikan ilmu pengetahuan yang telah diperoleh di bangku kuliah guna membantu pengembangan potensi desa dan menyelesaikan permasalahan yang ada.
+            </p>
+            <p class="text-lg text-gray-700 leading-relaxed">
+                Selama periode KKN, mahasiswa terlibat dalam berbagai kegiatan, mulai dari pendampingan UMKM, edukasi kesehatan, pengembangan infrastruktur sederhana, hingga penguatan kelembagaan desa. Kami berkomitmen untuk memberikan dampak positif yang berkelanjutan bagi masyarakat Kelurahan Amparita.
+            </p>
+        </div>
+
+        <!-- Section: Tim Mahasiswa KKN 114 -->
+        <div class="container mx-auto px-4 py-8 md:px-8 md:py-12 bg-white rounded-lg shadow-xl my-8 animate-fade-in-up">
+            <h1 class="section-title">Tim Mahasiswa KKN 114</h1>
+            <p class="text-xl text-gray-600 mt-2 mb-8">Kenali para mahasiswa yang berdedikasi dalam program ini.</p>
+
+            <div class="relative w-full max-w-[888px] mx-auto"> <!-- Container for sliding cards -->
+                <div id="team-scroll-container" class="flex flex-nowrap overflow-x-auto gap-6 pb-4 scrollbar-hide">
+                    <!-- Team Member 1 -->
+                    <div class="team-member-card">
+                        <img src="https://placehold.co/120x120/2B643B/FFFFFF?text=MHS1" alt="Foto Mahasiswa 1">
+                        <h3>Andi Pratama</h3>
+                        <p>Koordinator Desa</p>
+                        <p class="text-sm text-gray-500">Teknik Informatika</p>
+                    </div>
+                    <!-- Team Member 2 -->
+                    <div class="team-member-card">
+                        <img src="https://placehold.co/120x120/1C4532/FFFFFF?text=MHS2" alt="Foto Mahasiswa 2">
+                        <h3>Bunga Lestari</h3>
+                        <p>Sekretaris</p>
+                        <p class="text-sm text-gray-500">Ilmu Komunikasi</p>
+                    </div>
+                    <!-- Team Member 3 -->
+                    <div class="team-member-card">
+                        <img src="https://placehold.co/120x120/2B643B/FFFFFF?text=MHS3" alt="Foto Mahasiswa 3">
+                        <h3>Cahyo Wibowo</h3>
+                        <p>Bendahara</p>
+                        <p class="text-sm text-gray-500">Manajemen</p>
+                    </div>
+                    <!-- Team Member 4 -->
+                    <div class="team-member-card">
+                        <img src="https://placehold.co/120x120/1C4532/FFFFFF?text=MHS4" alt="Foto Mahasiswa 4">
+                        <h3>Dewi Sartika</h3>
+                        <p>Divisi Pendidikan</p>
+                        <p class="text-sm text-gray-500">Pendidikan Bahasa</p>
+                    </div>
+                    <!-- Team Member 5 -->
+                    <div class="team-member-card">
+                        <img src="https://placehold.co/120x120/2B643B/FFFFFF?text=MHS5" alt="Foto Mahasiswa 5">
+                        <h3>Eko Prasetyo</h3>
+                        <p>Divisi Lingkungan</p>
+                        <p class="text-sm text-gray-500">Pertanian</p>
+                    </div>
+                </div>
+                <button id="teamLeftBtn" class="slide-button left">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button id="teamRightBtn" class="slide-button right">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Section: Logo Tim KKN -->
+        <div class="container mx-auto px-4 py-8 md:px-8 md:py-12 team-logo-section animate-fade-in-up">
+            <h1 class="section-title">Logo Tim KKN 114</h1>
+            <img src="https://placehold.co/200x200/2B643B/FFFFFF?text=Logo+KKN" alt="Logo Tim KKN 114" class="mb-4">
+            <p class="text-lg text-gray-700">Logo ini melambangkan semangat kebersamaan dan dedikasi tim KKN 114 dalam mengabdi kepada masyarakat Kelurahan Amparita.</p>
+        </div>
+
+    </div>
+
+    <!-- Footer Section -->
+    <footer class="bg-green-950 text-white px-4 py-8 md:px-8 md:py-10 mt-12 shadow-inner">
+        <div class="container mx-auto">
+            <div class="flex flex-col items-center">
+                <div class="text-center">
+                    <h1 class="text-xl md:text-2xl text-white font-bold">Kelurahan Amparita</h1>
+                    <p class="text-sm text-gray-300 mt-1">Kec. Bontotiro, Kab. Bulukumba, Sulawesi Selatan</p>
+                </div>
+            </div>
+            <div class="text-center mt-6 pt-6 border-t border-gray-700">
+                <p class="text-xs text-gray-400">
+                    © 2025 Kelurahan Amparita - All rights reserved
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modals -->
+    <!-- Contact Modal (copied from previous page) -->
+    <div id="contactModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-[200] hidden">
+        <div class="bg-white p-8 rounded-lg shadow-xl max-w-md w-full animate-modal-in relative">
+            <button class="absolute top-4 right-4 text-gray-600 hover:text-gray-900 text-2xl" onclick="closeContactModal()">
+                <i class="fas fa-times"></i>
+            </button>
+            <h2 class="text-3xl font-bold text-[#1C4532] mb-6 text-center">Kontak Kami</h2>
+            <div class="space-y-4 text-gray-700">
+                <p><i class="fas fa-map-marker-alt mr-3 text-[#2B643B]"></i> Jl. Utama Desa Bontomarannu, Kec. Bontotiro, Kab. Bulukumba</p>
+                <p><i class="fas fa-phone mr-3 text-[#2B643B]"></i> (0413) 1234567</p>
+                <p><i class="fas fa-envelope mr-3 text-[#2B643B]"></i> info.amparita@email.com</p>
+                <p><i class="fab fa-whatsapp mr-3 text-[#2B643B]"></i> +62 812-3456-7890</p>
+            </div>
+            <div class="mt-8 text-center">
+                <button class="bg-[#2B643B] text-white font-bold py-3 px-8 rounded-full shadow-lg hover:bg-[#1A3F2A] transition-all duration-300" onclick="closeContactModal()">Tutup</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Generic Detail Modal (not used on this page, but kept for consistency) -->
+    <div id="detailModal" class="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-[200] hidden">
+        <div class="bg-white p-6 rounded-lg shadow-xl max-w-2xl w-full mx-4 animate-modal-in relative">
+            <button class="absolute top-4 right-4 text-gray-600 hover:text-gray-900 text-2xl" onclick="closeDetailModal()">
+                <i class="fas fa-times"></i>
+            </button>
+            <h2 id="detailModalTitle" class="modal-title text-center"></h2>
+            <div class="modal-content-area text-center">
+                <img id="detailModalImage" src="" alt="Detail Image" class="modal-image mx-auto hidden">
+                <p id="detailModalDescription" class="modal-description text-left"></p>
+                <div id="detailModalInfo" class="text-left">
+                    <!-- Dynamic details will be injected here (empty for gallery) -->
+                </div>
+                <div id="detailModalWhatsApp" class="mt-4 text-center">
+                    <!-- WhatsApp button will be injected here (empty for gallery) -->
+                </div>
+            </div>
+            <div class="mt-6 text-center">
+                <button class="bg-[#2B643B] text-white font-bold py-3 px-8 rounded-full shadow-lg hover:bg-[#1A3F2A] transition-all duration-300" onclick="closeDetailModal()">Tutup</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // --- Mobile Menu Logic ---
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const closeMobileMenuButton = document.getElementById('close-mobile-menu');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.remove('translate-x-full');
+            mobileMenu.classList.add('translate-x-0');
+            mobileMenuOverlay.classList.remove('hidden');
+        });
+
+        closeMobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.remove('translate-x-0');
+            mobileMenu.classList.add('translate-x-full');
+            mobileMenuOverlay.classList.add('hidden');
+        });
+
+        mobileMenuOverlay.addEventListener('click', () => {
+            closeMobileMenuButton.click();
+        });
+
+        // --- Contact Modal Logic ---
+        const contactModal = document.getElementById('contactModal');
+        const openContactModalBtn = document.getElementById('openContactModalBtn');
+        const openContactModalBtnMobile = document.getElementById('openContactModalBtnMobile');
+
+        function openContactModal() {
+            contactModal.classList.remove('hidden');
+            closeMobileMenuButton.click();
+        }
+
+        function closeContactModal() {
+            contactModal.classList.add('hidden');
+        }
+
+        openContactModalBtn.addEventListener('click', openContactModal);
+        openContactModalBtnMobile.addEventListener('click', openContactModal);
+
+        // --- Generic Detail Modal Logic (not used on this page) ---
+        const detailModal = document.getElementById('detailModal');
+        const detailModalTitle = document.getElementById('detailModalTitle');
+        const detailModalImage = document.getElementById('detailModalImage');
+        const detailModalDescription = document.getElementById('detailModalDescription');
+        const detailModalInfo = document.getElementById('detailModalInfo');
+        const detailModalWhatsApp = document.getElementById('detailModalWhatsApp');
+
+        function showDetailModal(data) {
+            detailModalTitle.textContent = data.title;
+            detailModalDescription.textContent = data.description;
+            
+            detailModalInfo.innerHTML = ''; 
+            detailModalWhatsApp.innerHTML = '';
+
+            if (data.image) {
+                detailModalImage.src = data.image;
+                detailModalImage.classList.remove('hidden');
+            } else {
+                detailModalImage.classList.add('hidden');
+            }
+
+            if (data.details && data.details.length > 0) {
+                data.details.forEach(item => {
+                    const infoItem = document.createElement('div');
+                    infoItem.className = 'flex justify-between items-center py-2 mb-2';
+                    infoItem.innerHTML = `
+                        <span class="font-semibold text-gray-700">${item.label}:</span>
+                        <span class="text-[#1A3F2A] font-medium">${item.value}</span>
+                    `;
+                    detailModalInfo.appendChild(infoItem);
+                });
+
+                const whatsappDetail = data.details.find(item => item.label === 'WhatsApp');
+                if (whatsappDetail) {
+                    const whatsappNumber = whatsappDetail.value;
+                    const whatsappLink = document.createElement('a');
+                    whatsappLink.href = `https://wa.me/${whatsappNumber}`;
+                    whatsappLink.target = '_blank';
+                    whatsappLink.className = 'inline-flex items-center bg-green-500 text-white font-bold py-2 px-4 rounded-full shadow-lg hover:bg-green-600 transition-colors duration-300 mt-4';
+                    whatsappLink.innerHTML = `
+                        <i class="fab fa-whatsapp text-xl mr-2"></i>
+                        Hubungi via WhatsApp
+                    `;
+                    detailModalWhatsApp.appendChild(whatsappLink);
+                }
+            }
+
+            detailModal.classList.remove('hidden');
+        }
+
+        function closeDetailModal() {
+            detailModal.classList.add('hidden');
+        }
+
+        // --- Horizontal Scroll Logic for Team Members ---
+        const teamScrollContainer = document.getElementById('team-scroll-container');
+        const teamLeftBtn = document.getElementById('teamLeftBtn');
+        const teamRightBtn = document.getElementById('teamRightBtn');
+
+        function scrollTeam(direction) {
+            // Calculate scroll amount based on card width (280px) + gap (24px) = 304px
+            const scrollAmount = 304;
+            if (direction === 'left') {
+                teamScrollContainer.scrollBy({
+                    left: -scrollAmount,
+                    behavior: 'smooth'
+                });
+            } else {
+                teamScrollContainer.scrollBy({
+                    left: scrollAmount,
+                    behavior: 'smooth'
+                });
+            }
+        }
+
+        teamLeftBtn.addEventListener('click', () => scrollTeam('left'));
+        teamRightBtn.addEventListener('click', () => scrollTeam('right'));
+
+
+        // --- Intersection Observer for Animations ---
+        document.addEventListener('DOMContentLoaded', () => {
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate-fade-in-up');
+                        observer.unobserve(entry.target);
+                    }
+                    if (entry.target.classList.contains('hero-section')) {
+                        entry.target.querySelector('.hero-content').classList.add('animate-hero-scale-in');
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.animate-fade-in-up').forEach(el => {
+                observer.observe(el);
+            });
+            observer.observe(document.querySelector('.hero-section'));
+        });
+    </script>
+</body>
+</html>

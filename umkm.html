@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UMKM & Potensi Desa - Kelurahan Amparita</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome untuk ikon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Google Fonts - Montserrat -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* Mengatur font-family global ke Montserrat */
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #f7f9fc;
+            color: #334155;
+        }
+
+        /* Keyframes untuk animasi modal */
+        @keyframes modal-in {
+            from {
+                transform: scale(0.95) translateY(20px);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1) translateY(0);
+                opacity: 1;
+            }
+        }
+
+        /* Menerapkan animasi ke modal */
+        .animate-modal-in {
+            animation: modal-in 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        /* Keyframes untuk animasi fade-in-up */
+        @keyframes fade-in-up {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fade-in-up {
+            animation: fade-in-up 0.8s ease-out forwards;
+        }
+
+        /* Keyframes for hero content scale */
+        @keyframes hero-scale-in {
+            from {
+                transform: scale(0.9);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .animate-hero-scale-in {
+            animation: hero-scale-in 1s ease-out forwards;
+            animation-delay: 0.2s; /* Delay to allow background to load slightly */
+        }
+
+
+        /* Hide scrollbar for horizontal scroll sections */
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+        }
+
+        .scrollbar-hide {
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
+
+        /* Modernized section titles */
+        .section-title {
+            position: relative;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+            font-size: 2.5rem; /* Larger font */
+            font-weight: 800; /* Extra bold */
+            color: #1C4532; /* Darker green for emphasis */
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 80px; /* Wider underline */
+            height: 4px; /* Thicker underline */
+            background-color: #2B643B; /* Accent color */
+            border-radius: 2px;
+        }
+
+        /* Styling for horizontal scroll cards */
+        .content-card {
+            background-color: #ffffff;
+            border-radius: 1rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            width: 280px; /* Fixed width for cards in horizontal scroll */
+            flex-shrink: 0; /* Prevent cards from shrinking */
+            display: flex; /* Make content-card a flex container */
+            flex-direction: column; /* Stack children vertically */
+        }
+
+        .content-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .content-card img {
+            width: 100%;
+            height: 180px; /* Fixed height for images in cards */
+            object-fit: cover;
+            border-top-left-radius: 1rem;
+            border-top-right-radius: 1rem;
+        }
+
+        .content-card .card-content {
+            padding: 1.5rem;
+            flex-grow: 1; /* Allow card-content to grow and fill available space */
+            display: flex; /* Make card-content a flex container */
+            flex-direction: column; /* Stack its children vertically */
+        }
+
+        .content-card h3 {
+            font-weight: 700;
+            font-size: 1.25rem; /* Larger title for cards */
+            color: #1C4532;
+            margin-bottom: 0.5rem;
+        }
+
+        .content-card p {
+            font-size: 0.95rem;
+            color: #6B7280;
+            margin-bottom: 1rem;
+            flex-grow: 1; /* Allow paragraph to grow and push button down */
+        }
+
+        .content-card button {
+            background-color: #2B643B;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            width: 100%; /* Full width button */
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            margin-top: auto; /* Push button to the bottom */
+        }
+
+        .content-card button:hover {
+            background-color: #1A3F2A;
+            transform: translateY(-2px);
+        }
+
+        /* Styling for slide buttons */
+        .slide-button {
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            padding: 0.75rem 1rem;
+            border-radius: 9999px; /* Full rounded */
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 10;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .slide-button:hover {
+            background-color: rgba(0, 0, 0, 0.7);
+            transform: translateY(-50%) scale(1.05);
+        }
+
+        .slide-button.left {
+            left: -20px; /* Adjust as needed for spacing */
+        }
+
+        .slide-button.right {
+            right: -20px; /* Adjust as needed for spacing */
+        }
+
+        /* Detail Modal specific styling */
+        #detailModal .modal-content-area {
+            padding: 1rem;
+        }
+        #detailModal .modal-image {
+            width: 100%;
+            height: 250px; /* Fixed height for modal images */
+            object-fit: cover;
+            border-radius: 0.75rem;
+            margin-bottom: 1rem;
+        }
+        #detailModal .modal-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1C4532;
+            margin-bottom: 0.75rem;
+        }
+        #detailModal .modal-description {
+            font-size: 1rem;
+            color: #6B7280;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+        #detailModal .modal-info-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5rem 0;
+            margin-bottom: 0.5rem;
+        }
+        #detailModal .modal-info-label {
+            font-weight: 600;
+            color: #334155;
+        }
+        #detailModal .modal-info-value {
+            color: #1A3F2A;
+            font-weight: 500;
+        }
+
+        /* Hero section specific styles */
+        .hero-section {
+            background-image: url('https://placehold.co/1920x600/2B643B/E0FFE0?text=Desa+Amparita+Sejahtera'); /* More vibrant placeholder image */
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            color: white;
+            text-align: center;
+            padding: 8rem 1rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border-radius: 1rem;
+            overflow: hidden;
+            margin-top: 2rem;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2); /* Added shadow for depth */
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            /* Enhanced radial gradient for more dynamic look */
+            background: radial-gradient(circle at center, rgba(28, 69, 50, 0.5) 0%, rgba(28, 69, 50, 0.95) 100%);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+            /* Added animation class for subtle scale-in */
+            animation: hero-scale-in 1s ease-out forwards;
+        }
+
+        .hero-title {
+            font-size: 3.8rem; /* Slightly larger title */
+            font-weight: 800;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.4); /* Stronger text shadow */
+        }
+
+        .hero-subtitle {
+            font-size: 1.35rem; /* Slightly larger subtitle */
+            font-weight: 500;
+            margin-bottom: 2rem;
+            opacity: 0.95; /* Slightly less opaque for better contrast */
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3); /* Stronger text shadow */
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+    <!-- Header/Navbar -->
+    <header class="fixed top-0 left-0 right-0 z-[100] bg-white shadow-lg py-4">
+        <nav class="container mx-auto flex items-center justify-between px-4">
+            <!-- Logo, Nama Desa, dan Menu Navigasi (kiri) -->
+            <div class="flex items-center space-x-6">
+                <!-- Logo berupa gambar -->
+                <img src="https://placehold.co/40x40/1C4532/FFFFFF?text=Logo" alt="Logo Kelurahan Amparita" class="h-10 w-10 rounded-full">
+                <h1 class="text-xl md:text-2xl font-extrabold text-[#1C4532]">Kelurahan Amparita</h1>
+                <!-- Menu Navigasi -->
+                <ul class="hidden lg:flex items-center space-x-4 ml-6"> <!-- Added ml-6 for spacing -->
+                    <li class="group relative">
+                        <a class="relative z-10 font-semibold px-4 py-2 rounded-lg hover:bg-[#1C4532] hover:text-white transition-all duration-300" href="index.html">Beranda</a>
+                    </li>
+                    <li class="group relative">
+                        <a class="relative z-10 font-semibold px-4 py-2 rounded-lg hover:bg-[#1C4532] hover:text-white transition-all duration-300" href="profile.html">
+                            Profil Kelurahan
+                        </a>
+                    </li>
+                    <li class="group relative">
+                        <a class="relative z-10 font-semibold px-4 py-2 rounded-lg hover:bg-[#1C4532] hover:text-white transition-all duration-300" href="infografis.html">Infografis</a>
+                    </li>
+                    <li class="group relative">
+                        <a class="relative z-10 font-semibold px-4 py-2 rounded-lg bg-[#1C4532] text-white" href="umkm.html">UMKM</a>
+                    </li>
+                    <li class="group relative">
+                        <a class="relative z-10 font-semibold px-4 py-2 rounded-lg hover:bg-[#1C4532] hover:text-white transition-all duration-300" href="galeri.html">Galeri</a></li>
+                    <li class="group relative">
+                        <a class="relative z-10 font-semibold px-4 py-2 rounded-lg text-gray-800 hover:bg-[#1C4532] hover:text-white transition-all duration-300" href="tentang.html">Tentang</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- Tombol Kontak Desa (kanan) -->
+            <button id="openContactModalBtn" class="hidden lg:inline-flex items-center justify-center bg-[#2B643B] text-white font-bold py-2 px-6 rounded-full shadow-lg hover:bg-[#1A3F2A] transition-all duration-300 transform hover:scale-105 group text-sm">
+                Kontak Desa
+                <i class="fas fa-phone-alt ml-2 group-hover:rotate-6 transition-transform duration-200"></i>
+            </button>
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-button" class="lg:hidden text-gray-800 focus:outline-none">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu-overlay" class="fixed inset-0 bg-black bg-opacity-50 z-[90] hidden"></div>
+    <div id="mobile-menu" class="fixed top-0 right-0 h-full w-64 bg-white shadow-lg z-[95] transform translate-x-full transition-transform duration-300 ease-in-out">
+        <div class="p-6">
+            <button id="close-mobile-menu" class="absolute top-4 right-4 text-gray-600 hover:text-gray-900">
+                <i class="fas fa-times text-2xl"></i>
+            </button>
+            <img src="https://placehold.co/60x60/1C4532/FFFFFF?text=Logo" alt="Logo Kelurahan Amparita" class="h-16 w-16 rounded-full mx-auto mb-6">
+            <h2 class="text-xl font-extrabold text-[#1C4532] text-center mb-8">Kelurahan Amparita</h2>
+            <ul class="space-y-4">
+                <li><a class="block font-semibold px-4 py-2 rounded-lg text-gray-800 hover:bg-[#1C4532] hover:text-white transition-all duration-300" href="index.html">Beranda</a></li>
+                <li><a class="block font-semibold px-4 py-2 rounded-lg text-gray-800 hover:bg-[#1C4532] hover:text-white transition-all duration-300" href="profile.html">Profil Kelurahan</a></li>
+                <li><a class="block font-semibold px-4 py-2 rounded-lg text-gray-800 hover:bg-[#1C4532] hover:text-white transition-all duration-300" href="infografis.html">Infografis</a></li>
+                <li><a class="block font-semibold px-4 py-2 rounded-lg text-gray-800 hover:bg-[#1C4532] hover:text-white transition-all duration-300" href="umkm.html">UMKM</a></li>
+                <li><a class="block font-semibold px-4 py-2 rounded-lg text-gray-800 hover:bg-[#1C4532] hover:text-white transition-all duration-300" href="galeri.html">Galeri</a></li>
+                <li><a class="block font-semibold px-4 py-2 rounded-lg text-gray-800 hover:bg-[#1C4532] hover:text-white transition-all duration-300" href="tentang.html">Tentang</a></li>
+                <li>
+                    <button id="openContactModalBtnMobile" class="w-full bg-[#2B643B] text-white font-bold py-2 px-6 rounded-full shadow-lg hover:bg-[#1A3F2A] transition-all duration-300 transform hover:scale-105 group text-sm mt-4">
+                        Kontak Desa
+                        <i class="fas fa-phone-alt ml-2 group-hover:rotate-6 transition-transform duration-200"></i>
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="relative pt-24 md:pt-32 flex-grow"> <!-- Adjusted padding top for fixed header -->
+
+        <!-- Hero Section for UMKM & Potensi Desa -->
+        <div class="hero-section mx-auto container animate-fade-in-up">
+            <div class="hero-overlay rounded-lg"></div>
+            <div class="hero-content">
+                <h1 class="hero-title">UMKM & Potensi Unggulan Desa</h1>
+                <p class="hero-subtitle">Jelajahi kekayaan dan kreativitas lokal Kelurahan Amparita.</p>
+            </div>
+        </div>
+
+        <!-- Potensi Desa Section -->
+        <div class="container mx-auto px-4 py-8 md:px-8 md:py-12 bg-white rounded-lg shadow-xl my-8">
+            <h1 class="section-title">Potensi Desa</h1>
+            <p class="text-xl text-gray-600 mt-2 mb-8">Jelajahi berbagai potensi unggulan yang dimiliki Kelurahan Amparita.</p>
+
+            <div class="relative w-full max-w-[888px] mx-auto"> <!-- Added max-w-[888px] and mx-auto for centering -->
+                <div id="potensi-scroll-container" class="flex flex-nowrap overflow-x-auto gap-6 pb-4 scrollbar-hide">
+                    <!-- Potensi Pertanian Card -->
+                    <div class="content-card cursor-pointer" onclick="showDetailModal({
+                        type: 'potensi',
+                        title: 'Potensi Pertanian',
+                        image: 'https://placehold.co/600x400/1C4532/FFFFFF?text=Pertanian+Amparita',
+                        description: 'Kelurahan Amparita memiliki lahan subur yang cocok untuk berbagai jenis pertanian. Komoditas unggulan meliputi padi, jagung, dan sayuran organik. Sistem irigasi yang memadai mendukung produktivitas pertanian sepanjang tahun.',
+                        details: [
+                            {label: 'Komoditas Utama', value: 'Padi, Jagung, Sayuran'},
+                            {label: 'Luas Lahan', value: '± 500 Ha'},
+                            {label: 'Sistem Irigasi', value: 'Terpadu'}
+                        ]
+                    })">
+                        <img src="https://placehold.co/600x400/1C4532/FFFFFF?text=Pertanian" alt="Potensi Pertanian">
+                        <div class="card-content">
+                            <h3>Pertanian</h3>
+                            <p>Lahan Subur & Komoditas Unggulan</p>
+                            <button>Detail</button>
+                        </div>
+                    </div>
+
+                    <!-- Potensi Pariwisata Card -->
+                    <div class="content-card cursor-pointer" onclick="showDetailModal({
+                        type: 'potensi',
+                        title: 'Potensi Pariwisata',
+                        image: 'https://placehold.co/600x400/1C4532/FFFFFF?text=Wisata+Alam',
+                        description: 'Keindahan alam Kelurahan Amparita menawarkan potensi besar untuk pengembangan pariwisata. Terdapat beberapa titik menarik seperti air terjun tersembunyi, pemandangan perbukitan hijau, dan sungai yang jernih cocok untuk ekowisata.',
+                        details: [
+                            {label: 'Jenis Wisata', value: 'Ekowisata, Alam'},
+                            {label: 'Objek Wisata', value: 'Air Terjun, Perbukitan, Sungai'},
+                            {label: 'Aksesibilitas', value: 'Cukup Mudah'}
+                        ]
+                    })">
+                        <img src="https://placehold.co/600x400/1C4532/FFFFFF?text=Pariwisata" alt="Potensi Pariwisata">
+                        <div class="card-content">
+                            <h3>Pariwisata</h3>
+                            <p>Keindahan Alam Tersembunyi</p>
+                            <button>Detail</button>
+                        </div>
+                    </div>
+
+                    <!-- Potensi Kerajinan Tangan Card -->
+                    <div class="content-card cursor-pointer" onclick="showDetailModal({
+                        type: 'potensi',
+                        title: 'Potensi Kerajinan Tangan',
+                        image: 'https://placehold.co/600x400/1C4532/FFFFFF?text=Kerajinan+Lokal',
+                        description: 'Masyarakat Amparita memiliki keterampilan turun-temurun dalam membuat kerajinan tangan dari bahan alami seperti anyaman bambu, ukiran kayu, dan tenun tradisional. Produk-produk ini memiliki nilai seni dan ekonomi tinggi.',
+                        details: [
+                            {label: 'Bahan Baku', value: 'Bambu, Kayu, Benang Alami'},
+                            {label: 'Jenis Kerajinan', value: 'Anyaman, Ukiran, Tenun'},
+                            {label: 'Pasar', value: 'Lokal & Potensi Ekspor'}
+                        ]
+                    })">
+                        <img src="https://placehold.co/600x400/1C4532/FFFFFF?text=Kerajinan" alt="Potensi Kerajinan Tangan">
+                        <div class="card-content">
+                            <h3>Kerajinan Tangan</h3>
+                            <p>Karya Seni Lokal Bernilai Tinggi</p>
+                            <button>Detail</button>
+                        </div>
+                    </div>
+
+                    <!-- Potensi Perikanan Card -->
+                    <div class="content-card cursor-pointer" onclick="showDetailModal({
+                        type: 'potensi',
+                        title: 'Potensi Perikanan',
+                        image: 'https://placehold.co/600x400/1C4532/FFFFFF?text=Perikanan+Tambak',
+                        description: 'Dengan adanya sungai dan beberapa tambak, Kelurahan Amparita juga mengembangkan potensi perikanan air tawar. Jenis ikan yang dibudidayakan antara lain lele, nila, dan gurame, yang menjadi sumber protein lokal.',
+                        details: [
+                            {label: 'Jenis Ikan', value: 'Lele, Nila, Gurame'},
+                            {label: 'Sumber Air', value: 'Sungai, Tambak'},
+                            {label: 'Produksi', value: 'Cukup untuk Kebutuhan Lokal'}
+                        ]
+                    })">
+                        <img src="https://placehold.co/600x400/1C4532/FFFFFF?text=Perikanan" alt="Potensi Perikanan">
+                        <div class="card-content">
+                            <h3>Perikanan</h3>
+                            <p>Budidaya Ikan Air Tawar</p>
+                            <button>Detail</button>
+                        </div>
+                    </div>
+                </div>
+                <button id="potensiLeftBtn" class="slide-button left">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button id="potensiRightBtn" class="slide-button right">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- UMKM Section -->
+        <div class="container mx-auto px-4 py-8 md:px-8 md:py-12 bg-white rounded-lg shadow-xl my-8">
+            <h1 class="section-title">UMKM Unggulan</h1>
+            <p class="text-xl text-gray-600 mt-2 mb-8">Dukung usaha mikro, kecil, dan menengah lokal Kelurahan Amparita.</p>
+
+            <div class="relative w-full max-w-[888px] mx-auto"> <!-- Added max-w-[888px] and mx-auto for centering -->
+                <div id="umkm-scroll-container" class="flex flex-nowrap overflow-x-auto gap-6 pb-4 scrollbar-hide">
+                    <!-- UMKM Makanan 1 Card -->
+                    <div class="content-card cursor-pointer" onclick="showDetailModal({
+                        type: 'umkm',
+                        title: 'Keripik Singkong Renyah',
+                        image: 'https://placehold.co/600x400/2B643B/FFFFFF?text=Keripik+Singkong',
+                        description: 'UMKM ini memproduksi keripik singkong dengan berbagai varian rasa, diolah secara tradisional dan tanpa bahan pengawet. Cocok sebagai camilan keluarga atau oleh-oleh khas desa.',
+                        details: [
+                            {label: 'Kategori', value: 'Makanan Ringan'},
+                            {label: 'Pemilik', value: 'Ibu Siti'},
+                            {label: 'Produk Unggulan', value: 'Rasa Original, Pedas, Balado'},
+                            {label: 'Status', value: 'Aktif Sejak 2018'},
+                            {label: 'WhatsApp', value: '6281234567890'} // Example WhatsApp number
+                        ]
+                    })">
+                        <img src="https://placehold.co/600x400/2B643B/FFFFFF?text=Keripik+Singkong" alt="Keripik Singkong Renyah">
+                        <div class="card-content">
+                            <h3>Keripik Singkong Renyah</h3>
+                            <p>Makanan Ringan</p>
+                            <button>Detail</button>
+                        </div>
+                    </div>
+
+                    <!-- UMKM Kerajinan 1 Card -->
+                    <div class="content-card cursor-pointer" onclick="showDetailModal({
+                        type: 'umkm',
+                        title: 'Anyaman Bambu Kreatif',
+                        image: 'https://placehold.co/600x400/2B643B/FFFFFF?text=Anyaman+Bambu',
+                        description: 'UMKM ini menghasilkan berbagai produk anyaman bambu seperti tas, topi, dan dekorasi rumah. Semua produk dibuat secara manual oleh pengrajin lokal dengan desain unik dan ramah lingkungan.',
+                        details: [
+                            {label: 'Kategori', value: 'Kerajinan Tangan'},
+                            {label: 'Pemilik', value: 'Bapak Budi'},
+                            {label: 'Produk Unggulan', value: 'Tas Anyaman, Lampu Hias Bambu'},
+                            {label: 'Status', value: 'Aktif Sejak 2015'},
+                            {label: 'WhatsApp', value: '6281234567891'} // Example WhatsApp number
+                        ]
+                    })">
+                        <img src="https://placehold.co/600x400/2B643B/FFFFFF?text=Anyaman+Bambu" alt="Anyaman Bambu Kreatif">
+                        <div class="card-content">
+                            <h3>Anyaman Bambu Kreatif</h3>
+                            <p>Kerajinan Tangan</p>
+                            <button>Detail</button>
+                        </div>
+                    </div>
+
+                    <!-- UMKM Minuman 1 Card -->
+                    <div class="content-card cursor-pointer" onclick="showDetailModal({
+                        type: 'umkm',
+                        title: 'Sirup Jahe Merah Tradisional',
+                        image: 'https://placehold.co/600x400/2B643B/FFFFFF?text=Sirup+Jahe',
+                        description: 'Sirup jahe merah ini diolah dari jahe merah pilihan hasil pertanian lokal, tanpa tambahan pengawet dan pemanis buatan. Berkhasiat menghangatkan tubuh dan meningkatkan daya tahan.',
+                        details: [
+                            {label: 'Kategori', value: 'Minuman Herbal'},
+                            {label: 'Pemilik', value: 'Nenek Aminah'},
+                            {label: 'Produk Unggulan', value: 'Sirup Jahe Merah Original'},
+                            {label: 'Status', value: 'Aktif Sejak 2010'},
+                            {label: 'WhatsApp', value: '6281234567892'} // Example WhatsApp number
+                        ]
+                    })">
+                        <img src="https://placehold.co/600x400/2B643B/FFFFFF?text=Sirup+Jahe" alt="Sirup Jahe Merah Tradisional">
+                        <div class="card-content">
+                            <h3>Sirup Jahe Merah Tradisional</h3>
+                            <p>Minuman Herbal</p>
+                            <button>Detail</button>
+                        </div>
+                    </div>
+
+                    <!-- UMKM Jasa 1 Card -->
+                    <div class="content-card cursor-pointer" onclick="showDetailModal({
+                        type: 'umkm',
+                        title: 'Jasa Jahit Pakaian Custom',
+                        image: 'https://placehold.co/600x400/2B643B/FFFFFF?text=Jahit+Pakaian',
+                        description: 'Menyediakan jasa jahit pakaian custom untuk berbagai acara, mulai dari seragam sekolah, baju pesta, hingga pakaian sehari-hari. Kualitas jahitan rapi dan harga terjangkau.',
+                        details: [
+                            {label: 'Kategori', value: 'Jasa Konveksi'},
+                            {label: 'Pemilik', value: 'Bapak Joko'},
+                            {label: 'Layanan', value: 'Jahit Pakaian, Reparasi, Desain Custom'},
+                            {label: 'Status', value: 'Aktif Sejak 2019'},
+                            {label: 'WhatsApp', value: '6281234567893'} // Example WhatsApp number
+                        ]
+                    })">
+                        <img src="https://placehold.co/600x400/2B643B/FFFFFF?text=Jahit+Pakaian" alt="Jasa Jahit Pakaian Custom">
+                        <div class="card-content">
+                            <h3>Jasa Jahit Pakaian Custom</h3>
+                            <p>Jasa Konveksi</p>
+                            <button>Detail</button>
+                        </div>
+                    </div>
+                </div>
+                <button id="umkmLeftBtn" class="slide-button left">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button id="umkmRightBtn" class="slide-button right">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Footer Section -->
+    <footer class="bg-green-950 text-white px-4 py-8 md:px-8 md:py-10 mt-12 shadow-inner">
+        <div class="container mx-auto">
+            <div class="flex flex-col items-center">
+                <div class="text-center">
+                    <h1 class="text-xl md:text-2xl text-white font-bold">Kelurahan Amparita</h1>
+                    <p class="text-sm text-gray-300 mt-1">Kec. Bontotiro, Kab. Bulukumba, Sulawesi Selatan</p>
+                </div>
+            </div>
+            <div class="text-center mt-6 pt-6 border-t border-gray-700">
+                <p class="text-xs text-gray-400">
+                    © 2025 Kelurahan Amparita - All rights reserved
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modals -->
+    <!-- Contact Modal (copied from previous page) -->
+    <div id="contactModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-[200] hidden">
+        <div class="bg-white p-8 rounded-lg shadow-xl max-w-md w-full animate-modal-in relative">
+            <button class="absolute top-4 right-4 text-gray-600 hover:text-gray-900 text-2xl" onclick="closeContactModal()">
+                <i class="fas fa-times"></i>
+            </button>
+            <h2 class="text-3xl font-bold text-[#1C4532] mb-6 text-center">Kontak Kami</h2>
+            <div class="space-y-4 text-gray-700">
+                <p><i class="fas fa-map-marker-alt mr-3 text-[#2B643B]"></i> Jl. Utama Desa Bontomarannu, Kec. Bontotiro, Kab. Bulukumba</p>
+                <p><i class="fas fa-phone mr-3 text-[#2B643B]"></i> (0413) 1234567</p>
+                <p><i class="fas fa-envelope mr-3 text-[#2B643B]"></i> info.amparita@email.com</p>
+                <p><i class="fab fa-whatsapp mr-3 text-[#2B643B]"></i> +62 812-3456-7890</p>
+            </div>
+            <div class="mt-8 text-center">
+                <button class="bg-[#2B643B] text-white font-bold py-3 px-8 rounded-full shadow-lg hover:bg-[#1A3F2A] transition-all duration-300" onclick="closeContactModal()">Tutup</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Generic Detail Modal for Potensi and UMKM -->
+    <div id="detailModal" class="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-[200] hidden">
+        <div class="bg-white p-6 rounded-lg shadow-xl max-w-2xl w-full mx-4 animate-modal-in relative">
+            <button class="absolute top-4 right-4 text-gray-600 hover:text-gray-900 text-2xl" onclick="closeDetailModal()">
+                <i class="fas fa-times"></i>
+            </button>
+            <h2 id="detailModalTitle" class="modal-title text-center"></h2>
+            <div class="modal-content-area text-center">
+                <img id="detailModalImage" src="" alt="Detail Image" class="modal-image mx-auto hidden">
+                <p id="detailModalDescription" class="modal-description text-left"></p>
+                <div id="detailModalInfo" class="text-left">
+                    <!-- Dynamic details will be injected here -->
+                </div>
+                <div id="detailModalWhatsApp" class="mt-4 text-center">
+                    <!-- WhatsApp button will be injected here -->
+                </div>
+            </div>
+            <div class="mt-6 text-center">
+                <button class="bg-[#2B643B] text-white font-bold py-3 px-8 rounded-full shadow-lg hover:bg-[#1A3F2A] transition-all duration-300" onclick="closeDetailModal()">Tutup</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // --- Mobile Menu Logic --- (Copied from infografis.html)
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const closeMobileMenuButton = document.getElementById('close-mobile-menu');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.remove('translate-x-full');
+            mobileMenu.classList.add('translate-x-0');
+            mobileMenuOverlay.classList.remove('hidden');
+        });
+
+        closeMobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.remove('translate-x-0');
+            mobileMenu.classList.add('translate-x-full');
+            mobileMenuOverlay.classList.add('hidden');
+        });
+
+        mobileMenuOverlay.addEventListener('click', () => {
+            closeMobileMenuButton.click();
+        });
+
+        // --- Contact Modal Logic --- (Copied from infografis.html)
+        const contactModal = document.getElementById('contactModal');
+        const openContactModalBtn = document.getElementById('openContactModalBtn');
+        const openContactModalBtnMobile = document.getElementById('openContactModalBtnMobile');
+
+        function openContactModal() {
+            contactModal.classList.remove('hidden');
+            closeMobileMenuButton.click();
+        }
+
+        function closeContactModal() {
+            contactModal.classList.add('hidden');
+        }
+
+        openContactModalBtn.addEventListener('click', openContactModal);
+        openContactModalBtnMobile.addEventListener('click', openContactModal);
+
+        // --- Generic Detail Modal Logic for Potensi and UMKM ---
+        const detailModal = document.getElementById('detailModal');
+        const detailModalTitle = document.getElementById('detailModalTitle');
+        const detailModalImage = document.getElementById('detailModalImage');
+        const detailModalDescription = document.getElementById('detailModalDescription');
+        const detailModalInfo = document.getElementById('detailModalInfo');
+        const detailModalWhatsApp = document.getElementById('detailModalWhatsApp'); // Get the new WhatsApp container
+
+        function showDetailModal(data) {
+            detailModalTitle.textContent = data.title;
+            detailModalDescription.textContent = data.description;
+            detailModalInfo.innerHTML = ''; // Clear previous info
+            detailModalWhatsApp.innerHTML = ''; // Clear previous WhatsApp button
+
+            if (data.image) {
+                detailModalImage.src = data.image;
+                detailModalImage.classList.remove('hidden');
+            } else {
+                detailModalImage.classList.add('hidden');
+            }
+
+            if (data.details && data.details.length > 0) {
+                data.details.forEach(item => {
+                    const infoItem = document.createElement('div');
+                    infoItem.className = 'flex justify-between items-center py-2 mb-2';
+                    infoItem.innerHTML = `
+                        <span class="font-semibold text-gray-700">${item.label}:</span>
+                        <span class="text-[#1A3F2A] font-medium">${item.value}</span>
+                    `;
+                    detailModalInfo.appendChild(infoItem);
+                });
+
+                // Check for WhatsApp number and add button if present
+                const whatsappDetail = data.details.find(item => item.label === 'WhatsApp');
+                if (whatsappDetail) {
+                    const whatsappNumber = whatsappDetail.value;
+                    const whatsappLink = document.createElement('a');
+                    whatsappLink.href = `https://wa.me/${whatsappNumber}`;
+                    whatsappLink.target = '_blank'; // Open in new tab
+                    whatsappLink.className = 'inline-flex items-center bg-green-500 text-white font-bold py-2 px-4 rounded-full shadow-lg hover:bg-green-600 transition-colors duration-300 mt-4';
+                    whatsappLink.innerHTML = `
+                        <i class="fab fa-whatsapp text-xl mr-2"></i>
+                        Hubungi via WhatsApp
+                    `;
+                    detailModalWhatsApp.appendChild(whatsappLink);
+                }
+            }
+
+            detailModal.classList.remove('hidden');
+        }
+
+        function closeDetailModal() {
+            detailModal.classList.add('hidden');
+        }
+
+        // --- Horizontal Scroll Logic for Potensi Desa ---
+        const potensiScrollContainer = document.getElementById('potensi-scroll-container');
+        const potensiLeftBtn = document.getElementById('potensiLeftBtn');
+        const potensiRightBtn = document.getElementById('potensiRightBtn');
+
+        function scrollPotensi(direction) {
+            // Calculate scroll amount based on card width (280px) + gap (24px) = 304px
+            const scrollAmount = 304;
+            if (direction === 'left') {
+                potensiScrollContainer.scrollBy({
+                    left: -scrollAmount,
+                    behavior: 'smooth'
+                });
+            } else {
+                potensiScrollContainer.scrollBy({
+                    left: scrollAmount,
+                    behavior: 'smooth'
+                });
+            }
+        }
+
+        potensiLeftBtn.addEventListener('click', () => scrollPotensi('left'));
+        potensiRightBtn.addEventListener('click', () => scrollPotensi('right'));
+
+        // --- Horizontal Scroll Logic for UMKM ---
+        const umkmScrollContainer = document.getElementById('umkm-scroll-container');
+        const umkmLeftBtn = document.getElementById('umkmLeftBtn');
+        const umkmRightBtn = document.getElementById('umkmRightBtn');
+
+        function scrollUMKM(direction) {
+            // Calculate scroll amount based on card width (280px) + gap (24px) = 304px
+            const scrollAmount = 304;
+            if (direction === 'left') {
+                umkmScrollContainer.scrollBy({
+                    left: -scrollAmount,
+                    behavior: 'smooth'
+                });
+            } else {
+                umkmScrollContainer.scrollBy({
+                    left: scrollAmount,
+                    behavior: 'smooth'
+                });
+            }
+        }
+
+        umkmLeftBtn.addEventListener('click', () => scrollUMKM('left'));
+        umkmRightBtn.addEventListener('click', () => scrollUMKM('right'));
+
+        // Ensure all elements with animate-fade-in-up class animate on scroll
+        document.addEventListener('DOMContentLoaded', () => {
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate-fade-in-up');
+                        observer.unobserve(entry.target);
+                    }
+                    // For hero section, trigger its specific animation
+                    if (entry.target.classList.contains('hero-section')) {
+                        entry.target.querySelector('.hero-content').classList.add('animate-hero-scale-in');
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.animate-fade-in-up').forEach(el => {
+                observer.observe(el);
+            });
+            // Observe the hero section specifically for its animation
+            observer.observe(document.querySelector('.hero-section'));
+        });
+    </script>
+</body>
+</html>

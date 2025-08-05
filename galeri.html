@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galeri Kegiatan - Kelurahan Amparita</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome untuk ikon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Google Fonts - Montserrat -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* Mengatur font-family global ke Montserrat */
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #E8F5E9; /* Changed to light green */
+            color: #334155;
+        }
+
+        /* Keyframes untuk animasi modal */
+        @keyframes modal-in {
+            from {
+                transform: scale(0.95) translateY(20px);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1) translateY(0);
+                opacity: 1;
+            }
+        }
+
+        /* Menerapkan animasi ke modal */
+        .animate-modal-in {
+            animation: modal-in 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        /* Keyframes untuk animasi fade-in-up */
+        @keyframes fade-in-up {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fade-in-up {
+            animation: fade-in-up 0.8s ease-out forwards;
+        }
+
+        /* Keyframes for hero content scale */
+        @keyframes hero-scale-in {
+            from {
+                transform: scale(0.9);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .animate-hero-scale-in {
+            animation: hero-scale-in 1s ease-out forwards;
+            animation-delay: 0.2s; /* Delay to allow background to load slightly */
+        }
+
+        /* Modernized section titles */
+        .section-title {
+            position: relative;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+            font-size: 2.5rem; /* Larger font */
+            font-weight: 800; /* Extra bold */
+            color: #1C4532; /* Darker green for emphasis */
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 80px; /* Wider underline */
+            height: 4px; /* Thicker underline */
+            background-color: #2B643B; /* Accent color */
+            border-radius: 2px;
+        }
+
+        /* Styling for gallery cards */
+        .gallery-card {
+            /* Removed background-color, border-radius, box-shadow */
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            border-radius: 1rem; /* Kept border-radius for the image container */
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); /* Kept shadow for visual separation */
+        }
+
+        .gallery-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .gallery-card img {
+            width: 100%;
+            height: 200px; /* Fixed height for gallery images */
+            object-fit: cover;
+            border-radius: 1rem; /* Applied border-radius directly to the image */
+        }
+
+        /* Removed .gallery-card .card-content as it's no longer needed */
+        /* Removed .gallery-card h3 as it's no longer needed */
+
+        /* Detail Modal specific styling (reused and simplified) */
+        #detailModal .modal-content-area {
+            padding: 1rem;
+        }
+        #detailModal .modal-image {
+            width: 100%;
+            height: 250px; /* Fixed height for modal images */
+            object-fit: cover;
+            border-radius: 0.75rem;
+            margin-bottom: 1rem;
+        }
+        #detailModal .modal-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1C4532;
+            margin-bottom: 0.75rem;
+        }
+        #detailModal .modal-description {
+            font-size: 1rem;
+            color: #6B7280;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+        /* No modal-info-item or WhatsApp button for gallery details */
+
+        /* Hero section specific styles */
+        .hero-section {
+            background-image: url('https://placehold.co/1920x600/1C4532/FFFFFF?text=Galeri+Kegiatan+Desa+Amparita'); /* Updated placeholder image */
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            color: white;
+            text-align: center;
+            padding: 8rem 1rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border-radius: 1rem;
+            overflow: hidden;
+            margin-top: 2rem;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2); /* Added shadow for depth */
+            /* Added subtle animation to the background */
+            animation: pan-background 30s infinite alternate linear;
+        }
+
+        @keyframes pan-background {
+            0% {
+                background-position: 0% 50%;
+            }
+            100% {
+                background-position: 100% 50%;
+            }
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            /* Enhanced radial gradient for more dynamic look */
+            background: radial-gradient(circle at center, rgba(28, 69, 50, 0.4) 0%, rgba(28, 69, 50, 0.9) 100%); /* Slightly lighter center */
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+            /* Added animation class for subtle scale-in */
+            animation: hero-scale-in 1s ease-out forwards;
+        }
+
+        .hero-title {
+            font-size: 4rem; /* Even larger title */
+            font-weight: 800;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+            text-shadow: 4px 4px 8px rgba(0,0,0,0.5); /* Stronger text shadow */
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem; /* Even larger subtitle */
+            font-weight: 500;
+            margin-bottom: 2rem;
+            opacity: 0.98; /* Almost fully opaque for better contrast */
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3); /* Stronger text shadow */
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+    <!-- Header/Navbar -->
+    <header class="fixed top-0 left-0 right-0 z-[100] bg-white shadow-lg py-4">
+        <nav class="container mx-auto flex items-center justify-between px-4">
+            <!-- Logo, Nama Desa, dan Menu Navigasi (kiri) -->
+            <div class="flex items-center space-x-6">
+                <!-- Logo berupa gambar -->
+                <img src="https://placehold.co/40x40/1C4532/FFFFFF?text=Logo" alt="Logo Kelurahan Amparita" class="h-10 w-10 rounded-full">
+                <h1 class="text-xl md:text-2xl font-extrabold text-[#1C4532]">Kelurahan Amparita</h1>
+                <!-- Menu Navigasi -->
+                <ul class="hidden lg:flex items-center space-x-4 ml-6"> <!-- Added ml-6 for spacing -->
+                    <li class="group relative">
+                        <a class="relative z-10 font-semibold px-4 py-2 rounded-lg hover:bg-[#1C4532] hover:text-white transition-all duration-300" href="index.html">Beranda</a>
+                    </li>
+                    <li class="group relative">
+                        <a class="relative z-10 font-semibold px-4 py-2 rounded-lg hover:bg-[#1C4532] hover:text-white transition-all duration-300" href="profile.html">
+                            Profil Kelurahan
+                        </a>
+                    </li>
+                    <li class="group relative">
+                        <a class="relative z-10 font-semibold px-4 py-2 rounded-lg hover:bg-[#1C4532] hover:text-white transition-all duration-300" href="infografis.html">Infografis</a>
+                    </li>
+                    <li class="group relative">
+                        <a class="relative z-10 font-semibold px-4 py-2 rounded-lg hover:bg-[#1C4532] hover:text-white transition-all duration-300" href="umkm.html">UMKM</a>
+                    </li>
+                    <li class="group relative">
+                        <a class="relative z-10 font-semibold px-4 py-2 rounded-lg bg-[#1C4532] text-white" href="galeri.html">Galeri</a></li>
+                    <li class="group relative">
+                        <a class="relative z-10 font-semibold px-4 py-2 rounded-lg text-gray-800 hover:bg-[#1C4532] hover:text-white transition-all duration-300" href="tentang.html">Tentang</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- Tombol Kontak Desa (kanan) -->
+            <button id="openContactModalBtn" class="hidden lg:inline-flex items-center justify-center bg-[#2B643B] text-white font-bold py-2 px-6 rounded-full shadow-lg hover:bg-[#1A3F2A] transition-all duration-300 transform hover:scale-105 group text-sm">
+                Kontak Desa
+                <i class="fas fa-phone-alt ml-2 group-hover:rotate-6 transition-transform duration-200"></i>
+            </button>
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-button" class="lg:hidden text-gray-800 focus:outline-none">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu-overlay" class="fixed inset-0 bg-black bg-opacity-50 z-[90] hidden"></div>
+    <div id="mobile-menu" class="fixed top-0 right-0 h-full w-64 bg-white shadow-lg z-[95] transform translate-x-full transition-transform duration-300 ease-in-out">
+        <div class="p-6">
+            <button id="close-mobile-menu" class="absolute top-4 right-4 text-gray-600 hover:text-gray-900">
+                <i class="fas fa-times text-2xl"></i>
+            </button>
+            <img src="https://placehold.co/60x60/1C4532/FFFFFF?text=Logo" alt="Logo Kelurahan Amparita" class="h-16 w-16 rounded-full mx-auto mb-6">
+            <h2 class="text-xl font-extrabold text-[#1C4532] text-center mb-8">Kelurahan Amparita</h2>
+            <ul class="space-y-4">
+                <li><a class="block font-semibold px-4 py-2 rounded-lg text-gray-800 hover:bg-[#1C4532] hover:text-white transition-all duration-300" href="index.html">Beranda</a></li>
+                <li><a class="block font-semibold px-4 py-2 rounded-lg text-gray-800 hover:bg-[#1C4532] hover:text-white transition-all duration-300" href="profile.html">Profil Kelurahan</a></li>
+                <li><a class="block font-semibold px-4 py-2 rounded-lg text-gray-800 hover:bg-[#1C4532] hover:text-white transition-all duration-300" href="infografis.html">Infografis</a></li>
+                <li><a class="block font-semibold px-4 py-2 rounded-lg text-gray-800 hover:bg-[#1C4532] hover:text-white transition-all duration-300" href="umkm.html">UMKM</a></li>
+                <li><a class="block font-semibold px-4 py-2 rounded-lg bg-[#1C4532] text-white" href="galeri.html">Galeri</a></li>
+                <li><a class="block font-semibold px-4 py-2 rounded-lg text-gray-800 hover:bg-[#1C4532] hover:text-white transition-all duration-300" href="tentang.html">Tentang</a></li>
+                <li>
+                    <button id="openContactModalBtnMobile" class="w-full bg-[#2B643B] text-white font-bold py-2 px-6 rounded-full shadow-lg hover:bg-[#1A3F2A] transition-all duration-300 transform hover:scale-105 group text-sm mt-4">
+                        Kontak Desa
+                        <i class="fas fa-phone-alt ml-2 group-hover:rotate-6 transition-transform duration-200"></i>
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="relative pt-24 md:pt-32 flex-grow"> <!-- Adjusted padding top for fixed header -->
+
+        <!-- Hero Section for Galeri Kegiatan -->
+        <div class="hero-section mx-auto container animate-fade-in-up">
+            <div class="hero-overlay rounded-lg"></div>
+            <div class="hero-content">
+                <h1 class="hero-title">Galeri Kegiatan Desa Amparita</h1>
+                <p class="hero-subtitle">Momen-momen indah dan kegiatan komunitas yang terekam.</p>
+            </div>
+        </div>
+
+        <!-- Galeri Kegiatan Section -->
+        <div class="container mx-auto px-4 py-8 md:px-8 md:py-12 bg-[#E8F5E9] rounded-lg shadow-xl my-8">
+            <h1 class="section-title">Momen Komunitas</h1>
+            <!-- Removed the <p> tag with descriptive text here -->
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                <!-- Gallery Card 1 -->
+                <div class="gallery-card" onclick="showDetailModal({
+                    title: 'Gotong Royong Bersih Desa',
+                    image: 'https://placehold.co/600x400/2B643B/FFFFFF?text=Gotong+Royong',
+                    description: 'Warga desa bergotong royong membersihkan lingkungan, menunjukkan semangat kebersamaan dan kepedulian terhadap kebersihan desa.'
+                })">
+                    <img src="https://placehold.co/600x400/2B643B/FFFFFF?text=Gotong+Royong" alt="Gotong Royong Bersih Desa">
+                    <!-- Removed .card-content div entirely -->
+                </div>
+
+                <!-- Gallery Card 2 -->
+                <div class="gallery-card" onclick="showDetailModal({
+                    title: 'Perayaan Hari Kemerdekaan',
+                    image: 'https://placehold.co/600x400/1C4532/FFFFFF?text=17+Agustus',
+                    description: 'Kemeriahan perayaan Hari Kemerdekaan dengan berbagai lomba dan pertunjukan seni dari warga desa.'
+                })">
+                    <img src="https://placehold.co/600x400/1C4532/FFFFFF?text=17+Agustus" alt="Perayaan Hari Kemerdekaan">
+                    <!-- Removed .card-content div entirely -->
+                </div>
+
+                <!-- Gallery Card 3 -->
+                <div class="gallery-card" onclick="showDetailModal({
+                    title: 'Pelatihan UMKM Kerajinan',
+                    image: 'https://placehold.co/600x400/2B643B/FFFFFF?text=Pelatihan+UMKM',
+                    description: 'Pelatihan pembuatan kerajinan tangan dari bahan daur ulang untuk meningkatkan keterampilan dan ekonomi warga desa.'
+                })">
+                    <img src="https://placehold.co/600x400/2B643B/FFFFFF?text=Pelatihan+UMKM" alt="Pelatihan UMKM Kerajinan">
+                    <!-- Removed .card-content div entirely -->
+                </div>
+
+                <!-- Gallery Card 4 -->
+                <div class="gallery-card" onclick="showDetailModal({
+                    title: 'Panen Raya Padi',
+                    image: 'https://placehold.co/600x400/1C4532/FFFFFF?text=Panen+Padi',
+                    description: 'Momen kebersamaan petani saat panen raya padi, menandai hasil kerja keras sepanjang musim tanam.'
+                })">
+                    <img src="https://placehold.co/600x400/1C4532/FFFFFF?text=Panen+Padi" alt="Panen Raya Padi">
+                    <!-- Removed .card-content div entirely -->
+                </div>
+
+                <!-- Gallery Card 5 -->
+                <div class="gallery-card" onclick="showDetailModal({
+                    title: 'Penyuluhan Kesehatan',
+                    image: 'https://placehold.co/600x400/2B643B/FFFFFF?text=Penyuluhan+Kesehatan',
+                    description: 'Kegiatan penyuluhan tentang pentingnya menjaga kesehatan dan pola hidup bersih bagi seluruh warga desa.'
+                })">
+                    <img src="https://placehold.co/600x400/2B643B/FFFFFF?text=Penyuluhan+Kesehatan" alt="Penyuluhan Kesehatan">
+                    <!-- Removed .card-content div entirely -->
+                </div>
+
+                <!-- Gallery Card 6 -->
+                <div class="gallery-card" onclick="showDetailModal({
+                    title: 'Festival Kuliner Desa',
+                    image: 'https://placehold.co/600x400/1C4532/FFFFFF?text=Festival+Kuliner',
+                    description: 'Festival yang menampilkan berbagai kuliner khas desa, menarik pengunjung dari dalam maupun luar daerah.'
+                })">
+                    <img src="https://placehold.co/600x400/1C4532/FFFFFF?text=Festival+Kuliner" alt="Festival Kuliner Desa">
+                    <!-- Removed .card-content div entirely -->
+                </div>
+
+                <!-- Gallery Card 7 -->
+                <div class="gallery-card" onclick="showDetailModal({
+                    title: 'Kegiatan Belajar Mengajar',
+                    image: 'https://placehold.co/600x400/2B643B/FFFFFF?text=Belajar+Mengajar',
+                    description: 'Anak-anak desa antusias mengikuti kegiatan belajar mengajar tambahan di balai desa.'
+                })">
+                    <img src="https://placehold.co/600x400/2B643B/FFFFFF?text=Belajar+Mengajar" alt="Kegiatan Belajar Mengajar">
+                    <!-- Removed .card-content div entirely -->
+                </div>
+
+                <!-- Gallery Card 8 -->
+                <div class="gallery-card" onclick="showDetailModal({
+                    title: 'Penanaman Pohon Bersama',
+                    image: 'https://placehold.co/600x400/1C4532/FFFFFF?text=Penanaman+Pohon',
+                    description: 'Aksi penanaman pohon untuk menjaga kelestarian lingkungan dan penghijauan area desa.'
+                })">
+                    <img src="https://placehold.co/600x400/1C4532/FFFFFF?text=Penanaman+Pohon" alt="Penanaman Pohon Bersama">
+                    <!-- Removed .card-content div entirely -->
+                </div>
+
+                <!-- Gallery Card 9 -->
+                <div class="gallery-card" onclick="showDetailModal({
+                    title: 'Pembangunan Infrastruktur',
+                    image: 'https://placehold.co/600x400/2B643B/FFFFFF?text=Pembangunan+Desa',
+                    description: 'Proses pembangunan jalan desa yang dilakukan secara swadaya oleh masyarakat untuk mempermudah akses.'
+                })">
+                    <img src="https://placehold.co/600x400/2B643B/FFFFFF?text=Pembangunan+Desa" alt="Pembangunan Infrastruktur">
+                    <!-- Removed .card-content div entirely -->
+                </div>
+
+                <!-- Gallery Card 10 -->
+                <div class="gallery-card" onclick="showDetailModal({
+                    title: 'Lomba Olahraga Antar Dusun',
+                    image: 'https://placehold.co/600x400/1C4532/FFFFFF?text=Lomba+Olahraga',
+                    description: 'Semangat kompetisi dan sportivitas dalam lomba olahraga antar dusun yang diadakan setiap tahun.'
+                })">
+                    <img src="https://placehold.co/600x400/1C4532/FFFFFF?text=Lomba+Olahraga" alt="Lomba Olahraga Antar Dusun">
+                    <!-- Removed .card-content div entirely -->
+                </div>
+
+                <!-- Gallery Card 11 -->
+                <div class="gallery-card" onclick="showDetailModal({
+                    title: 'Pertemuan Rutin Karang Taruna',
+                    image: 'https://placehold.co/600x400/2B643B/FFFFFF?text=Karang+Taruna',
+                    description: 'Pertemuan bulanan Karang Taruna membahas program kerja dan kegiatan kepemudaan di desa.'
+                })">
+                    <img src="https://placehold.co/600x400/2B643B/FFFFFF?text=Karang+Taruna" alt="Pertemuan Rutin Karang Taruna">
+                    <!-- Removed .card-content div entirely -->
+                </div>
+
+                <!-- Gallery Card 12 -->
+                <div class="gallery-card" onclick="showDetailModal({
+                    title: 'Upacara Adat Desa',
+                    image: 'https://placehold.co/600x400/1C4532/FFFFFF?text=Upacara+Adat',
+                    description: 'Pelaksanaan upacara adat tahunan desa yang kaya akan tradisi dan budaya lokal.'
+                })">
+                    <img src="https://placehold.co/600x400/1C4532/FFFFFF?text=Upacara+Adat" alt="Upacara Adat Desa">
+                    <!-- Removed .card-content div entirely -->
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    v
+
+    <!-- Modals -->
+    <!-- Contact Modal (copied from previous page) -->
+    <div id="contactModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-[200] hidden">
+        <div class="bg-white p-8 rounded-lg shadow-xl max-w-md w-full animate-modal-in relative">
+            <button class="absolute top-4 right-4 text-gray-600 hover:text-gray-900 text-2xl" onclick="closeContactModal()">
+                <i class="fas fa-times"></i>
+            </button>
+            <h2 class="text-3xl font-bold text-[#1C4532] mb-6 text-center">Kontak Kami</h2>
+            <div class="space-y-4 text-gray-700">
+                <p><i class="fas fa-map-marker-alt mr-3 text-[#2B643B]"></i> Jl. Utama Desa Bontomarannu, Kec. Bontotiro, Kab. Bulukumba</p>
+                <p><i class="fas fa-phone mr-3 text-[#2B643B]"></i> (0413) 1234567</p>
+                <p><i class="fas fa-envelope mr-3 text-[#2B643B]"></i> info.amparita@email.com</p>
+                <p><i class="fab fa-whatsapp mr-3 text-[#2B643B]"></i> +62 812-3456-7890</p>
+            </div>
+            <div class="mt-8 text-center">
+                <button class="bg-[#2B643B] text-white font-bold py-3 px-8 rounded-full shadow-lg hover:bg-[#1A3F2A] transition-all duration-300" onclick="closeContactModal()">Tutup</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Generic Detail Modal for Gallery (reusing existing detailModal) -->
+    <div id="detailModal" class="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-[200] hidden">
+        <div class="bg-white p-6 rounded-lg shadow-xl max-w-2xl w-full mx-4 animate-modal-in relative">
+            <button class="absolute top-4 right-4 text-gray-600 hover:text-gray-900 text-2xl" onclick="closeDetailModal()">
+                <i class="fas fa-times"></i>
+            </button>
+            <h2 id="detailModalTitle" class="modal-title text-center"></h2>
+            <div class="modal-content-area text-center">
+                <img id="detailModalImage" src="" alt="Detail Image" class="modal-image mx-auto hidden">
+                <p id="detailModalDescription" class="modal-description text-left"></p>
+                <div id="detailModalInfo" class="text-left">
+                    <!-- Dynamic details will be injected here (empty for gallery) -->
+                </div>
+                <div id="detailModalWhatsApp" class="mt-4 text-center">
+                    <!-- WhatsApp button will be injected here (empty for gallery) -->
+                </div>
+            </div>
+            <div class="mt-6 text-center">
+                <button class="bg-[#2B643B] text-white font-bold py-3 px-8 rounded-full shadow-lg hover:bg-[#1A3F2A] transition-all duration-300" onclick="closeDetailModal()">Tutup</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // --- Mobile Menu Logic ---
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const closeMobileMenuButton = document.getElementById('close-mobile-menu');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.remove('translate-x-full');
+            mobileMenu.classList.add('translate-x-0');
+            mobileMenuOverlay.classList.remove('hidden');
+        });
+
+        closeMobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.remove('translate-x-0');
+            mobileMenu.classList.add('translate-x-full');
+            mobileMenuOverlay.classList.add('hidden');
+        });
+
+        mobileMenuOverlay.addEventListener('click', () => {
+            closeMobileMenuButton.click();
+        });
+
+        // --- Contact Modal Logic ---
+        const contactModal = document.getElementById('contactModal');
+        const openContactModalBtn = document.getElementById('openContactModalBtn');
+        const openContactModalBtnMobile = document.getElementById('openContactModalBtnMobile');
+
+        function openContactModal() {
+            contactModal.classList.remove('hidden');
+            closeMobileMenuButton.click();
+        }
+
+        function closeContactModal() {
+            contactModal.classList.add('hidden');
+        }
+
+        openContactModalBtn.addEventListener('click', openContactModal);
+        openContactModalBtnMobile.addEventListener('click', openContactModal);
+
+        // --- Generic Detail Modal Logic (reused for gallery) ---
+        const detailModal = document.getElementById('detailModal');
+        const detailModalTitle = document.getElementById('detailModalTitle');
+        const detailModalImage = document.getElementById('detailModalImage');
+        const detailModalDescription = document.getElementById('detailModalDescription');
+        const detailModalInfo = document.getElementById('detailModalInfo'); // This will be empty for gallery items
+        const detailModalWhatsApp = document.getElementById('detailModalWhatsApp'); // This will be empty for gallery items
+
+        function showDetailModal(data) {
+            detailModalTitle.textContent = data.title;
+            detailModalDescription.textContent = data.description;
+            
+            // Clear previous info and WhatsApp button as they are not needed for gallery
+            detailModalInfo.innerHTML = ''; 
+            detailModalWhatsApp.innerHTML = '';
+
+            if (data.image) {
+                detailModalImage.src = data.image;
+                detailModalImage.classList.remove('hidden');
+            } else {
+                detailModalImage.classList.add('hidden');
+            }
+
+            // Only add details if they exist in the data (not for gallery items)
+            if (data.details && data.details.length > 0) {
+                data.details.forEach(item => {
+                    const infoItem = document.createElement('div');
+                    infoItem.className = 'flex justify-between items-center py-2 mb-2';
+                    infoItem.innerHTML = `
+                        <span class="font-semibold text-gray-700">${item.label}:</span>
+                        <span class="text-[#1A3F2A] font-medium">${item.value}</span>
+                    `;
+                    detailModalInfo.appendChild(infoItem);
+                });
+
+                const whatsappDetail = data.details.find(item => item.label === 'WhatsApp');
+                if (whatsappDetail) {
+                    const whatsappNumber = whatsappDetail.value;
+                    const whatsappLink = document.createElement('a');
+                    whatsappLink.href = `https://wa.me/${whatsappNumber}`;
+                    whatsappLink.target = '_blank';
+                    whatsappLink.className = 'inline-flex items-center bg-green-500 text-white font-bold py-2 px-4 rounded-full shadow-lg hover:bg-green-600 transition-colors duration-300 mt-4';
+                    whatsappLink.innerHTML = `
+                        <i class="fab fa-whatsapp text-xl mr-2"></i>
+                        Hubungi via WhatsApp
+                    `;
+                    detailModalWhatsApp.appendChild(whatsappLink);
+                }
+            }
+
+            detailModal.classList.remove('hidden');
+        }
+
+        function closeDetailModal() {
+            detailModal.classList.add('hidden');
+        }
+
+        // --- Intersection Observer for Animations ---
+        document.addEventListener('DOMContentLoaded', () => {
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate-fade-in-up');
+                        observer.unobserve(entry.target);
+                    }
+                    // For hero section, trigger its specific animation
+                    if (entry.target.classList.contains('hero-section')) {
+                        entry.target.querySelector('.hero-content').classList.add('animate-hero-scale-in');
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.animate-fade-in-up').forEach(el => {
+                observer.observe(el);
+            });
+            // Observe the hero section specifically for its animation
+            observer.observe(document.querySelector('.hero-section'));
+        });
+    </script>
+</body>
+</html>

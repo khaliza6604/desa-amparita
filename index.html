@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kelurahan Amparita</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome untuk ikon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Google Fonts - Montserrat -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* Mengatur font-family global ke Montserrat */
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #f7f9fc;
+            color: #334155;
+        }
+
+        /* Keyframes untuk animasi modal */
+        @keyframes modal-in {
+            from {
+                transform: scale(0.95) translateY(20px);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1) translateY(0);
+                opacity: 1;
+            }
+        }
+
+        /* Menerapkan animasi ke modal */
+        .animate-modal-in {
+            animation: modal-in 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        /* Keyframes untuk animasi hero section */
+        @keyframes fade-in-up {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fade-in-up {
+            animation: fade-in-up 0.8s ease-out forwards;
+        }
+
+        /* Mengatur warna overlay hero */
+        .hero-overlay {
+            background-color: rgba(28, 69, 50, 0.7); /* Warna hijau tua semi-transparan */
+        }
+
+        /* Keyframes untuk animasi slide-down dan bouncing */
+        @keyframes slide-down {
+            0% {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-10px);
+            }
+            60% {
+                transform: translateY(-5px);
+            }
+        }
+
+        .animate-slide-down {
+            animation: slide-down 0.5s ease-out forwards;
+        }
+
+        .animate-bounce-custom {
+            animation: bounce 2s infinite;
+        }
+
+        /* Hide scrollbar for Potensi Desa section */
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+        }
+
+        .scrollbar-hide {
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
+
+        /* Custom scrollbar for draggable sections */
+        .draggable-scroll {
+            cursor: grab;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch; /* For smoother scrolling on iOS */
+        }
+
+        .draggable-scroll:active {
+            cursor: grabbing;
+        }
+
+        /* Modernized section titles - GARIS DIHAPUS */
+        .section-title {
+            position: relative;
+            /* padding-bottom: 0.5rem; */ /* Dihapus */
+            margin-bottom: 1.5rem;
+            font-size: 2.5rem; /* Larger font */
+            font-weight: 800; /* Extra bold */
+            color: #1C4532; /* Darker green for emphasis */
+        }
+
+        /* .section-title::after { */ /* Dihapus */
+            /* content: ''; */
+            /* position: absolute; */
+            /* left: 0; */
+            /* bottom: 0; */
+            /* width: 80px; */
+            /* height: 4px; */
+            /* background-color: #2B643B; */
+            /* border-radius: 2px; */
+        /* } */
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+    <!-- Header/Navbar -->
+    <header class="fixed top-0 left-0 right-0 z-[100] bg-white shadow-lg py-4">
+        <nav class="container mx-auto flex items-center justify-between px-4">
+            <!-- Logo, Nama Desa, dan Menu Navigasi (kiri) -->
+            <div class="flex items-center space-x-6">
+                <!-- Logo berupa gambar -->
+                <img src="https://placehold.co/40x40/1C4532/FFFFFF?text=Logo" alt="Logo Kelurahan Amparita" class="h-10 w-10 rounded-full">
+                <h1 class="text-xl md:text-2xl font-extrabold text-[#1C4532]">Kelurahan Amparita</h1>
+                <!-- Menu Navigasi -->
+                <ul class="hidden lg:flex items-center space-x-4 ml-6">
+                    <li class="group relative">
+                        <a class="relative z-10 font-semibold px-4 py-2 rounded-lg bg-[#1C4532] text-white" href="index.html">Beranda</a>
+                    </li>
+                    <li class="group relative">
+                        <a class="relative z-10 font-semibold px-4 py-2 rounded-lg hover:bg-[#1C4532] hover:text-white transition-all duration-300" href="profile.html">
+                            Profil Kelurahan
+                        </a>
+                    </li>
+                    <li class="group relative">
+                        <a class="relative z-10 font-semibold px-4 py-2 rounded-lg hover:bg-[#1C4532] hover:text-white transition-all duration-300" href="infografis.html">Infografis</a>
+                    </li>
+                    <li class="group relative">
+                        <a class="relative z-10 font-semibold px-4 py-2 rounded-lg hover:bg-[#1C4532] hover:text-white transition-all duration-300" href="umkm.html">UMKM</a>
+                    </li>
+                    <li class="group relative">
+                        <a class="relative z-10 font-semibold px-4 py-2 rounded-lg hover:bg-[#1C4532] hover:text-white transition-all duration-300" href="galeri.html">Galeri</a>
+                    </li>
+                    <li class="group relative">
+                        <a class="relative z-10 font-semibold px-4 py-2 rounded-lg hover:bg-[#1C4532] hover:text-white transition-all duration-300" href="tentang.html">Tentang</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- Tombol Kontak Desa (kanan) -->
+            <button id="openContactModalBtn" class="hidden lg:inline-flex items-center justify-center bg-[#2B643B] text-white font-bold py-2 px-6 rounded-full shadow-lg hover:bg-[#1A3F2A] transition-all duration-300 transform hover:scale-105 group text-sm">
+                Kontak Desa
+                <i class="fas fa-phone-alt ml-2 group-hover:rotate-6 transition-transform duration-200"></i>
+            </button>
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-button" class="lg:hidden text-gray-800 focus:outline-none">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu-overlay" class="fixed inset-0 bg-black bg-opacity-50 z-[90] hidden"></div>
+    <div id="mobile-menu" class="fixed top-0 right-0 h-full w-64 bg-white shadow-lg z-[95] transform translate-x-full transition-transform duration-300 ease-in-out">
+        <div class="p-6">
+            <button id="close-mobile-menu" class="absolute top-4 right-4 text-gray-600 hover:text-gray-900">
+                <i class="fas fa-times text-2xl"></i>
+            </button>
+            <img src="https://placehold.co/60x60/1C4532/FFFFFF?text=Logo" alt="Logo Kelurahan Amparita" class="h-16 w-16 rounded-full mx-auto mb-6">
+            <h2 class="text-xl font-extrabold text-[#1C4532] text-center mb-8">Kelurahan Amparita</h2>
+            <ul class="space-y-4">
+                <li><a class="block font-semibold px-4 py-2 rounded-lg text-gray-800 hover:bg-[#1C4532] hover:text-white transition-all duration-300" href="index.html">Beranda</a></li>
+                <li><a class="block font-semibold px-4 py-2 rounded-lg text-gray-800 hover:bg-[#1C4532] hover:text-white transition-all duration-300" href="profile.html">Profil Kelurahan</a></li>
+                <li><a class="block font-semibold px-4 py-2 rounded-lg text-gray-800 hover:bg-[#1C4532] hover:text-white transition-all duration-300" href="infografis.html">Infografis</a></li>
+                <li><a class="block font-semibold px-4 py-2 rounded-lg text-gray-800 hover:bg-[#1C4532] hover:text-white transition-all duration-300" href="umkm.html">UMKM</a></li>
+                <li><a class="block font-semibold px-4 py-2 rounded-lg text-gray-800 hover:bg-[#1C4532] hover:text-white transition-all duration-300" href="galeri.html">Galeri</a></li>
+                <li><a class="block font-semibold px-4 py-2 rounded-lg bg-[#1C4532] text-white" href="tentang.html">Tentang</a></li>
+                <li>
+                    <button id="openContactModalBtnMobile" class="w-full bg-[#2B643B] text-white font-bold py-2 px-6 rounded-full shadow-lg hover:bg-[#1A3F2A] transition-all duration-300 transform hover:scale-105 group text-sm mt-4">
+                        Kontak Desa
+                        <i class="fas fa-phone-alt ml-2 group-hover:rotate-6 transition-transform duration-200"></i>
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="relative h-screen overflow-hidden flex items-center justify-center pt-24">
+        <!-- Background Image -->
+        <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('https://placehold.co/1920x1080/4CAF50/FFFFFF?text=Pemandangan+Kelurahan+Amparita');"></div>
+        
+        <!-- Overlay for text content, mirroring the user's image layout -->
+        <div class="absolute inset-0 flex flex-col justify-center items-start lg:items-end p-8 md:p-16 lg:p-32 hero-overlay">
+            <!-- Logos at bottom-right of the hero overlay -->
+            <div class="absolute bottom-8 right-8 flex items-center space-x-4">
+                <img src="https://placehold.co/64x64/FFFFFF/1C4532?text=Logo1" alt="Logo Instansi 1" class="h-16 w-16 rounded-full shadow-lg">
+                <img src="https://placehold.co/64x64/FFFFFF/1C4532?text=Logo2" alt="Logo Instansi 2" class="h-16 w-16 rounded-full shadow-lg">
+            </div>
+
+            <div class="max-w-2xl text-white text-left animate-fade-in-up">
+                <p class="text-xl md:text-2xl font-light mb-2">Selamat Datang di</p>
+                <h1 class="text-5xl md:text-7xl font-bold mb-4 leading-tight">Kelurahan Amparita</h1>
+                <p class="text-base md:text-lg leading-relaxed">
+                    Kelurahan Amparita terletak di Kecamatan Bontotiro, Kabupaten Bulukumba, Sulawesi Selatan. Kelurahan ini memiliki kekayaan budaya dan keindahan alam yang menawan.
+                </p>
+            </div>
+        </div>
+
+        <!-- Tombol Geser Ke Bawah yang menarik -->
+        <div class="absolute bottom-10 animate-slide-down" style="animation-delay: 1s;">
+            <button id="scrollToExploreBtn" class="inline-flex items-center justify-center p-4 bg-white rounded-full shadow-lg hover:bg-gray-200 transition-colors duration-300 transform animate-bounce-custom">
+                <i class="fas fa-chevron-down text-2xl text-[#1C4532]"></i>
+            </button>
+        </div>
+    </section>
+
+    <!-- New Explore Kelurahan Section -->
+    <section id="explore-kelurahan-section" class="container mx-auto px-4 py-16 md:py-24 bg-white rounded-xl shadow-lg mt-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+            <!-- Left side: Heading -->
+            <div class="text-center lg:text-left">
+                <h2 class="text-4xl md:text-5xl font-bold text-emerald-900 mb-4 section-title">Jelajahi Kelurahan</h2>
+                <p class="text-lg text-gray-700">Temukan berbagai informasi penting dan menarik tentang Kelurahan Amparita.</p>
+            </div>
+            <!-- Right side: Card Buttons -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <!-- Profil Kelurahan Card Button -->
+                <a href="profile.html" class="flex flex-col items-center justify-center p-6 bg-[#2B643B] text-white rounded-xl shadow-md hover:bg-[#1A3F2A] transform hover:scale-105 transition-all duration-300">
+                    <i class="fas fa-info-circle text-4xl mb-3"></i>
+                    <span class="font-semibold text-lg">Profil Kelurahan</span>
+                </a>
+                <!-- Infografis Card Button -->
+                <a href="infografis.html" class="flex flex-col items-center justify-center p-6 bg-[#2B643B] text-white rounded-xl shadow-md hover:bg-[#1A3F2A] transform hover:scale-105 transition-all duration-300">
+                    <i class="fas fa-chart-pie text-4xl mb-3"></i>
+                    <span class="font-semibold text-lg">Infografis</span>
+                </a>
+                <!-- UMKM Card Button -->
+                <a href="umkm.html" class="flex flex-col items-center justify-center p-6 bg-[#2B643B] text-white rounded-xl shadow-md hover:bg-[#1A3F2A] transform hover:scale-105 transition-all duration-300">
+                    <i class="fas fa-store text-4xl mb-3"></i>
+                    <span class="font-semibold text-lg">UMKM</span>
+                </a>
+                <!-- Galeri Card Button -->
+                <a href="galeri.html" class="flex flex-col items-center justify-center p-6 bg-[#2B643B] text-white rounded-xl shadow-md hover:bg-[#1A3F2A] transform hover:scale-105 transition-all duration-300">
+                    <i class="fas fa-images text-4xl mb-3"></i>
+                    <span class="font-semibold text-lg">Galeri</span>
+                </a>
+                <!-- Tentang Card Button -->
+                <a href="tentang.html" class="flex flex-col items-center justify-center p-6 bg-[#2B643B] text-white rounded-xl shadow-md hover:bg-[#1A3F2A] transform hover:scale-105 transition-all duration-300">
+                    <i class="fas fa-question-circle text-4xl mb-3"></i>
+                    <span class="font-semibold text-lg">Tentang</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content Section (original Profil Kelurahan content) -->
+    <main id="main-content" class="container mx-auto px-4 py-16 md:py-24">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <!-- Left Section (larger background) -->
+            <div class="lg:col-span-2 bg-emerald-700 p-8 rounded-xl shadow-lg text-white">
+                <!-- Card Kepala Lurah -->
+                <div class="bg-white text-gray-800 rounded-xl shadow-md p-6 flex flex-col items-center mb-8 transform hover:scale-105 hover:shadow-xl transition-all duration-300">
+                    <img src="https://placehold.co/150x150/1C4532/FFFFFF?text=Kepala+Lurah" alt="Foto Kepala Lurah" class="w-36 h-36 rounded-full object-cover mb-4 border-4 border-emerald-600">
+                    <h3 class="text-2xl font-bold mb-1">Andi Pahruddin</h3>
+                    <p class="text-lg text-gray-600 mb-4">Kepala Kelurahan Amparita</p>
+                    <!-- Changed to anchor tag linking to profile.html -->
+                    <a href="profile.html" class="bg-[#2B643B] text-white font-bold py-2 px-6 rounded-full shadow-md hover:bg-[#1A3F2A] transition-colors duration-300">
+                        Info Lanjut
+                    </a>
+                </div>
+
+                <!-- SOTK Section -->
+                <h2 class="text-3xl font-bold mb-6 text-white text-center section-title">Struktur Organisasi dan Tata Kerja</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <!-- SOTK Card 1 -->
+                    <div class="bg-white text-gray-800 rounded-xl shadow-md p-4 flex flex-col items-center text-center transform hover:scale-105 hover:shadow-xl transition-all duration-300">
+                        <img src="https://placehold.co/80x80/1C4532/FFFFFF?text=SOTK+1" alt="Foto Anggota SOTK" class="w-20 h-20 rounded-full object-cover mb-3 border-2 border-emerald-500">
+                        <p class="font-semibold text-lg">Nama Anggota 1</p>
+                        <p class="text-sm text-gray-600">Jabatan 1</p>
+                    </div>
+                    <!-- SOTK Card 2 -->
+                    <div class="bg-white text-gray-800 rounded-xl shadow-md p-4 flex flex-col items-center text-center transform hover:scale-105 hover:shadow-xl transition-all duration-300">
+                        <img src="https://placehold.co/80x80/1C4532/FFFFFF?text=SOTK+2" alt="Foto Anggota SOTK" class="w-20 h-20 rounded-full object-cover mb-3 border-2 border-emerald-500">
+                        <p class="font-semibold text-lg">Nama Anggota 2</p>
+                        <p class="text-sm text-gray-600">Jabatan 2</p>
+                    </div>
+                    <!-- SOTK Card 3 -->
+                    <div class="bg-white text-gray-800 rounded-xl shadow-md p-4 flex flex-col items-center text-center transform hover:scale-105 hover:shadow-xl transition-all duration-300">
+                        <img src="https://placehold.co/80x80/1C4532/FFFFFF?text=SOTK+3" alt="Foto Anggota SOTK" class="w-20 h-20 rounded-full object-cover mb-3 border-2 border-emerald-500">
+                        <p class="font-semibold text-lg">Nama Anggota 3</p>
+                        <p class="text-sm text-gray-600">Jabatan 3</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Section (smaller background) -->
+            <div class="lg:col-span-1 bg-emerald-100 p-8 rounded-xl shadow-lg">
+                <!-- Administrasi Penduduk -->
+                <h2 class="text-3xl font-bold text-emerald-900 mb-6 text-center section-title">Administrasi Penduduk</h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
+                    <div class="bg-white rounded-lg shadow-sm p-4 text-center transform hover:scale-105 hover:shadow-xl transition-all duration-300">
+                        <p class="text-sm text-gray-500">Penduduk</p>
+                        <p class="text-xl font-bold text-emerald-800">4.456</p>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-sm p-4 text-center transform hover:scale-105 hover:shadow-xl transition-all duration-300">
+                        <p class="text-sm text-gray-500">Kepala Keluarga</p>
+                        <p class="text-xl font-bold text-emerald-800">1.302</p>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-sm p-4 text-center transform hover:scale-105 hover:shadow-xl transition-all duration-300">
+                        <p class="text-sm text-gray-500">Penduduk Sementara</p>
+                        <p class="text-xl font-bold text-emerald-800">9</p>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-sm p-4 text-center transform hover:scale-105 hover:shadow-xl transition-all duration-300">
+                        <p class="text-sm text-gray-500">Laki-Laki</p>
+                        <p class="text-xl font-bold text-emerald-800">2.162</p>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-sm p-4 text-center transform hover:scale-105 hover:shadow-xl transition-all duration-300">
+                        <p class="text-sm text-gray-500">Perempuan</p>
+                        <p class="text-xl font-bold text-emerald-800">2.294</p>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-sm p-4 text-center transform hover:scale-105 hover:shadow-xl transition-all duration-300">
+                        <p class="text-sm text-gray-500">Mutasi Penduduk</p>
+                        <p class="text-xl font-bold text-emerald-800">225</p>
+                    </div>
+                </div>
+
+                <!-- Potensi Desa (Existing horizontal scroll) -->
+                <h2 class="text-3xl font-bold text-emerald-900 mb-6 text-center section-title">Potensi Desa</h2>
+                <div id="potensi-scroll-container" class="flex flex-nowrap overflow-x-auto space-x-4 pb-4 scrollbar-hide draggable-scroll">
+                    <!-- Potensi Card 1 -->
+                    <div class="flex-shrink-0 w-60 bg-white rounded-xl shadow-md p-4 text-center transform hover:scale-105 transition-all duration-300">
+                        <img src="https://placehold.co/200x120/1C4532/FFFFFF?text=Potensi+1" alt="Potensi Desa" class="w-full h-32 object-cover rounded-lg mb-3">
+                        <p class="font-semibold text-lg text-gray-800">Pertanian</p>
+                        <p class="text-sm text-gray-600">Deskripsi singkat potensi pertanian.</p>
+                    </div>
+                    <!-- Potensi Card 2 -->
+                    <div class="flex-shrink-0 w-60 bg-white rounded-xl shadow-md p-4 text-center transform hover:scale-105 transition-all duration-300">
+                        <img src="https://placehold.co/200x120/1C4532/FFFFFF?text=Potensi+2" alt="Potensi Desa" class="w-full h-32 object-cover rounded-lg mb-3">
+                        <p class="font-semibold text-lg text-gray-800">Perikanan</p>
+                        <p class="text-sm text-gray-600">Deskripsi singkat potensi perikanan.</p>
+                    </div>
+                    <!-- Potensi Card 3 -->
+                    <div class="flex-shrink-0 w-60 bg-white rounded-xl shadow-md p-4 text-center transform hover:scale-105 transition-all duration-300">
+                        <img src="https://placehold.co/200x120/1C4532/FFFFFF?text=Potensi+3" alt="Potensi Desa" class="w-full h-32 object-cover rounded-lg mb-3">
+                        <p class="font-semibold text-lg text-gray-800">Pariwisata</p>
+                        <p class="text-sm text-gray-600">Deskripsi singkat potensi pariwisata.</p>
+                    </div>
+                    <!-- "Lebih Lengkap" button for Potensi -->
+                    <div class="flex-shrink-0 w-60 flex items-center justify-center">
+                        <!-- Changed to anchor tag linking to umkm.html -->
+                        <a href="umkm.html" class="inline-flex items-center justify-center bg-[#2B643B] text-white font-bold py-3 px-8 rounded-full shadow-lg hover:bg-[#1A3F2A] transition-all duration-300 transform hover:scale-105 group text-lg">
+                            Lebih Lengkap
+                            <i class="fas fa-arrow-right ml-3 group-hover:translate-x-1 transition-transform duration-200"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Google Maps Section -->
+    <section id="google-maps-section" class="container mx-auto px-4 py-16 md:py-24">
+        <h2 class="text-4xl md:text-5xl font-bold text-emerald-900 mb-8 text-center animate-bounce-custom section-title">Lokasi Kelurahan Amparita</h2>
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d30265.56433510851!2d119.8205758892617!3d-3.9938841927042366!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2d95c65677ac8203%3A0x21d7fc5066cea378!2sAmparita%2C%20Tellulimpo%20E%2C%20Kabupaten%20Sidenreng%20Rappang%2C%20Sulawesi%20Selatan!5e1!3m2!1sid!2sid!4v1754381760197!5m2!1sid!2sid" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+        <!-- Button to open Batas Desa Modal -->
+        <div class="text-center mt-8">
+            <button id="openBatasDesaModalBtn" class="inline-flex items-center justify-center bg-[#2B643B] text-white font-bold py-3 px-8 rounded-full shadow-lg hover:bg-[#1A3F2A] transition-all duration-300 transform hover:scale-105 group text-lg">
+                Lihat Detail Batas & Luas Desa
+                <i class="fas fa-map-marked-alt ml-3 group-hover:translate-x-1 transition-transform duration-200"></i>
+            </button>
+        </div>
+    </section>
+
+    <!-- Anggaran Kelurahan Section -->
+    <section id="anggaran-kelurahan-section" class="container mx-auto px-4 py-16 md:py-24 bg-emerald-100 rounded-xl shadow-lg mt-8">
+        <h2 class="text-4xl md:text-5xl font-bold text-emerald-900 mb-8 text-center animate-bounce-custom section-title">Anggaran Kelurahan Amparita</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Anggaran Card 1 -->
+            <div class="bg-white rounded-xl shadow-md p-6 text-center transform hover:scale-105 hover:shadow-xl transition-all duration-300">
+                <i class="fas fa-money-bill-wave text-5xl text-emerald-600 mb-4"></i>
+                <h3 class="text-2xl font-bold text-gray-800 mb-2">Pendapatan Asli Kelurahan</h3>
+                <p class="text-xl font-semibold text-emerald-800">Rp 150.000.000</p>
+                <p class="text-sm text-gray-600 mt-2">Sumber dari retribusi dan aset kelurahan.</p>
+            </div>
+            <!-- Anggaran Card 2 -->
+            <div class="bg-white rounded-xl shadow-md p-6 text-center transform hover:scale-105 hover:shadow-xl transition-all duration-300">
+                <i class="fas fa-hand-holding-usd text-5xl text-emerald-600 mb-4"></i>
+                <h3 class="text-2xl font-bold text-gray-800 mb-2">Dana Transfer Pusat/Daerah</h3>
+                <p class="text-xl font-semibold text-emerald-800">Rp 850.000.000</p>
+                <p class="text-sm text-gray-600 mt-2">Alokasi dana desa dan bantuan provinsi.</p>
+            </div>
+            <!-- Anggaran Card 3 -->
+            <div class="bg-white rounded-xl shadow-md p-6 text-center transform hover:scale-105 hover:shadow-xl transition-all duration-300">
+                <i class="fas fa-building text-5xl text-emerald-600 mb-4"></i>
+                <h3 class="text-2xl font-bold text-gray-800 mb-2">Belanja Pembangunan</h3>
+                <p class="text-xl font-semibold text-emerald-800">Rp 600.000.000</p>
+                <p class="text-sm text-gray-600 mt-2">Untuk infrastruktur dan fasilitas umum.</p>
+            </div>
+            <!-- Anggaran Card 4 -->
+            <div class="bg-white rounded-xl shadow-md p-6 text-center transform hover:scale-105 hover:shadow-xl transition-all duration-300">
+                <i class="fas fa-users text-5xl text-emerald-600 mb-4"></i>
+                <h3 class="text-2xl font-bold text-gray-800 mb-2">Belanja Pemberdayaan Masyarakat</h3>
+                <p class="text-xl font-semibold text-emerald-800">Rp 200.000.000</p>
+                <p class="text-sm text-gray-600 mt-2">Program pelatihan dan bantuan sosial.</p>
+            </div>
+            <!-- Anggaran Card 5 -->
+            <div class="bg-white rounded-xl shadow-md p-6 text-center transform hover:scale-105 hover:shadow-xl transition-all duration-300">
+                <i class="fas fa-cogs text-5xl text-emerald-600 mb-4"></i>
+                <h3 class="text-2xl font-bold text-gray-800 mb-2">Belanja Operasional</h3>
+                <p class="text-xl font-semibold text-emerald-800">Rp 150.000.000</p>
+                <p class="text-sm text-gray-600 mt-2">Biaya rutin operasional pemerintahan.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- GALERI Kelurahan Section -->
+    <section id="galeri-kelurahan-section" class="container mx-auto px-4 py-16 md:py-24 bg-emerald-700 text-white rounded-xl shadow-lg mt-8">
+        <h2 class="text-4xl md:text-5xl font-bold text-white mb-8 text-center animate-bounce-custom section-title">Galeri Kegiatan Kelurahan</h2>
+        <div id="galeri-scroll-container" class="flex flex-nowrap overflow-x-auto space-x-6 pb-4 scrollbar-hide draggable-scroll">
+            <!-- Galeri Item 1 -->
+            <div class="flex-shrink-0 w-72 relative group rounded-xl overflow-hidden shadow-md transform hover:scale-105 transition-all duration-300">
+                <img src="https://placehold.co/600x400/1C4532/FFFFFF?text=Kegiatan+1" alt="Kegiatan 1" class="w-full h-48 object-cover">
+                <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <p class="text-white text-lg font-semibold text-center p-4">Gotong Royong Bersama</p>
+                </div>
+            </div>
+            <!-- Galeri Item 2 -->
+            <div class="flex-shrink-0 w-72 relative group rounded-xl overflow-hidden shadow-md transform hover:scale-105 transition-all duration-300">
+                <img src="https://placehold.co/600x400/1C4532/FFFFFF?text=Kegiatan+2" alt="Kegiatan 2" class="w-full h-48 object-cover">
+                <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <p class="text-white text-lg font-semibold text-center p-4">Penyuluhan Kesehatan</p>
+                </div>
+            </div>
+            <!-- Galeri Item 3 -->
+            <div class="flex-shrink-0 w-72 relative group rounded-xl overflow-hidden shadow-md transform hover:scale-105 transition-all duration-300">
+                <img src="https://placehold.co/600x400/1C4532/FFFFFF?text=Kegiatan+3" alt="Kegiatan 3" class="w-full h-48 object-cover">
+                <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <p class="text-white text-lg font-semibold text-center p-4">Panen Raya Padi</p>
+                </div>
+            </div>
+            <!-- Galeri Item 4 -->
+            <div class="flex-shrink-0 w-72 relative group rounded-xl overflow-hidden shadow-md transform hover:scale-105 transition-all duration-300">
+                <img src="https://placehold.co/600x400/1C4532/FFFFFF?text=Kegiatan+4" alt="Kegiatan 4" class="w-full h-48 object-cover">
+                <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <p class="text-white text-lg font-semibold text-center p-4">Pelatihan UMKM</p>
+                </div>
+            </div>
+            <!-- Galeri Item 5 -->
+            <div class="flex-shrink-0 w-72 relative group rounded-xl overflow-hidden shadow-md transform hover:scale-105 transition-all duration-300">
+                <img src="https://placehold.co/600x400/1C4532/FFFFFF?text=Kegiatan+5" alt="Kegiatan 5" class="w-full h-48 object-cover">
+                <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <p class="text-white text-lg font-semibold text-center p-4">Peringatan Hari Kemerdekaan</p>
+                </div>
+            </div>
+            <!-- Galeri Item 6 -->
+            <div class="flex-shrink-0 w-72 relative group rounded-xl overflow-hidden shadow-md transform hover:scale-105 transition-all duration-300">
+                <img src="https://placehold.co/600x400/1C4532/FFFFFF?text=Kegiatan+6" alt="Kegiatan 6" class="w-full h-48 object-cover">
+                <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <p class="text-white text-lg font-semibold text-center p-4">Rapat Koordinasi</p>
+                </div>
+            </div>
+            <!-- "Lebih Lengkap" button for Galeri -->
+            <div class="flex-shrink-0 w-72 flex items-center justify-center">
+                <a href="galeri.html" class="inline-flex items-center justify-center bg-[#2B643B] text-white font-bold py-3 px-8 rounded-full shadow-lg hover:bg-[#1A3F2A] transition-all duration-300 transform hover:scale-105 group text-lg">
+                    Lebih Lengkap
+                    <i class="fas fa-arrow-right ml-3 group-hover:translate-x-1 transition-transform duration-200"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Monography Detail Modal (Kept for consistency, not directly used by this page's elements) -->
+    <div id="monographyModal" class="fixed inset-0 bg-black bg-opacity-70 z-[9999] hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-xl shadow-2xl max-w-4xl w-full relative my-8 max-h-[90vh] overflow-y-auto modal-content animate-modal-in">
+            <!-- Sticky Header for Monography Modal -->
+            <div class="sticky top-0 z-10 bg-white px-8 py-4 rounded-t-xl shadow-md">
+                <div class="flex justify-between items-center">
+                    <h1 class="text-3xl md:text-4xl font-bold text-gray-800">Detail Data Monografi</h1>
+                    <button id="closeModal" class="text-gray-500 hover:text-gray-800 text-4xl font-light leading-none transition-colors duration-200">&times;</button>
+                </div>
+            </div>
+
+            <!-- Main Content for Monography Modal -->
+            <div class="space-y-8 px-8 pb-8">
+                <!-- Content for "Informasi Umum Kelurahan", "Data Kependudukan & Wilayah", "Profesi Penduduk" removed -->
+                <div class="flex justify-end items-center col-span-1 md:col-span-2">
+                    <!-- "Lihat Infografis" button removed -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- History Detail Modal (Kept for consistency, not directly used by this page's elements) -->
+    <div id="historyModal" class="fixed inset-0 bg-black bg-opacity-70 z-[9999] hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-xl shadow-2xl max-w-4xl w-full relative my-8 max-h-[90vh] overflow-y-auto modal-content animate-modal-in">
+            <!-- Sticky Header for History Modal -->
+            <div class="sticky top-0 z-10 bg-white px-8 py-4 rounded-t-xl shadow-md">
+                <div class="flex justify-between items-center">
+                    <h1 class="text-3xl md:text-4xl font-bold text-gray-800">Sejarah Lengkap Kelurahan Amparita</h1>
+                    <button id="closeHistoryModal" class="text-gray-500 hover:text-gray-800 text-4xl font-light leading-none transition-colors duration-200">&times;</button>
+                </div>
+            </div>
+
+            <!-- Main Content for History Modal -->
+            <div class="space-y-6 text-gray-700 leading-relaxed text-lg px-8 pb-8">
+                <!-- Content for "Sejarah Lengkap Kelurahan Amparita" removed -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Kontak Desa Modal -->
+    <div id="contactModal" class="fixed inset-0 bg-black bg-opacity-70 z-[9999] hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-xl shadow-2xl max-w-xl w-full relative my-8 p-8 modal-content animate-modal-in">
+            <!-- Header for Contact Modal -->
+            <div class="flex justify-between items-center mb-6">
+                <h1 class="text-3xl md:text-4xl font-bold text-gray-800">Detail Kontak Kelurahan</h1>
+                <button id="closeContactModalBtn" class="text-gray-500 hover:text-gray-800 text-4xl font-light leading-none transition-colors duration-200">&times;</button>
+            </div>
+            <!-- Main Content for Contact Modal -->
+            <div class="space-y-4 text-gray-700 leading-relaxed text-lg">
+                <p>Berikut adalah informasi kontak resmi dari Kelurahan Amparita. Jika ada pertanyaan, jangan ragu untuk menghubungi kami.</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="flex items-start">
+                        <i class="fas fa-map-marker-alt text-emerald-600 text-xl mr-3 mt-1"></i>
+                        <div>
+                            <p class="font-semibold text-gray-500 text-sm">Alamat</p>
+                            <p class="text-gray-800">Jl. Poros Bira, Kelurahan Amparita, Kec. Bontotiro, Kab. Bulukumba, Sulawesi Selatan.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start">
+                        <i class="fas fa-envelope text-emerald-600 text-xl mr-3 mt-1"></i>
+                        <div>
+                            <p class="font-semibold text-gray-500 text-sm">Email</p>
+                            <p class="text-gray-800">kelurahan.amparita@example.com</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start">
+                        <i class="fas fa-phone-alt text-emerald-600 text-xl mr-3 mt-1"></i>
+                        <div>
+                            <p class="font-semibold text-gray-500 text-sm">Telepon</p>
+                            <p class="text-gray-800">(0413) 123-4567</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start">
+                        <i class="fas fa-clock text-emerald-600 text-xl mr-3 mt-1"></i>
+                        <div>
+                            <p class="font-semibold text-gray-500 text-sm">Jam Kerja</p>
+                            <p class="text-gray-800">Senin - Jumat, 08.00 - 16.00 WITA</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- NEW: Batas Desa Detail Modal -->
+    <div id="batasDesaModal" class="fixed inset-0 bg-black bg-opacity-70 z-[9999] hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-xl shadow-2xl max-w-md w-full relative my-8 p-8 modal-content animate-modal-in">
+            <!-- Header for Batas Desa Modal -->
+            <div class="flex justify-between items-center mb-6">
+                <h1 class="text-3xl md:text-4xl font-bold text-gray-800">Detail Batas</h1>
+                <button id="closeBatasDesaModalBtn" class="text-gray-500 hover:text-gray-800 text-4xl font-light leading-none transition-colors duration-200">&times;</button>
+            </div>
+            <!-- Main Content for Batas Desa Modal -->
+            <div class="space-y-4 text-gray-700 leading-relaxed text-lg">
+                <p><span class="font-semibold">Batas Desa:</span></p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-2 text-base">
+                    <div>
+                        <p class="text-gray-500 text-sm">Utara</p>
+                        <p class="text-gray-800 font-medium">Kelurahan Arateng</p>
+                    </div>
+                    <div>
+                        <p class="text-gray-500 text-sm">Timur</p>
+                        <p class="text-gray-800 font-medium">Desa Teteaji</p>
+                    </div>
+                    <div>
+                        <p class="text-gray-500 text-sm">Selatan</p>
+                        <p class="text-gray-800 font-medium">Kelurahan Pajalele</p>
+                    </div>
+                    <div>
+                        <p class="text-gray-500 text-sm">Barat</p>
+                        <p class="text-gray-800 font-medium">Desa Toddang Pulu, Kelurahan Baula 
+</p>
+                    </div>
+                </div>
+                <hr class="my-6 border-gray-200" />
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-base">
+                    <div>
+                        <p class="text-gray-500 font-semibold text-sm">Koordinat Lintang</p>
+                        <p class="text-gray-800 font-medium">3° 59′ 22.2″ LS</p>
+                    </div>
+                    <div>
+                        <p class="text-gray-500 font-semibold text-sm">Koordinat Bujur</p>
+                        <p class="text-gray-800 font-medium">119° 49′ 31.2″ BT</p>
+                    </div>
+                    <div>
+                        <p class="text-gray-500 font-semibold text-sm">Luas Desa</p>
+                        <p class="text-gray-800 font-medium">393 km²</p>
+                    </div>
+                    <div>
+                        <p class="text-gray-500 font-semibold text-sm">Jumlah Penduduk</p>
+                        <p class="text-gray-800 font-medium"> 1.783 Jiwa</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading Modal -->
+    <div id="loadingModal" class="fixed inset-0 bg-black bg-opacity-70 z-[99999] hidden flex items-center justify-center">
+        <div class="bg-white p-8 rounded-xl shadow-2xl text-center flex flex-col items-center justify-center animate-modal-in">
+            <i class="fas fa-spinner fa-spin text-6xl text-emerald-600 mb-4"></i>
+            <p class="text-gray-800 text-lg font-semibold">Memuat Data...</p>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer class="bg-green-950 text-white px-4 py-8 md:px-8 md:py-10 mt-12 shadow-inner">
+        <div class="container mx-auto">
+            <div class="flex flex-col items-center">
+                <div class="text-center">
+                    <h1 class="text-xl md:text-2xl text-white font-bold">Kelurahan Amparita</h1>
+                    <p class="text-sm text-gray-300 mt-1">Kec. Bontotiro, Kab. Bulukumba, Sulawesi Selatan</p>
+                </div>
+            </div>
+            <div class="text-center mt-6 pt-6 border-t border-gray-700">
+                <p class="text-xs text-gray-400">
+                    © 2025 Kelurahan Amparita - All rights reserved
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // --- Modal Logic ---
+            const monographyModal = document.getElementById('monographyModal');
+            const closeModalBtn = document.getElementById('closeModal');
+            const historyModal = document.getElementById('historyModal');
+            const closeHistoryModalBtn = document.getElementById('closeHistoryModal');
+            const loadingModal = document.getElementById('loadingModal');
+            const scrollToExploreBtn = document.getElementById('scrollToExploreBtn');
+
+            // Modal elements for 'Kontak Desa'
+            const openContactModalBtn = document.getElementById('openContactModalBtn');
+            const contactModal = document.getElementById('contactModal');
+            const closeContactModalBtn = document.getElementById('closeContactModalBtn');
+
+            // NEW: Modal elements for 'Batas Desa'
+            const batasDesaModal = document.getElementById('batasDesaModal');
+            const openBatasDesaModalBtn = document.getElementById('openBatasDesaModalBtn');
+            const closeBatasDesaModalBtn = document.getElementById('closeBatasDesaModalBtn');
+
+
+            // Get scroll containers
+            const potensiScrollContainer = document.getElementById('potensi-scroll-container');
+            const galeriScrollContainer = document.getElementById('galeri-scroll-container');
+
+            // Function to enable horizontal drag scrolling
+            function enableDragScroll(element) {
+                let isDown = false;
+                let startX;
+                let scrollLeft;
+
+                element.addEventListener('mousedown', (e) => {
+                    isDown = true;
+                    element.classList.add('active');
+                    startX = e.pageX - element.offsetLeft;
+                    scrollLeft = element.scrollLeft;
+                });
+                element.addEventListener('mouseleave', () => {
+                    isDown = false;
+                    element.classList.remove('active');
+                });
+                element.addEventListener('mouseup', () => {
+                    isDown = false;
+                    element.classList.remove('active');
+                });
+                element.addEventListener('mousemove', (e) => {
+                    if (!isDown) return;
+                    e.preventDefault();
+                    const x = e.pageX - element.offsetLeft;
+                    const walk = (x - startX) * 2; //scroll-fast
+                    element.scrollLeft = scrollLeft - walk;
+                });
+            }
+
+            // Apply drag scroll to the containers
+            if (potensiScrollContainer) {
+                enableDragScroll(potensiScrollContainer);
+            }
+            if (galeriScrollContainer) {
+                enableDragScroll(galeriScrollContainer);
+            }
+
+            function showModal(modal) {
+                loadingModal.classList.remove('hidden');
+                document.body.style.overflow = 'hidden'; // Prevent scrolling when modal is open
+
+                setTimeout(() => {
+                    loadingModal.classList.add('hidden');
+                    modal.classList.remove('hidden');
+                }, 500); // Simulate loading time
+            }
+
+            function hideModal(modal) {
+                modal.classList.add('hidden');
+                document.body.style.overflow = ''; // Restore scrolling
+            }
+
+            // Event listener untuk menutup Monography Modal
+            closeModalBtn.addEventListener('click', function() {
+                hideModal(monographyModal);
+            });
+
+            // Close Monography Modal when clicking outside
+            monographyModal.addEventListener('click', function(e) {
+                if (e.target === monographyModal) {
+                    hideModal(monographyModal);
+                }
+            });
+
+            // Event listener untuk menutup History Modal
+            closeHistoryModalBtn.addEventListener('click', function() {
+                hideModal(historyModal);
+            });
+
+            // Close History Modal when clicking outside
+            historyModal.addEventListener('click', function(e) {
+                if (e.target === historyModal) {
+                    hideModal(historyModal);
+                }
+            });
+
+            // Event listener untuk membuka Kontak Desa Modal
+            openContactModalBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                showModal(contactModal);
+            });
+
+            // Event listener untuk menutup Kontak Desa Modal
+            closeContactModalBtn.addEventListener('click', function() {
+                hideModal(contactModal);
+            });
+
+            // Close Contact Modal when clicking outside
+            contactModal.addEventListener('click', function(e) {
+                if (e.target === contactModal) {
+                    hideModal(contactModal);
+                }
+            });
+
+            // NEW: Event listener for the "Lihat Detail Batas & Luas Desa" button
+            if (openBatasDesaModalBtn) {
+                openBatasDesaModalBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    showModal(batasDesaModal);
+                });
+            }
+
+            // NEW: Event listener to close Batas Desa Modal
+            if (closeBatasDesaModalBtn) {
+                closeBatasDesaModalBtn.addEventListener('click', function() {
+                    hideModal(batasDesaModal);
+                });
+            }
+
+            // NEW: Close Batas Desa Modal when clicking outside
+            if (batasDesaModal) {
+                batasDesaModal.addEventListener('click', function(e) {
+                    if (e.target === batasDesaModal) {
+                        hideModal(batasDesaModal);
+                    }
+                });
+            }
+
+            // Event listener untuk tombol "Geser Ke Bawah"
+            if (scrollToExploreBtn) {
+                scrollToExploreBtn.addEventListener('click', function() {
+                    const exploreSection = document.getElementById('explore-kelurahan-section');
+                    if (exploreSection) {
+                        exploreSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
