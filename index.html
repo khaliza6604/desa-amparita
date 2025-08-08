@@ -114,23 +114,11 @@
         /* Modernized section titles - GARIS DIHAPUS */
         .section-title {
             position: relative;
-            /* padding-bottom: 0.5rem; */ /* Dihapus */
             margin-bottom: 1.5rem;
             font-size: 2.5rem; /* Larger font */
             font-weight: 800; /* Extra bold */
             color: #1C4532; /* Darker green for emphasis */
         }
-
-        /* .section-title::after { */ /* Dihapus */
-            /* content: ''; */
-            /* position: absolute; */
-            /* left: 0; */
-            /* bottom: 0; */
-            /* width: 80px; */
-            /* height: 4px; */
-            /* background-color: #2B643B; */
-            /* border-radius: 2px; */
-        /* } */
     </style>
 </head>
 <body class="bg-gray-50 text-gray-800">
@@ -207,7 +195,7 @@
     <!-- Hero Section -->
     <section class="relative h-screen overflow-hidden flex items-center justify-center pt-24">
         <!-- Background Image -->
-        <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('https://placehold.co/1920x1080/4CAF50/FFFFFF?text=Pemandangan+Kelurahan+Amparita');"></div>
+        <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('images/kantor.jpg');"></div>
         
         <!-- Overlay for text content, mirroring the user's image layout -->
         <div class="absolute inset-0 flex flex-col justify-center items-start lg:items-end p-8 md:p-16 lg:p-32 hero-overlay">
@@ -281,7 +269,7 @@
                 <!-- Card Kepala Lurah -->
                 <div class="bg-white text-gray-800 rounded-xl shadow-md p-6 flex flex-col items-center mb-8 transform hover:scale-105 hover:shadow-xl transition-all duration-300">
                     <img src="https://placehold.co/150x150/1C4532/FFFFFF?text=Kepala+Lurah" alt="Foto Kepala Lurah" class="w-36 h-36 rounded-full object-cover mb-4 border-4 border-emerald-600">
-                    <h3 class="text-2xl font-bold mb-1">Andi Pahruddin</h3>
+                    <h3 class="text-2xl font-bold mb-1"> Jumarti Genawi S.Sos, M.Si </h3>
                     <p class="text-lg text-gray-600 mb-4">Kepala Kelurahan Amparita</p>
                     <!-- Changed to anchor tag linking to profile.html -->
                     <a href="profile.html" class="bg-[#2B643B] text-white font-bold py-2 px-6 rounded-full shadow-md hover:bg-[#1A3F2A] transition-colors duration-300">
@@ -291,25 +279,72 @@
 
                 <!-- SOTK Section -->
                 <h2 class="text-3xl font-bold mb-6 text-white text-center section-title">Struktur Organisasi dan Tata Kerja</h2>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div id="sotk-scroll-container" class="flex flex-nowrap overflow-x-auto space-x-4 pb-4 scrollbar-hide draggable-scroll">
                     <!-- SOTK Card 1 -->
-                    <div class="bg-white text-gray-800 rounded-xl shadow-md p-4 flex flex-col items-center text-center transform hover:scale-105 hover:shadow-xl transition-all duration-300">
+                    <div class="flex-shrink-0 w-60 bg-white text-gray-800 rounded-xl shadow-md p-4 flex flex-col items-center text-center transform hover:scale-105 hover:shadow-xl transition-all duration-300">
                         <img src="https://placehold.co/80x80/1C4532/FFFFFF?text=SOTK+1" alt="Foto Anggota SOTK" class="w-20 h-20 rounded-full object-cover mb-3 border-2 border-emerald-500">
-                        <p class="font-semibold text-lg">Nama Anggota 1</p>
-                        <p class="text-sm text-gray-600">Jabatan 1</p>
+                        <p class="font-semibold text-lg">Akhmad, S.Sos</p>
+                        <p class="text-sm text-gray-600">Sekretaris</p>
                     </div>
                     <!-- SOTK Card 2 -->
-                    <div class="bg-white text-gray-800 rounded-xl shadow-md p-4 flex flex-col items-center text-center transform hover:scale-105 hover:shadow-xl transition-all duration-300">
+                    <div class="flex-shrink-0 w-60 bg-white text-gray-800 rounded-xl shadow-md p-4 flex flex-col items-center text-center transform hover:scale-105 hover:shadow-xl transition-all duration-300">
                         <img src="https://placehold.co/80x80/1C4532/FFFFFF?text=SOTK+2" alt="Foto Anggota SOTK" class="w-20 h-20 rounded-full object-cover mb-3 border-2 border-emerald-500">
-                        <p class="font-semibold text-lg">Nama Anggota 2</p>
-                        <p class="text-sm text-gray-600">Jabatan 2</p>
+                        <p class="font-semibold text-lg">H. Muslimin, S.Pd</p>
+                        <p class="text-sm text-gray-600">Kasi Pemerintahan</p>
                     </div>
                     <!-- SOTK Card 3 -->
-                    <div class="bg-white text-gray-800 rounded-xl shadow-md p-4 flex flex-col items-center text-center transform hover:scale-105 hover:shadow-xl transition-all duration-300">
+                    <div class="flex-shrink-0 w-60 bg-white text-gray-800 rounded-xl shadow-md p-4 flex flex-col items-center text-center transform hover:scale-105 hover:shadow-xl transition-all duration-300">
                         <img src="https://placehold.co/80x80/1C4532/FFFFFF?text=SOTK+3" alt="Foto Anggota SOTK" class="w-20 h-20 rounded-full object-cover mb-3 border-2 border-emerald-500">
-                        <p class="font-semibold text-lg">Nama Anggota 3</p>
-                        <p class="text-sm text-gray-600">Jabatan 3</p>
+                        <p class="font-semibold text-lg">Hj. I Tungke, SH</p>
+                        <p class="text-sm text-gray-600">Kasi Trantibum & Perlindungan Masyarakat</p>
                     </div>
+                    <!-- SOTK Card 4 -->
+                    <div class="flex-shrink-0 w-60 bg-white text-gray-800 rounded-xl shadow-md p-4 flex flex-col items-center text-center transform hover:scale-105 hover:shadow-xl transition-all duration-300">
+                        <img src="https://placehold.co/80x80/1C4532/FFFFFF?text=SOTK+4" alt="Foto Anggota SOTK" class="w-20 h-20 rounded-full object-cover mb-3 border-2 border-emerald-500">
+                        <p class="font-semibold text-lg">Arifuddin, SP</p>
+                        <p class="text-sm text-gray-600">PPL Pertanian</p>
+                    </div>
+                    <!-- SOTK Card 5 -->
+                    <div class="flex-shrink-0 w-60 bg-white text-gray-800 rounded-xl shadow-md p-4 flex flex-col items-center text-center transform hover:scale-105 hover:shadow-xl transition-all duration-300">
+                        <img src="https://placehold.co/80x80/1C4532/FFFFFF?text=SOTK+5" alt="Foto Anggota SOTK" class="w-20 h-20 rounded-full object-cover mb-3 border-2 border-emerald-500">
+                        <p class="font-semibold text-lg">Masnyala,S.SOs.,M.Si</p>
+                        <p class="text-sm text-gray-600">PLKB</p>
+                    </div>
+                    <!-- SOTK Card 6 -->
+                    <div class="flex-shrink-0 w-60 bg-white text-gray-800 rounded-xl shadow-md p-4 flex flex-col items-center text-center transform hover:scale-105 hover:shadow-xl transition-all duration-300">
+                        <img src="https://placehold.co/80x80/1C4532/FFFFFF?text=SOTK+6" alt="Foto Anggota SOTK" class="w-20 h-20 rounded-full object-cover mb-3 border-2 border-emerald-500">
+                        <p class="font-semibold text-lg">Bripka Rasman</p>
+                        <p class="text-sm text-gray-600">Bhabinkamtibmas</p>
+                    </div>
+                    <!-- SOTK Card 7 -->
+                    <div class="flex-shrink-0 w-60 bg-white text-gray-800 rounded-xl shadow-md p-4 flex flex-col items-center text-center transform hover:scale-105 hover:shadow-xl transition-all duration-300">
+                        <img src="https://placehold.co/80x80/1C4532/FFFFFF?text=SOTK+7" alt="Foto Anggota SOTK" class="w-20 h-20 rounded-full object-cover mb-3 border-2 border-emerald-500">
+                        <p class="font-semibold text-lg">Pelda Abd. Majid</p>
+                        <p class="text-sm text-gray-600">Babinsa</p>
+                    </div>
+                    <!-- SOTK Card 8 -->
+                    <div class="flex-shrink-0 w-60 bg-white text-gray-800 rounded-xl shadow-md p-4 flex flex-col items-center text-center transform hover:scale-105 hover:shadow-xl transition-all duration-300">
+                        <img src="https://placehold.co/80x80/1C4532/FFFFFF?text=SOTK+8" alt="Foto Anggota SOTK" class="w-20 h-20 rounded-full object-cover mb-3 border-2 border-emerald-500">
+                        <p class="font-semibold text-lg">Rustina, A.Md.Keb.</p>
+                        <p class="text-sm text-gray-600">Bidan Kelurahan</p>
+                    </div>
+                    <div class="flex-shrink-0 w-60 bg-white text-gray-800 rounded-xl shadow-md p-4 flex flex-col items-center text-center transform hover:scale-105 hover:shadow-xl transition-all duration-300">
+                        <img src="https://placehold.co/80x80/1C4532/FFFFFF?text=SOTK+8" alt="Foto Anggota SOTK" class="w-20 h-20 rounded-full object-cover mb-3 border-2 border-emerald-500">
+                        <p class="font-semibold text-lg">Ferry Lanjao</p>
+                        <p class="text-sm text-gray-600">KA Lingkungan I</p>
+                    </div>
+                    <div class="flex-shrink-0 w-60 bg-white text-gray-800 rounded-xl shadow-md p-4 flex flex-col items-center text-center transform hover:scale-105 hover:shadow-xl transition-all duration-300">
+                        <img src="https://placehold.co/80x80/1C4532/FFFFFF?text=SOTK+8" alt="Foto Anggota SOTK" class="w-20 h-20 rounded-full object-cover mb-3 border-2 border-emerald-500">
+                        <p class="font-semibold text-lg">Drs.Muhammad.Nasir S, BA</p>
+                        <p class="text-sm text-gray-600">KA Lingkungan II</p>
+                    </div>
+                </div>
+                <!-- Button to open Staff Detail Modal -->
+                <div class="text-center mt-8">
+                    <button id="openStaffDetailModalBtn" class="inline-flex items-center justify-center bg-[#2B643B] text-white font-bold py-3 px-8 rounded-full shadow-lg hover:bg-[#1A3F2A] transition-all duration-300 transform hover:scale-105 group text-lg">
+                        Lihat Detail Staff
+                        <i class="fas fa-users-cog ml-3 group-hover:translate-x-1 transition-transform duration-200"></i>
+                    </button>
                 </div>
             </div>
 
@@ -319,28 +354,20 @@
                 <h2 class="text-3xl font-bold text-emerald-900 mb-6 text-center section-title">Administrasi Penduduk</h2>
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
                     <div class="bg-white rounded-lg shadow-sm p-4 text-center transform hover:scale-105 hover:shadow-xl transition-all duration-300">
-                        <p class="text-sm text-gray-500">Penduduk</p>
-                        <p class="text-xl font-bold text-emerald-800">4.456</p>
+                        <p class="text-sm text-gray-500">Penduduk 2025</p>
+                        <p class="text-xl font-bold text-emerald-800">4.425</p>
                     </div>
                     <div class="bg-white rounded-lg shadow-sm p-4 text-center transform hover:scale-105 hover:shadow-xl transition-all duration-300">
                         <p class="text-sm text-gray-500">Kepala Keluarga</p>
-                        <p class="text-xl font-bold text-emerald-800">1.302</p>
-                    </div>
-                    <div class="bg-white rounded-lg shadow-sm p-4 text-center transform hover:scale-105 hover:shadow-xl transition-all duration-300">
-                        <p class="text-sm text-gray-500">Penduduk Sementara</p>
-                        <p class="text-xl font-bold text-emerald-800">9</p>
+                        <p class="text-xl font-bold text-emerald-800">1.238</p>
                     </div>
                     <div class="bg-white rounded-lg shadow-sm p-4 text-center transform hover:scale-105 hover:shadow-xl transition-all duration-300">
                         <p class="text-sm text-gray-500">Laki-Laki</p>
-                        <p class="text-xl font-bold text-emerald-800">2.162</p>
+                        <p class="text-xl font-bold text-emerald-800">2.102</p>
                     </div>
                     <div class="bg-white rounded-lg shadow-sm p-4 text-center transform hover:scale-105 hover:shadow-xl transition-all duration-300">
                         <p class="text-sm text-gray-500">Perempuan</p>
-                        <p class="text-xl font-bold text-emerald-800">2.294</p>
-                    </div>
-                    <div class="bg-white rounded-lg shadow-sm p-4 text-center transform hover:scale-105 hover:shadow-xl transition-all duration-300">
-                        <p class="text-sm text-gray-500">Mutasi Penduduk</p>
-                        <p class="text-xl font-bold text-emerald-800">225</p>
+                        <p class="text-xl font-bold text-emerald-800">2.323</p>
                     </div>
                 </div>
 
@@ -350,20 +377,14 @@
                     <!-- Potensi Card 1 -->
                     <div class="flex-shrink-0 w-60 bg-white rounded-xl shadow-md p-4 text-center transform hover:scale-105 transition-all duration-300">
                         <img src="https://placehold.co/200x120/1C4532/FFFFFF?text=Potensi+1" alt="Potensi Desa" class="w-full h-32 object-cover rounded-lg mb-3">
-                        <p class="font-semibold text-lg text-gray-800">Pertanian</p>
-                        <p class="text-sm text-gray-600">Deskripsi singkat potensi pertanian.</p>
+                        <p class="font-semibold text-lg text-gray-800">Padi</p>
+                        <p class="text-sm text-gray-600">Sumber utama (secara modern dan tradisional) </p>
                     </div>
                     <!-- Potensi Card 2 -->
                     <div class="flex-shrink-0 w-60 bg-white rounded-xl shadow-md p-4 text-center transform hover:scale-105 transition-all duration-300">
                         <img src="https://placehold.co/200x120/1C4532/FFFFFF?text=Potensi+2" alt="Potensi Desa" class="w-full h-32 object-cover rounded-lg mb-3">
-                        <p class="font-semibold text-lg text-gray-800">Perikanan</p>
-                        <p class="text-sm text-gray-600">Deskripsi singkat potensi perikanan.</p>
-                    </div>
-                    <!-- Potensi Card 3 -->
-                    <div class="flex-shrink-0 w-60 bg-white rounded-xl shadow-md p-4 text-center transform hover:scale-105 transition-all duration-300">
-                        <img src="https://placehold.co/200x120/1C4532/FFFFFF?text=Potensi+3" alt="Potensi Desa" class="w-full h-32 object-cover rounded-lg mb-3">
-                        <p class="font-semibold text-lg text-gray-800">Pariwisata</p>
-                        <p class="text-sm text-gray-600">Deskripsi singkat potensi pariwisata.</p>
+                        <p class="font-semibold text-lg text-gray-800">Jagung</p>
+                        <p class="text-sm text-gray-600">Secara modern dan tradisional</p>
                     </div>
                     <!-- "Lebih Lengkap" button for Potensi -->
                     <div class="flex-shrink-0 w-60 flex items-center justify-center">
@@ -396,41 +417,13 @@
     <!-- Anggaran Kelurahan Section -->
     <section id="anggaran-kelurahan-section" class="container mx-auto px-4 py-16 md:py-24 bg-emerald-100 rounded-xl shadow-lg mt-8">
         <h2 class="text-4xl md:text-5xl font-bold text-emerald-900 mb-8 text-center animate-bounce-custom section-title">Anggaran Kelurahan Amparita</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <!-- Anggaran Card 1 -->
-            <div class="bg-white rounded-xl shadow-md p-6 text-center transform hover:scale-105 hover:shadow-xl transition-all duration-300">
+        <div class="flex justify-center">
+            <!-- Anggaran Card (Single, Centered) -->
+            <div class="bg-white rounded-xl shadow-md p-6 text-center transform hover:scale-105 hover:shadow-xl transition-all duration-300 w-full max-w-sm">
                 <i class="fas fa-money-bill-wave text-5xl text-emerald-600 mb-4"></i>
-                <h3 class="text-2xl font-bold text-gray-800 mb-2">Pendapatan Asli Kelurahan</h3>
-                <p class="text-xl font-semibold text-emerald-800">Rp 150.000.000</p>
-                <p class="text-sm text-gray-600 mt-2">Sumber dari retribusi dan aset kelurahan.</p>
-            </div>
-            <!-- Anggaran Card 2 -->
-            <div class="bg-white rounded-xl shadow-md p-6 text-center transform hover:scale-105 hover:shadow-xl transition-all duration-300">
-                <i class="fas fa-hand-holding-usd text-5xl text-emerald-600 mb-4"></i>
-                <h3 class="text-2xl font-bold text-gray-800 mb-2">Dana Transfer Pusat/Daerah</h3>
-                <p class="text-xl font-semibold text-emerald-800">Rp 850.000.000</p>
-                <p class="text-sm text-gray-600 mt-2">Alokasi dana desa dan bantuan provinsi.</p>
-            </div>
-            <!-- Anggaran Card 3 -->
-            <div class="bg-white rounded-xl shadow-md p-6 text-center transform hover:scale-105 hover:shadow-xl transition-all duration-300">
-                <i class="fas fa-building text-5xl text-emerald-600 mb-4"></i>
-                <h3 class="text-2xl font-bold text-gray-800 mb-2">Belanja Pembangunan</h3>
-                <p class="text-xl font-semibold text-emerald-800">Rp 600.000.000</p>
-                <p class="text-sm text-gray-600 mt-2">Untuk infrastruktur dan fasilitas umum.</p>
-            </div>
-            <!-- Anggaran Card 4 -->
-            <div class="bg-white rounded-xl shadow-md p-6 text-center transform hover:scale-105 hover:shadow-xl transition-all duration-300">
-                <i class="fas fa-users text-5xl text-emerald-600 mb-4"></i>
-                <h3 class="text-2xl font-bold text-gray-800 mb-2">Belanja Pemberdayaan Masyarakat</h3>
-                <p class="text-xl font-semibold text-emerald-800">Rp 200.000.000</p>
-                <p class="text-sm text-gray-600 mt-2">Program pelatihan dan bantuan sosial.</p>
-            </div>
-            <!-- Anggaran Card 5 -->
-            <div class="bg-white rounded-xl shadow-md p-6 text-center transform hover:scale-105 hover:shadow-xl transition-all duration-300">
-                <i class="fas fa-cogs text-5xl text-emerald-600 mb-4"></i>
-                <h3 class="text-2xl font-bold text-gray-800 mb-2">Belanja Operasional</h3>
-                <p class="text-xl font-semibold text-emerald-800">Rp 150.000.000</p>
-                <p class="text-sm text-gray-600 mt-2">Biaya rutin operasional pemerintahan.</p>
+                <h3 class="text-2xl font-bold text-gray-800 mb-2">Total APBD tahun 2025</h3>
+                <p class="text-xl font-semibold text-emerald-800">Rp 233.908.500</p>
+                <p class="text-sm text-gray-600 mt-2">Estimasi total anggaran untuk tahun ini.</p>
             </div>
         </div>
     </section>
@@ -441,7 +434,7 @@
         <div id="galeri-scroll-container" class="flex flex-nowrap overflow-x-auto space-x-6 pb-4 scrollbar-hide draggable-scroll">
             <!-- Galeri Item 1 -->
             <div class="flex-shrink-0 w-72 relative group rounded-xl overflow-hidden shadow-md transform hover:scale-105 transition-all duration-300">
-                <img src="https://placehold.co/600x400/1C4532/FFFFFF?text=Kegiatan+1" alt="Kegiatan 1" class="w-full h-48 object-cover">
+                <img src="images/tudang_sipulung.png" alt="Kegiatan 1" class="w-full h-48 object-cover">
                 <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <p class="text-white text-lg font-semibold text-center p-4">Gotong Royong Bersama</p>
                 </div>
@@ -481,6 +474,7 @@
                     <p class="text-white text-lg font-semibold text-center p-4">Rapat Koordinasi</p>
                 </div>
             </div>
+
             <!-- "Lebih Lengkap" button for Galeri -->
             <div class="flex-shrink-0 w-72 flex items-center justify-center">
                 <a href="galeri.html" class="inline-flex items-center justify-center bg-[#2B643B] text-white font-bold py-3 px-8 rounded-full shadow-lg hover:bg-[#1A3F2A] transition-all duration-300 transform hover:scale-105 group text-lg">
@@ -628,6 +622,30 @@
         </div>
     </div>
 
+    <!-- NEW: Staff Detail Modal -->
+    <div id="staffDetailModal" class="fixed inset-0 bg-black bg-opacity-70 z-[9999] hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-xl shadow-2xl max-w-xl w-full relative my-8 p-8 modal-content animate-modal-in">
+            <!-- Header for Staff Detail Modal -->
+            <div class="flex justify-between items-center mb-6">
+                <h1 class="text-3xl md:text-4xl font-bold text-gray-800">Daftar Staff Kelurahan</h1>
+                <button id="closeStaffDetailModalBtn" class="text-gray-500 hover:text-gray-800 text-4xl font-light leading-none transition-colors duration-200">&times;</button>
+            </div>
+            <!-- Main Content for Staff Detail Modal -->
+            <div class="space-y-4 text-gray-700 leading-relaxed text-lg">
+                <ul class="list-disc list-inside space-y-2">
+                    <li class="flex items-center"><i class="fas fa-user-tie text-emerald-600 mr-2"></i><span class="font-semibold">A. Risma Kartika</li>
+                    <li class="flex items-center"><i class="fas fa-user-tie text-emerald-600 mr-2"></i><span class="font-semibold">Triana</li>
+                    <li class="flex items-center"><i class="fas fa-user-tie text-emerald-600 mr-2"></i><span class="font-semibold">I Data</li>
+                    <li class="flex items-center"><i class="fas fa-user-tie text-emerald-600 mr-2"></i><span class="font-semibold">Rahman C</li>
+                    <li class="flex items-center"><i class="fas fa-user-tie text-emerald-600 mr-2"></i><span class="font-semibold">A. Bunga Asa</li>
+                    <li class="flex items-center"><i class="fas fa-user-tie text-emerald-600 mr-2"></i><span class="font-semibold">Hasriani </li>
+                    <li class="flex items-center"><i class="fas fa-user-tie text-emerald-600 mr-2"></i><span class="font-semibold">A. Tenri Kemala</li>
+                    <li class="flex items-center"><i class="fas fa-user-tie text-emerald-600 mr-2"></i><span class="font-semibold">Kikianti</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
     <!-- Loading Modal -->
     <div id="loadingModal" class="fixed inset-0 bg-black bg-opacity-70 z-[99999] hidden flex items-center justify-center">
         <div class="bg-white p-8 rounded-xl shadow-2xl text-center flex flex-col items-center justify-center animate-modal-in">
@@ -667,16 +685,32 @@
             const openContactModalBtn = document.getElementById('openContactModalBtn');
             const contactModal = document.getElementById('contactModal');
             const closeContactModalBtn = document.getElementById('closeContactModalBtn');
+            const openContactModalBtnMobile = document.getElementById('openContactModalBtnMobile');
 
             // NEW: Modal elements for 'Batas Desa'
             const batasDesaModal = document.getElementById('batasDesaModal');
             const openBatasDesaModalBtn = document.getElementById('openBatasDesaModalBtn');
             const closeBatasDesaModalBtn = document.getElementById('closeBatasDesaModalBtn');
 
+            // NEW: Modal elements for 'Staff Detail'
+            const staffDetailModal = document.getElementById('staffDetailModal');
+            const openStaffDetailModalBtn = document.getElementById('openStaffDetailModalBtn');
+            const closeStaffDetailModalBtn = document.getElementById('closeStaffDetailModalBtn');
+
 
             // Get scroll containers
             const potensiScrollContainer = document.getElementById('potensi-scroll-container');
             const galeriScrollContainer = document.getElementById('galeri-scroll-container');
+            // NEW: Get SOTK scroll container
+            const sotkScrollContainer = document.getElementById('sotk-scroll-container');
+
+
+            // Mobile Menu elements
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const closeMobileMenuButton = document.getElementById('close-mobile-menu');
+            const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+
 
             // Function to enable horizontal drag scrolling
             function enableDragScroll(element) {
@@ -705,6 +739,25 @@
                     const walk = (x - startX) * 2; //scroll-fast
                     element.scrollLeft = scrollLeft - walk;
                 });
+
+                // Touch events for mobile
+                element.addEventListener('touchstart', (e) => {
+                    isDown = true;
+                    element.classList.add('active');
+                    startX = e.touches[0].pageX - element.offsetLeft;
+                    scrollLeft = element.scrollLeft;
+                });
+                element.addEventListener('touchend', () => {
+                    isDown = false;
+                    element.classList.remove('active');
+                });
+                element.addEventListener('touchmove', (e) => {
+                    if (!isDown) return;
+                    e.preventDefault();
+                    const x = e.touches[0].pageX - element.offsetLeft;
+                    const walk = (x - startX) * 2; //scroll-fast
+                    element.scrollLeft = scrollLeft - walk;
+                });
             }
 
             // Apply drag scroll to the containers
@@ -713,6 +766,10 @@
             }
             if (galeriScrollContainer) {
                 enableDragScroll(galeriScrollContainer);
+            }
+            // NEW: Apply drag scroll to SOTK container
+            if (sotkScrollContainer) {
+                enableDragScroll(sotkScrollContainer);
             }
 
             function showModal(modal) {
@@ -731,46 +788,69 @@
             }
 
             // Event listener untuk menutup Monography Modal
-            closeModalBtn.addEventListener('click', function() {
-                hideModal(monographyModal);
-            });
+            if (closeModalBtn) {
+                closeModalBtn.addEventListener('click', function() {
+                    hideModal(monographyModal);
+                });
+            }
 
             // Close Monography Modal when clicking outside
-            monographyModal.addEventListener('click', function(e) {
-                if (e.target === monographyModal) {
-                    hideModal(monographyModal);
-                }
-            });
+            if (monographyModal) {
+                monographyModal.addEventListener('click', function(e) {
+                    if (e.target === monographyModal) {
+                        hideModal(monographyModal);
+                    }
+                });
+            }
 
             // Event listener untuk menutup History Modal
-            closeHistoryModalBtn.addEventListener('click', function() {
-                hideModal(historyModal);
-            });
+            if (closeHistoryModalBtn) {
+                closeHistoryModalBtn.addEventListener('click', function() {
+                    hideModal(historyModal);
+                });
+            }
 
             // Close History Modal when clicking outside
-            historyModal.addEventListener('click', function(e) {
-                if (e.target === historyModal) {
-                    hideModal(historyModal);
-                }
-            });
+            if (historyModal) {
+                historyModal.addEventListener('click', function(e) {
+                    if (e.target === historyModal) {
+                        hideModal(historyModal);
+                    }
+                });
+            }
 
-            // Event listener untuk membuka Kontak Desa Modal
-            openContactModalBtn.addEventListener('click', function(e) {
-                e.preventDefault();
-                showModal(contactModal);
-            });
+            // Event listener untuk membuka Kontak Desa Modal (Desktop)
+            if (openContactModalBtn) {
+                openContactModalBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    showModal(contactModal);
+                });
+            }
+
+            // Event listener untuk membuka Kontak Desa Modal (Mobile)
+            if (openContactModalBtnMobile) {
+                openContactModalBtnMobile.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    hideMobileMenu(); // Close mobile menu first
+                    showModal(contactModal);
+                });
+            }
 
             // Event listener untuk menutup Kontak Desa Modal
-            closeContactModalBtn.addEventListener('click', function() {
-                hideModal(contactModal);
-            });
+            if (closeContactModalBtn) {
+                closeContactModalBtn.addEventListener('click', function() {
+                    hideModal(contactModal);
+                });
+            }
 
             // Close Contact Modal when clicking outside
-            contactModal.addEventListener('click', function(e) {
-                if (e.target === contactModal) {
-                    hideModal(contactModal);
-                }
-            });
+            if (contactModal) {
+                contactModal.addEventListener('click', function(e) {
+                    if (e.target === contactModal) {
+                        hideModal(contactModal);
+                    }
+                });
+            }
 
             // NEW: Event listener for the "Lihat Detail Batas & Luas Desa" button
             if (openBatasDesaModalBtn) {
@@ -796,6 +876,30 @@
                 });
             }
 
+            // NEW: Event listener for the "Lihat Detail Staff" button
+            if (openStaffDetailModalBtn) {
+                openStaffDetailModalBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    showModal(staffDetailModal);
+                });
+            }
+
+            // NEW: Event listener to close Staff Detail Modal
+            if (closeStaffDetailModalBtn) {
+                closeStaffDetailModalBtn.addEventListener('click', function() {
+                    hideModal(staffDetailModal);
+                });
+            }
+
+            // NEW: Close Staff Detail Modal when clicking outside
+            if (staffDetailModal) {
+                staffDetailModal.addEventListener('click', function(e) {
+                    if (e.target === staffDetailModal) {
+                        hideModal(staffDetailModal);
+                    }
+                });
+            }
+
             // Event listener untuk tombol "Geser Ke Bawah"
             if (scrollToExploreBtn) {
                 scrollToExploreBtn.addEventListener('click', function() {
@@ -804,6 +908,31 @@
                         exploreSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
                     }
                 });
+            }
+
+            // Mobile menu toggle logic
+            function showMobileMenu() {
+                mobileMenu.classList.remove('translate-x-full');
+                mobileMenuOverlay.classList.remove('hidden');
+                document.body.style.overflow = 'hidden';
+            }
+
+            function hideMobileMenu() {
+                mobileMenu.classList.add('translate-x-full');
+                mobileMenuOverlay.classList.add('hidden');
+                document.body.style.overflow = '';
+            }
+
+            if (mobileMenuButton) {
+                mobileMenuButton.addEventListener('click', showMobileMenu);
+            }
+
+            if (closeMobileMenuButton) {
+                closeMobileMenuButton.addEventListener('click', hideMobileMenu);
+            }
+
+            if (mobileMenuOverlay) {
+                mobileMenuOverlay.addEventListener('click', hideMobileMenu);
             }
         });
     </script>

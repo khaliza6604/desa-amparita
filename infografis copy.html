@@ -51,6 +51,52 @@
             }
         }
 
+        .animate-fade-in-up {
+            animation: fade-in-up 0.8s ease-out forwards;
+        }
+
+        /* Mengatur warna overlay hero */
+        .hero-overlay {
+            background-color: rgba(28, 69, 50, 0.7); /* Warna hijau tua semi-transparan */
+        }
+
+        /* Keyframes untuk animasi slide-down dan bouncing */
+        @keyframes slide-down {
+            0% {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-10px);
+            }
+            60% {
+                transform: translateY(-5px);
+            }
+        }
+
+        .animate-slide-down {
+            animation: slide-down 0.5s ease-out forwards;
+        }
+
+        .animate-bounce-custom {
+            animation: bounce 2s infinite;
+        }
+
+        /* Hide scrollbar for Potensi Desa section */
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+        }
+
         .scrollbar-hide {
             -ms-overflow-style: none;  /* IE and Edge */
             scrollbar-width: none;  /* Firefox */
@@ -220,6 +266,30 @@
             color: #1A3F2A; /* Consistent green for numbers */
         }
 
+        /* Google Maps Placeholder Styling */
+        .map-placeholder {
+            width: 100%;
+            padding-top: 100%; /* Makes the height equal to the width */
+            position: relative;
+            height: 0; /* Important for padding-top trick */
+            background-color: #e0e0e0; /* Light gray background */
+            display: flex; /* Still need flex for content centering if any */
+            align-items: center;
+            justify-content: center;
+            color: #666;
+            font-size: 1.5rem;
+            border-radius: 1rem;
+            overflow: hidden; /* Ensure image fits */
+        }
+        .map-placeholder img {
+            position: absolute; /* Position image absolutely within the padded container */
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Cover the area, crop if necessary */
+        }
+
         /* Styling for horizontal scroll cards in Sarana dan Prasarana */
         .sarana-prasarana-card {
             background-color: #ffffff;
@@ -227,8 +297,8 @@
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
             overflow: hidden;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-            width: 280px;
-            flex-shrink: 0;
+            width: 280px; /* Fixed width for cards in horizontal scroll */
+            flex-shrink: 0; /* Prevent cards from shrinking */
         }
 
         .sarana-prasarana-card:hover {
@@ -366,10 +436,12 @@
                     </li>
                 </ul>
             </div>
+            <!-- Tombol Kontak Desa (kanan) -->
             <button id="openContactModalBtn" class="hidden lg:inline-flex items-center justify-center bg-[#2B643B] text-white font-bold py-2 px-6 rounded-full shadow-lg hover:bg-[#1A3F2A] transition-all duration-300 transform hover:scale-105 group text-sm">
                 Kontak Desa
                 <i class="fas fa-phone-alt ml-2 group-hover:rotate-6 transition-transform duration-200"></i>
             </button>
+            <!-- Mobile Menu Button -->
             <button id="mobile-menu-button" class="lg:hidden text-gray-800 focus:outline-none">
                 <i class="fas fa-bars text-2xl"></i>
             </button>
@@ -386,7 +458,7 @@
             <img src="https://placehold.co/60x60/1C4532/FFFFFF?text=Logo" alt="Logo Kelurahan Amparita" class="h-16 w-16 rounded-full mx-auto mb-6">
             <h2 class="text-xl font-extrabold text-[#1C4532] text-center mb-8">Kelurahan Amparita</h2>
             <ul class="space-y-4">
-                <li><a class="block font-semibold px-4 py-2 rounded-lg text-gray-800 hover:bg-[#1C4532] hover:text-white transition-all duration-300" href="index.html">Beranda</a></li>
+                <li><a class="block font-semibold px-4 py-2 rounded-lg text-gray-800 hover:bg-[#1C4532] hover:text-white transition-all duration-300" href="#">Beranda</a></li>
                 <li><a class="block font-semibold px-4 py-2 rounded-lg text-gray-800 hover:bg-[#1C4532] hover:text-white transition-all duration-300" href="profile.html">Profil Kelurahan</a></li>
                 <li><a class="block font-semibold px-4 py-2 rounded-lg text-gray-800 hover:bg-[#1C4532] hover:text-white transition-all duration-300" href="infografis.html">Infografis</a></li>
                 <li><a class="block font-semibold px-4 py-2 rounded-lg text-gray-800 hover:bg-[#1C4532] hover:text-white transition-all duration-300" href="umkm.html">UMKM</a></li>
@@ -448,13 +520,6 @@
                 <p class="text-xl text-gray-600 mt-2 mb-8">Data pekerjaan dan jenis kelamin masyarakat Desa Bontomarannu.</p>
             </div>
 
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 bg-gradient-to-br from-[#F0FFF0] to-[#E0FFE0] p-8 rounded-xl shadow-lg">
-                <div class="chart-section animate-fade-in chart-container-modern">
-                    <h2 class="sub-section-title">Berdasarkan Pekerjaan</h2>
-                    <div id="pekerjaan-chart-container" class="flex justify-center items-center w-full min-h-[300px] sm:min-h-[400px] relative z-10">
-                        <!-- D3.js chart will be rendered here -->
-                    </div>
-                </div>
                 
                 <div class="chart-section animate-fade-in delay-100 chart-container-modern">
                     <h2 class="sub-section-title">Berdasarkan Jenis Kelamin</h2>
@@ -467,205 +532,32 @@
 
         <div class="container mx-auto px-4 py-8 md:px-8 md:py-12 bg-white rounded-lg shadow-xl my-8">
             <!-- Section: Sarana dan Prasarana -->
-                <section class="bg-white p-6 rounded-xl shadow-lg mt-12">
-                <h2 class="text-3xl font-bold text-[#1C4532] mb-6 text-center">Sarana & Prasarana</h2>
-                <div class="relative">
-                    <div id="sarana-prasarana-scroll-container" class="flex overflow-x-auto scroll-smooth space-x-6 pb-4">
+            <div class="mb-8">
+                <h1 class="section-title">Sarana dan Prasarana</h1>
+            </div>
 
-                        <!-- Example cards for Sarana & Prasarana -->
-                        <div class="min-w-[280px] bg-gray-50 rounded-xl shadow-md overflow-hidden flex-shrink-0">
-                            <img src="images/kantor.jpg" alt="Kantor Desa" class="w-full h-40 object-cover">
-                            <div class="p-4">
-                                <h3 class="text-xl font-bold text-[#1A3F2A]">Kantor Desa</h3>
-                                <p class="text-sm text-gray-600 mb-4">Jl. Bau Massepe, No. 2</p>
-                                <button onclick="openSaranaDetailModal('Kantor Desa', 'images/kantor.jpg', 'Jl. Bau Massepe, No. 2')" class="w-full bg-[#2B643B] text-white font-bold py-2 rounded-full hover:bg-[#1A3F2A] transition-colors duration-300">Detail</button>
-                            </div>
+            <!-- Horizontal scroll container for all sarana/prasarana items -->
+            <div class="relative w-full">
+                <div id="sarana-prasarana-scroll-container" class="flex flex-nowrap overflow-x-auto gap-6 pb-4 scrollbar-hide">
+                    <!-- Kantor Desa Card -->
+                    <div class="sarana-prasarana-card cursor-pointer" onclick="showCarouselDetail('Kantor Desa', '', [{url: 'images/kantor.jpg', name: 'Gedung Kantor Desa', address: 'Dusun Tulekko', description: 'Kantor desa adalah pusat administrasi dan pelayanan masyarakat di Kelurahan Amparita. Gedung ini dilengkapi dengan fasilitas dasar untuk mendukung kegiatan pemerintahan desa.'}])">
+                        <img src="images/kantor.jpg" alt="Kantor Desa">
+                        <div class="card-content">
+                            <h3>Kantor Desa</h3>
+                            <p>1 Unit</p>
+                            <button>Detail</button>
                         </div>
-
-                        <div class="min-w-[280px] bg-gray-50 rounded-xl shadow-md overflow-hidden flex-shrink-0">
-                            <img src="images/masjid ar rahman.jpg" alt="Masjid Ar Rahmah" class="w-full h-40 object-cover">
-                            <div class="p-4">
-                                <h3 class="text-xl font-bold text-[#1A3F2A]">Masjid Ar Rahmah</h3>
-                                <p class="text-sm text-gray-600 mb-4">Jl. Abu Bakar</p>
-                                <button onclick="openSaranaDetailModal('Masjid Ar Rahmah', 'images/masjid ar rahman.jpg', 'Jl. Abu Bakar')" class="w-full bg-[#2B643B] text-white font-bold py-2 rounded-full hover:bg-[#1A3F2A] transition-colors duration-300">Detail</button>
-                            </div>
-                        </div>
-
-                        <div class="min-w-[280px] bg-gray-50 rounded-xl shadow-md overflow-hidden flex-shrink-0">
-                            <img src="images/masjid nurul marhamah.jpg" alt="Masjid Nurul Marhamah" class="w-full h-40 object-cover">
-                            <div class="p-4">
-                                <h3 class="text-xl font-bold text-[#1A3F2A]">Masjid Nurul Marhamah</h3>
-                                <p class="text-sm text-gray-600 mb-4">Lingkungan II</p>
-                                <button onclick="openSaranaDetailModal('Masjid Nurul Marhamah', 'images/masjid nurul marhamah.jpg', 'Lingkungan II')" class="w-full bg-[#2B643B] text-white font-bold py-2 rounded-full hover:bg-[#1A3F2A] transition-colors duration-300">Detail</button>
-                            </div>
-                        </div>
-
-                        <div class="min-w-[280px] bg-gray-50 rounded-xl shadow-md overflow-hidden flex-shrink-0">
-                            <img src="images/tk negri dharma wanita amparita.jpg" alt="TK/PAUD/RA" class="w-full h-40 object-cover">
-                            <div class="p-4">
-                                <h3 class="text-xl font-bold text-[#1A3F2A]">TK Dharma Wanita</h3>
-                                <p class="text-sm text-gray-600 mb-4">Jl. Abu Bakar</p>
-                                <button onclick="openSaranaDetailModal('TK Dharma Wanita', 'images/tk negri dharma wanita amparita.jpg', 'Jl. Abu Bakar')" class="w-full bg-[#2B643B] text-white font-bold py-2 rounded-full hover:bg-[#1A3F2A] transition-colors duration-300">Detail</button>
-                            </div>
-                        </div>
-
-                        <div class="min-w-[280px] bg-gray-50 rounded-xl shadow-md overflow-hidden flex-shrink-0">
-                            <img src="images/raudhatul athfal ddi amparita.jpg" alt="TK/PAUD/RA" class="w-full h-40 object-cover">
-                            <div class="p-4">
-                                <h3 class="text-xl font-bold text-[#1A3F2A]">Raudhatul Athfal DDI Amparita</h3>
-                                <p class="text-sm text-gray-600 mb-4">Jl. Abu Bakar</p>
-                                <button onclick="openSaranaDetailModal('Raudhatul Athfal DDI Amparita', 'images/raudhatul athfal ddi amparita.jpg', 'Jl. Abu Bakar')" class="w-full bg-[#2B643B] text-white font-bold py-2 rounded-full hover:bg-[#1A3F2A] transition-colors duration-300">Detail</button>
-                            </div>
-                        </div>
-
-                        <div class="min-w-[280px] bg-gray-50 rounded-xl shadow-md overflow-hidden flex-shrink-0">
-                            <img src="images/up ima putri.jpg" alt="TK/PAUD/RA" class="w-full h-40 object-cover">
-                            <div class="p-4">
-                                <h3 class="text-xl font-bold text-[#1A3F2A]">Paud KBM IMA PUTRI</h3>
-                                <p class="text-sm text-gray-600 mb-4">Jl. Teteaji, Lrg. 4, No. 77</p>
-                                <button onclick="openSaranaDetailModal('Paud KBM IMA PUTRI', 'images/up ima putri.jpg', 'Jl. Teteaji, Lrg. 4, No. 77')" class="w-full bg-[#2B643B] text-white font-bold py-2 rounded-full hover:bg-[#1A3F2A] transition-colors duration-300">Detail</button>
-                            </div>
-                        </div>
-
-                        
-                        <div class="min-w-[280px] bg-gray-50 rounded-xl shadow-md overflow-hidden flex-shrink-0">
-                            <img src="images/mis ddi amparira.jpg" alt="SD/Madrasah Ibtidaiyah" class="w-full h-40 object-cover">
-                            <div class="p-4">
-                                <h3 class="text-xl font-bold text-[#1A3F2A]">MIS DDI Amparita</h3>
-                                <p class="text-sm text-gray-600 mb-4">Lingkungan II</p>
-                                <button onclick="openSaranaDetailModal('MIS DDI Amparita', 'images/mis ddi amparira.jpg', 'Lingkungan II')" class="w-full bg-[#2B643B] text-white font-bold py-2 rounded-full hover:bg-[#1A3F2A] transition-colors duration-300">Detail</button>
-                            </div>
-                        </div>
-
-                        <div class="min-w-[280px] bg-gray-50 rounded-xl shadow-md overflow-hidden flex-shrink-0">
-                            <img src="images/sdn 3 amparita.jpg" alt="SD/Madrasah Ibtidaiyah" class="w-full h-40 object-cover">
-                            <div class="p-4">
-                                <h3 class="text-xl font-bold text-[#1A3F2A]">SD Negri 3 Amparita</h3>
-                                <p class="text-sm text-gray-600 mb-4">Jl. Bau Massepe, No. 57</p>
-                                <button onclick="openSaranaDetailModal('SD Negri 3 Amparita', 'images/sdn 3 amparita.jpg', 'Jl. Bau Massepe, No. 57')" class="w-full bg-[#2B643B] text-white font-bold py-2 rounded-full hover:bg-[#1A3F2A] transition-colors duration-300">Detail</button>
-                            </div>
-                        </div>
-
-                        <div class="min-w-[280px] bg-gray-50 rounded-xl shadow-md overflow-hidden flex-shrink-0">
-                            <img src="images/madrasah ddi amparita.jpg" alt="SMP/MTs" class="w-full h-40 object-cover">
-                            <div class="p-4">
-                                <h3 class="text-xl font-bold text-[#1A3F2A]">Madrasah Tsanawiyah Amparita</h3>
-                                <p class="text-sm text-gray-600 mb-4">Lingkungan II</p>
-                                <button onclick="openSaranaDetailModal('Madrasah Tsanawiyah Amparita', 'images/madrasah ddi amparita.jpg', 'Lingkungan II')" class="w-full bg-[#2B643B] text-white font-bold py-2 rounded-full hover:bg-[#1A3F2A] transition-colors duration-300">Detail</button>
-                            </div>
-                        </div>
-
-                        <div class="min-w-[280px] bg-gray-50 rounded-xl shadow-md overflow-hidden flex-shrink-0">
-                            <img src="images/smpn 1 tellu limpoe.jpg" alt="SMP/MTs" class="w-full h-40 object-cover">
-                            <div class="p-4">
-                                <h3 class="text-xl font-bold text-[#1A3F2A]">SMP Negeri 1 Tellu Limpoe</h3>
-                                <p class="text-sm text-gray-600 mb-4">Jl. Bau Massepe No. 77 </p>
-                                <button onclick="openSaranaDetailModal('SMP Negeri 1 Tellu Limpoe', 'images/smpn 1 tellu limpoe.jpg', 'Jl. Bau Massepe No. 77 ')" class="w-full bg-[#2B643B] text-white font-bold py-2 rounded-full hover:bg-[#1A3F2A] transition-colors duration-300">Detail</button>
-                            </div>
-                        </div>
-
-                        <div class="min-w-[280px] bg-gray-50 rounded-xl shadow-md overflow-hidden flex-shrink-0">
-                            <img src="images/madrasah ddi tellu limpoe.jpg" alt="SMA/MA" class="w-full h-40 object-cover">
-                            <div class="p-4">
-                                <h3 class="text-xl font-bold text-[#1A3F2A]">Madrasah Aliyah Amparita</h3>
-                                <p class="text-sm text-gray-600 mb-4">Lingkungan II</p>
-                                <button onclick="openSaranaDetailModal('Madrasah Aliyah Amparita (SMA/MA)', 'images/madrasah ddi tellu limpoe.jpg', 'Lingkungan II')" class="w-full bg-[#2B643B] text-white font-bold py-2 rounded-full hover:bg-[#1A3F2A] transition-colors duration-300">Detail</button>
-                            </div>
-                        </div>
-
-                        <div class="min-w-[280px] bg-gray-50 rounded-xl shadow-md overflow-hidden flex-shrink-0">
-                            <img src="images/" alt="jenis" class="w-full h-40 object-cover">
-                            <div class="p-4">
-                                <h3 class="text-xl font-bold text-[#1A3F2A]">Posyandu Mawar 1</h3>
-                                <p class="text-sm text-gray-600 mb-4">Lingk. 1 Pakkawarue</p>
-                                <button onclick="openSaranaDetailModal('Posyandu Mawar 1', 'images/', 'Lingk. 1 Pakkawarue')" class="w-full bg-[#2B643B] text-white font-bold py-2 rounded-full hover:bg-[#1A3F2A] transition-colors duration-300">Detail</button>
-                            </div>
-                        </div>
-
-                        <div class="min-w-[280px] bg-gray-50 rounded-xl shadow-md overflow-hidden flex-shrink-0">
-                            <img src="images/" alt="jenis" class="w-full h-40 object-cover">
-                            <div class="p-4">
-                                <h3 class="text-xl font-bold text-[#1A3F2A]">Posyandu Mawar 2</h3>
-                                <p class="text-sm text-gray-600 mb-4">Lingk. 1 Pakkawarue</p>
-                                <button onclick="openSaranaDetailModal('Posyandu Mawar 2', 'images/', 'Lingk. 1 Pakkawarue')" class="w-full bg-[#2B643B] text-white font-bold py-2 rounded-full hover:bg-[#1A3F2A] transition-colors duration-300">Detail</button>
-                            </div>
-                        </div>
-
-                        <div class="min-w-[280px] bg-gray-50 rounded-xl shadow-md overflow-hidden flex-shrink-0">
-                            <img src="images/" alt="jenis" class="w-full h-40 object-cover">
-                            <div class="p-4">
-                                <h3 class="text-xl font-bold text-[#1A3F2A]">Posyandu Mawar 3</h3>
-                                <p class="text-sm text-gray-600 mb-4">Lingk. 2 Sudatu</p>
-                                <button onclick="openSaranaDetailModal('Posyandu Mawar 3', 'images/', 'Lingk. 2 Sudatu')" class="w-full bg-[#2B643B] text-white font-bold py-2 rounded-full hover:bg-[#1A3F2A] transition-colors duration-300">Detail</button>
-                            </div>
-                        </div>
-
-                        <div class="min-w-[280px] bg-gray-50 rounded-xl shadow-md overflow-hidden flex-shrink-0">
-                            <img src="images/" alt="jenis" class="w-full h-40 object-cover">
-                            <div class="p-4">
-                                <h3 class="text-xl font-bold text-[#1A3F2A]">Posyandu Mawar 4 </h3>
-                                <p class="text-sm text-gray-600 mb-4">Lingk. 2 Sudatu</p>
-                                <button onclick="openSaranaDetailModal('Posyandu Mawar 4', 'images/', 'Lingk. 2 Sudatu ')" class="w-full bg-[#2B643B] text-white font-bold py-2 rounded-full hover:bg-[#1A3F2A] transition-colors duration-300">Detail</button>
-                            </div>
-                        </div>
-
-                        <div class="min-w-[280px] bg-gray-50 rounded-xl shadow-md overflow-hidden flex-shrink-0">
-                            <img src="images/" alt="jenis" class="w-full h-40 object-cover">
-                            <div class="p-4">
-                                <h3 class="text-xl font-bold text-[#1A3F2A]">Polindes Amparita </h3>
-                                <p class="text-sm text-gray-600 mb-4">Alamat</p>
-                                <button onclick="openSaranaDetailModal('Polindes Amparita ', 'images/', 'Alamat')" class="w-full bg-[#2B643B] text-white font-bold py-2 rounded-full hover:bg-[#1A3F2A] transition-colors duration-300">Detail</button>
-                            </div>
-                        </div>
-
-                        <div class="min-w-[280px] bg-gray-50 rounded-xl shadow-md overflow-hidden flex-shrink-0">
-                            <img src="images/" alt="jenis" class="w-full h-40 object-cover">
-                            <div class="p-4">
-                                <h3 class="text-xl font-bold text-[#1A3F2A]">Bidan</h3>
-                                <p class="text-sm text-gray-600 mb-4">Alamat</p>
-                                <button onclick="openSaranaDetailModal('Bidan', 'images/', 'Alamat', 'Bidan Rustina, S.KM' )" class="w-full bg-[#2B643B] text-white font-bold py-2 rounded-full hover:bg-[#1A3F2A] transition-colors duration-300">Detail</button>
-                            </div>
-                        </div>
-
-                        <div class="min-w-[280px] bg-gray-50 rounded-xl shadow-md overflow-hidden flex-shrink-0">
-                            <img src="images/" alt="jenis" class="w-full h-40 object-cover">
-                            <div class="p-4">
-                                <h3 class="text-xl font-bold text-[#1A3F2A]">PDAM</h3>
-                                <p class="text-sm text-gray-600 mb-4">Alamat</p>
-                                <button onclick="openSaranaDetailModal('PDAM', 'images/', 'Alamat')" class="w-full bg-[#2B643B] text-white font-bold py-2 rounded-full hover:bg-[#1A3F2A] transition-colors duration-300">Detail</button>
-                            </div>
-                        </div>
-
-                        <div class="min-w-[280px] bg-gray-50 rounded-xl shadow-md overflow-hidden flex-shrink-0">
-                            <img src="images/" alt="Sumur bor" class="w-full h-40 object-cover">
-                            <div class="p-4">
-                                <h3 class="text-xl font-bold text-[#1A3F2A]">Sumur bor </h3>
-                                <p class="text-sm text-gray-600 mb-4">Alamat</p>
-                                <button onclick="openSaranaDetailModal('Sumur Bor', 'images/', 'Alamat')" class="w-full bg-[#2B643B] text-white font-bold py-2 rounded-full hover:bg-[#1A3F2A] transition-colors duration-300">Detail</button>
-                            </div>
-                        </div>
-
-                        <div class="min-w-[280px] bg-gray-50 rounded-xl shadow-md overflow-hidden flex-shrink-0">
-                            <img src="images/" alt="Jembatan Amparita" class="w-full h-40 object-cover">
-                            <div class="p-4">
-                                <h3 class="text-xl font-bold text-[#1A3F2A]">Jembatan Amparita</h3>
-                                <p class="text-sm text-gray-600 mb-4">Lokasi di lingkungan II</p>
-                                <button onclick="openSaranaDetailModal('Jembatan Amparita', 'images/', 'Lokasi di lingkungan II')" class="w-full bg-[#2B643B] text-white font-bold py-2 rounded-full hover:bg-[#1A3F2A] transition-colors duration-300">Detail</button>
-                            </div>
-                        </div>
-
-
                     </div>
-                    <button id="slideLeftBtn" class="absolute left-0 top-1/2 -translate-y-1/2 bg-white rounded-full p-2 shadow-lg hover:bg-gray-200 transition-colors duration-300">
-                        <i class="fas fa-chevron-left text-gray-600"></i>
-                    </button>
-                    <button id="slideRightBtn" class="absolute right-0 top-1/2 -translate-y-1/2 bg-white rounded-full p-2 shadow-lg hover:bg-gray-200 transition-colors duration-300">
-                        <i class="fas fa-chevron-right text-gray-600"></i>
-                    </button>
-                </div>
-            </section>
-        </div>
-    </div>
+
+                    <!-- Sarana Kesehatan - POSKESDES Card -->
+                    <div class="sarana-prasarana-card cursor-pointer" onclick="showCarouselDetail('POSKESDES', '', [{url:'https://placehold.co/600x400/1A3F2A/FFFFFF?text=Poskesdes', name: 'Poskesdes Kita', address: 'Dusun Tulekko', description: 'POSKESDES (Pos Kesehatan Desa) menyediakan layanan kesehatan dasar dan promosi kesehatan bagi warga desa, berperan penting dalam menjaga kesehatan masyarakat.'}])">
+                        <img src="https://placehold.co/600x400/1A3F2A/FFFFFF?text=POSKESDES" alt="POSKESDES">
+                        <div class="card-content">
+                            <h3>POSKESDES</h3>
+                            <p>1 Unit</p>
+                            <button>Detail</button>
+                        </div>
+                    </div>
 
     <!-- Footer Section -->
     <footer class="bg-green-950 text-white px-4 py-8 md:px-8 md:py-10 mt-12 shadow-inner">
@@ -734,33 +626,6 @@
         </div>
     </div>
 
-    <!-- Contact Modal -->
-    <div id="contactModal" class="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-[200] hidden">
-        <div class="bg-white p-6 rounded-lg shadow-xl max-w-lg w-full mx-4 animate-modal-in relative">
-            <button class="absolute top-4 right-4 text-gray-600 hover:text-gray-900 text-2xl" onclick="closeContactModal()">
-                <i class="fas fa-times"></i>
-            </button>
-            <h2 class="text-3xl font-bold text-[#1C4532] mb-6 text-center">Kontak Kami</h2>
-            <form class="space-y-4">
-                <div>
-                    <label for="name" class="block text-gray-700 font-semibold mb-2">Nama</label>
-                    <input type="text" id="name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#1A3F2A]">
-                </div>
-                <div>
-                    <label for="email" class="block text-gray-700 font-semibold mb-2">Email</label>
-                    <input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#1A3F2A]">
-                </div>
-                <div>
-                    <label for="message" class="block text-gray-700 font-semibold mb-2">Pesan</label>
-                    <textarea id="message" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#1A3F2A]"></textarea>
-                </div>
-                <div class="text-center">
-                    <button type="submit" class="bg-[#2B643B] text-white font-bold py-3 px-8 rounded-full shadow-lg hover:bg-[#1A3F2A] transition-all duration-300">Kirim Pesan</button>
-                </div>
-            </form>
-        </div>
-    </div>
-
     <!-- Category List Modal -->
     <div id="categoryListModal" class="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-[200] hidden">
         <div class="bg-white p-6 rounded-lg shadow-xl max-w-xl w-full mx-4 animate-modal-in relative">
@@ -779,124 +644,6 @@
             </div>
         </div>
     </div>
-
-    <!-- Monography Detail Modal -->
-    <div id="monographyDetailModal" class="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-[200] hidden">
-        <div class="bg-white p-8 rounded-lg shadow-xl max-w-2xl w-full mx-4 animate-modal-in relative">
-            <button class="absolute top-4 right-4 text-gray-600 hover:text-gray-900 text-2xl" onclick="closeMonographyModal()">
-                <i class="fas fa-times"></i>
-            </button>
-            <h2 class="text-3xl font-bold text-[#1C4532] mb-6 text-center">Detail Monografi Desa</h2>
-            <div class="space-y-4 text-gray-700 text-left">
-                <h3 class="text-2xl font-bold text-[#1A3F2A] mb-4">Informasi Umum Desa</h3>
-                <dl class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4">
-                    <div>
-                        <dt class="font-semibold text-gray-600">Kecamatan</dt>
-                        <dd class="text-gray-800">Tellu Limpoe</dd>
-                    </div>
-                    <div>
-                        <dt class="font-semibold text-gray-600">Kabupaten/Kota</dt>
-                        <dd class="text-gray-800">Sidenreng Rappang</dd>
-                    </div>
-                    <div>
-                        <dt class="font-semibold text-gray-600">Provinsi</dt>
-                        <dd class="text-gray-800">Sulawesi Selatan</dd>
-                    </div>
-                    <div>
-                        <dt class="font-semibold text-gray-600">Negara</dt>
-                        <dd class="text-gray-800">Indonesia</dd>
-                    </div>
-                    <div>
-                        <dt class="font-semibold text-gray-600">Kode Pos</dt>
-                        <dd class="text-gray-800">91662</dd>
-                    </div>
-                    <div>
-                        <dt class="font-semibold text-gray-600">Jumlah Dusun</dt>
-                        <dd class="text-gray-800">3</dd>
-                    </div>
-                    <div>
-                        <dt class="font-semibold text-gray-600">Jumlah RK</dt>
-                        <dd class="text-gray-800">12</dd>
-                    </div>
-                </dl>
-                <h3 class="text-2xl font-bold text-[#1A3F2A] mt-8 mb-4">Data Kependudukan & Wilayah</h3>
-                <dl class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4">
-                    <div>
-                        <dt class="font-semibold text-gray-600">Luas Wilayah (Km Persegi)</dt>
-                        <dd class="text-gray-800">393</dd>
-                    </div>
-                    <div>
-                        <dt class="font-semibold text-gray-600">Jumlah Penduduk</dt>
-                        <dd class="text-gray-800">± 4.425</dd>
-                    </div>
-                    <div>
-                        <dt class="font-semibold text-gray-600">Jumlah Kepala Keluarga</dt>
-                        <dd class="text-gray-800">± 1.238</dd>
-                    </div>
-                </dl>
-            </div>
-            <div class="mt-8 text-center">
-                <button class="bg-[#2B643B] text-white font-bold py-3 px-8 rounded-full shadow-lg hover:bg-[#1A3F2A] transition-all duration-300" onclick="closeMonographyModal()">Tutup</button>
-            </div>
-        </div>
-    </div>
-    
-    <!-- Sarana Detail Modal (New Modal for this feature) -->
-    <div id="saranaDetailModal" class="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-[200] hidden">
-        <div class="bg-white p-6 rounded-lg shadow-xl max-w-xl w-full mx-4 animate-modal-in relative">
-            <button class="absolute top-4 right-4 text-gray-600 hover:text-gray-900 text-2xl" onclick="closeSaranaDetailModal()">
-                <i class="fas fa-times"></i>
-            </button>
-            <h2 id="saranaDetailTitle" class="text-3xl font-bold text-[#1C4532] mb-6 text-center"></h2>
-            <div id="saranaDetailImageContainer" class="mb-4">
-                <img id="saranaDetailImage" src="" alt="Sarana Prasarana Image" class="rounded-lg shadow-md max-h-64 object-cover w-full">
-            </div>
-            <div class="space-y-4 text-lg text-gray-700">
-                <div>
-                    <span class="font-semibold text-gray-600">Lokasi: </span>
-                    <span id="saranaDetailLocation" class="text-gray-800"></span>
-                </div>
-                <div>
-                    <p id="saranaDetailDescription" class="text-gray-800"></p>
-                </div>
-            </div>
-            <div class="mt-8 text-center">
-                <button class="bg-[#2B643B] text-white font-bold py-3 px-8 rounded-full shadow-lg hover:bg-[#1A3F2A] transition-all duration-300" onclick="closeSaranaDetailModal()">Tutup</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Carousel Detail Modal (from user's code) -->
-    <div id="carouselDetailModal" class="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-[200] hidden">
-        <div class="bg-white p-6 rounded-lg shadow-xl max-w-2xl w-full mx-4 relative animate-modal-in">
-            <button class="absolute top-4 right-4 text-gray-600 hover:text-gray-900 text-2xl" onclick="closeCarouselDetailModal()">
-                <i class="fas fa-times"></i>
-            </button>
-            <h2 id="carouselTitle" class="text-3xl font-bold text-[#1C4532] mb-6 text-center"></h2>
-            <div class="relative w-full overflow-hidden rounded-lg shadow-md" id="carouselContainer">
-                <div id="carouselInnerWrapper" class="flex w-full transition-transform duration-300">
-                    <!-- Slides will be injected here -->
-                </div>
-            </div>
-            <div class="flex justify-center mt-4 space-x-2" id="carouselDots">
-                <!-- Dots will be injected here -->
-            </div>
-            <div class="absolute inset-y-0 left-0 flex items-center">
-                <button id="prevSlideCarousel" class="bg-white bg-opacity-75 rounded-full p-2 ml-2 shadow-lg hover:bg-opacity-100 transition-colors duration-200">
-                    <i class="fas fa-chevron-left text-gray-600"></i>
-                </button>
-            </div>
-            <div class="absolute inset-y-0 right-0 flex items-center">
-                <button id="nextSlideCarousel" class="bg-white bg-opacity-75 rounded-full p-2 mr-2 shadow-lg hover:bg-opacity-100 transition-colors duration-200">
-                    <i class="fas fa-chevron-right text-gray-600"></i>
-                </button>
-            </div>
-            <div class="mt-8 text-center">
-                <button class="bg-[#2B643B] text-white font-bold py-3 px-8 rounded-full shadow-lg hover:bg-[#1A3F2A] transition-all duration-300" onclick="closeCarouselDetailModal()">Tutup</button>
-            </div>
-        </div>
-    </div>
-
 
     <script>
         // --- Mobile Menu Logic ---
@@ -918,7 +665,7 @@
         });
 
         mobileMenuOverlay.addEventListener('click', () => {
-            closeMobileMenuButton.click();
+            closeMobileMenuButton.click(); // Simulate click on close button
         });
 
         // --- Contact Modal Logic ---
@@ -928,7 +675,7 @@
 
         function openContactModal() {
             contactModal.classList.remove('hidden');
-            closeMobileMenuButton.click();
+            closeMobileMenuButton.click(); // Close mobile menu if open
         }
 
         function closeContactModal() {
@@ -938,11 +685,11 @@
         openContactModalBtn.addEventListener('click', openContactModal);
         openContactModalBtnMobile.addEventListener('click', openContactModal);
 
-        // --- Carousel Detail Modal Logic (from user's code) ---
+        // --- Carousel Detail Modal Logic ---
         const carouselDetailModal = document.getElementById('carouselDetailModal');
         const carouselTitle = document.getElementById('carouselTitle');
         const carouselContainer = document.getElementById('carouselContainer');
-        const carouselInnerWrapper = document.getElementById('carouselInnerWrapper');
+        const carouselInnerWrapper = document.getElementById('carouselInnerWrapper'); // Get the new inner wrapper
         const prevSlideCarouselBtn = document.getElementById('prevSlideCarousel');
         const nextSlideCarouselBtn = document.getElementById('nextSlideCarousel');
         const carouselDotsContainer = document.getElementById('carouselDots');
@@ -950,7 +697,7 @@
         let currentSlideIndex = 0;
         let currentSlidesData = [];
 
-        function showCarouselDetail(title, slides) {
+        function showCarouselDetail(title, initialValue, slides) {
             carouselTitle.textContent = title;
             currentSlidesData = slides;
             currentSlideIndex = 0;
@@ -959,12 +706,12 @@
         }
 
         function renderCarouselSlides() {
-            carouselInnerWrapper.innerHTML = '';
+            carouselInnerWrapper.innerHTML = ''; // Clear inner wrapper
             carouselDotsContainer.innerHTML = '';
 
             currentSlidesData.forEach((slide, index) => {
                 const slideDiv = document.createElement('div');
-                slideDiv.className = `w-full flex-shrink-0 text-center`;
+                slideDiv.className = `w-full flex-shrink-0 text-center`; // Simplified class for individual slide
                 slideDiv.innerHTML = `
                     <img src="${slide.url}" alt="${slide.name}" class="w-full h-64 md:h-96 object-cover rounded-lg shadow-md mx-auto">
                     <div class="carousel-slide-content mt-4">
@@ -973,7 +720,7 @@
                         ${slide.description ? `<p class="text-gray-500 text-sm mt-2">${slide.description}</p>` : ''}
                     </div>
                 `;
-                carouselInnerWrapper.appendChild(slideDiv);
+                carouselInnerWrapper.appendChild(slideDiv); // Append to inner wrapper
 
                 const dot = document.createElement('span');
                 dot.className = `block w-3 h-3 rounded-full bg-gray-400 cursor-pointer transition-colors duration-200 ${index === currentSlideIndex ? '!bg-[#1A3F2A]' : ''}`;
@@ -984,20 +731,22 @@
                 carouselDotsContainer.appendChild(dot);
             });
 
+            // Adjust container height to match the current slide's image height
             const firstImage = carouselInnerWrapper.querySelector('img');
             if (firstImage) {
-                firstImage.onload = () => {
+                firstImage.onload = () => { // Ensure image is loaded before setting height
                     carouselContainer.style.height = `${firstImage.offsetHeight}px`;
-                    updateCarouselVisibility();
+                    updateCarouselVisibility(); // Update visibility after image loads to ensure correct initial position
                 };
-                if (firstImage.complete) {
+                if (firstImage.complete) { // If image is already loaded
                     carouselContainer.style.height = `${firstImage.offsetHeight}px`;
                 }
             }
-            updateCarouselVisibility();
+            updateCarouselVisibility(); // Initial positioning
         }
 
         function updateCarouselVisibility() {
+            // Apply transform to the inner wrapper to slide all content
             carouselInnerWrapper.style.transform = `translateX(-${currentSlideIndex * 100}%)`;
 
             const dots = carouselDotsContainer.querySelectorAll('span');
@@ -1024,7 +773,7 @@
             carouselDetailModal.classList.add('hidden');
         }
 
-        // --- Category List Modal Logic (from user's code) ---
+        // --- Category List Modal Logic ---
         const categoryListModal = document.getElementById('categoryListModal');
         const categoryListTitle = document.getElementById('categoryListTitle');
         const categoryListImageContainer = document.getElementById('categoryListImageContainer');
@@ -1033,7 +782,7 @@
 
         function openCategoryListModal(title, imageUrl, items, showImage) {
             categoryListTitle.textContent = title;
-            categoryListItems.innerHTML = '';
+            categoryListItems.innerHTML = ''; // Clear previous items
 
             if (showImage && imageUrl) {
                 categoryListImage.src = imageUrl;
@@ -1049,12 +798,13 @@
                     <span class="font-semibold text-gray-800">${item.name}</span>
                     <span class="text-[#1A3F2A] font-bold">${item.value}</span>
                 `;
+                // Add description if available
                 if (item.description) {
                     const descriptionP = document.createElement('p');
                     descriptionP.className = 'text-gray-500 text-sm mt-1';
                     descriptionP.textContent = item.description;
                     listItem.appendChild(descriptionP);
-                    listItem.classList.add('flex-col', 'items-start');
+                    listItem.classList.add('flex-col', 'items-start'); // Adjust layout for description
                 }
                 categoryListItems.appendChild(listItem);
             });
@@ -1066,7 +816,7 @@
             categoryListModal.classList.add('hidden');
         }
 
-        // --- Monography Detail Modal Logic (from user's code) ---
+        // --- Monography Detail Modal Logic ---
         const monographyDetailModal = document.getElementById('monographyDetailModal');
         const openMonographyModalBtn = document.getElementById('openMonographyModal');
 
@@ -1078,61 +828,21 @@
             monographyDetailModal.classList.add('hidden');
         }
 
-        if (openMonographyModalBtn) {
-            openMonographyModalBtn.addEventListener('click', openMonographyModal);
-        }
+        openMonographyModalBtn.addEventListener('click', openMonographyModal);
 
-        // --- NEW Logic for Sarana Detail Modal ---
-        const saranaDetailModal = document.getElementById('saranaDetailModal');
-        const saranaDetailTitle = document.getElementById('saranaDetailTitle');
-        const saranaDetailImage = document.getElementById('saranaDetailImage');
-        const saranaDetailLocation = document.getElementById('saranaDetailLocation');
-        const saranaDetailDescription = document.getElementById('saranaDetailDescription');
-        
-        function openSaranaDetailModal(title, imageUrl, description, location) {
-            saranaDetailTitle.textContent = title;
-            saranaDetailImage.src = imageUrl;
-            saranaDetailImage.alt = title;
-            saranaDetailLocation.textContent = location;
-            saranaDetailDescription.textContent = description;
-            
-            saranaDetailModal.classList.remove('hidden');
-        }
+        // --- D3.js Chart Rendering ---
 
-        function closeSaranaDetailModal() {
-            saranaDetailModal.classList.add('hidden');
-        }
-
-        // --- Logic for Pie Charts (from user's code) ---
-        const pekerjaanData = [
-            { label: "Montir", value: 1 },
-            { label: "Tukang Batu", value: 5 },
-            { label: "Tukang Kayu", value: 8 },
-            { label: "Tukang Jahit", value: 30 },
-            { label: "Tukang Rias", value: 1 },
-            { label: "Tukang Anyaman", value: 2 },
-            { label: "Pegawai Negeri Sipil ", value: 21 },
-            { label: "Pemilik usaha warung, rumah makan, restoran", value: 20 },
-            { label: "TNI", value: 2 },
-            { label: "POLRI", value: 4 },
-            { label: "Pensiunan PNS", value: 6 },
-            { label: "Jasa Penyewaan Peralatan Pesta", value: 1 },
-            { label: "Bidan", value: 1 },
-        ];
-
-        const jenisKelaminData = [
-            { label: "Laki-laki", value: 2323 },
-            { label: "Perempuan", value: 2102 }
-        ];
-
+        // Function to render Pie Chart
         function renderPieChart(containerId, data, titleText) {
             const container = document.getElementById(containerId);
-            if (!container) return;
+            if (!container) return; // Exit if container not found
+
+            // Clear previous chart
             d3.select(container).select("svg").remove();
 
             const width = container.clientWidth;
-            const height = Math.min(width, 400);
-            const radius = Math.min(width, height) / 2 - 20;
+            const height = Math.min(width, 400); // Max height 400px, responsive
+            const radius = Math.min(width, height) / 2 - 20; // Adjusted radius
 
             const svg = d3.select(container)
                 .append("svg")
@@ -1141,12 +851,25 @@
                 .append("g")
                 .attr("transform", `translate(${width / 2}, ${height / 2})`);
 
-            const pie = d3.pie().value(d => d.value).sort(null);
-            const arc = d3.arc().innerRadius(radius * 0.6).outerRadius(radius);
-            const outerArc = d3.arc().innerRadius(radius * 0.9).outerRadius(radius * 0.9);
+            const pie = d3.pie()
+                .value(d => d.value)
+                .sort(null);
+
+            const arc = d3.arc()
+                .innerRadius(radius * 0.6) // Donut chart
+                .outerRadius(radius);
+
+            const outerArc = d3.arc()
+                .innerRadius(radius * 0.9)
+                .outerRadius(radius * 0.9);
+
             const color = d3.scaleOrdinal(d3.schemeCategory10);
 
-            const arcs = svg.selectAll(".arc").data(pie(data)).enter().append("g").attr("class", "arc");
+            const arcs = svg.selectAll(".arc")
+                .data(pie(data))
+                .enter()
+                .append("g")
+                .attr("class", "arc");
 
             arcs.append("path")
                 .attr("d", arc)
@@ -1163,16 +886,26 @@
                     };
                 });
 
+            // Add hover effects
             arcs.on("mouseover", function(event, d) {
                 d3.select(this).select("path")
-                    .transition().duration(200).attr("d", d3.arc().innerRadius(radius * 0.6).outerRadius(radius * 1.05));
+                    .transition()
+                    .duration(200)
+                    .attr("d", d3.arc().innerRadius(radius * 0.6).outerRadius(radius * 1.05)); // Slightly enlarge
                 d3.select(this).select("text")
-                    .transition().duration(200).attr("font-size", "1em");
-            }).on("mouseout", function(event, d) {
+                    .transition()
+                    .duration(200)
+                    .attr("font-size", "1em"); // Make text slightly larger
+            })
+            .on("mouseout", function(event, d) {
                 d3.select(this).select("path")
-                    .transition().duration(200).attr("d", arc);
+                    .transition()
+                    .duration(200)
+                    .attr("d", arc); // Revert size
                 d3.select(this).select("text")
-                    .transition().duration(200).attr("font-size", "0.8em");
+                    .transition()
+                    .duration(200)
+                    .attr("font-size", "0.8em"); // Revert text size
             });
 
             arcs.append("text")
@@ -1180,14 +913,15 @@
                 .attr("dy", "0.35em")
                 .attr("font-size", "0.8em")
                 .attr("text-anchor", d => (d.endAngle + d.startAngle) / 2 > Math.PI ? "end" : "start")
-                .text(d => `${d.data.label} (${d.data.value})`)
+                .text(d => `${d.data.label} (${d.data.value}%)`)
                 .style("fill", "#333")
-                .style("opacity", 0)
+                .style("opacity", 0) // Start hidden
                 .transition()
-                .delay(750)
+                .delay(750) // Appear after animation
                 .duration(500)
                 .style("opacity", 1);
 
+            // Add a title to the center of the donut
             svg.append("text")
                 .attr("text-anchor", "middle")
                 .attr("dy", "0.35em")
@@ -1197,6 +931,14 @@
                 .style("fill", "#333");
         }
 
+        // Data for charts
+
+        const jenisKelaminData = [
+            { label: "Laki-laki", value: 2.323 },
+            { label: "Perempuan", value: 2.102 }
+        ];
+
+        // Render charts on window load and resize
         function initializeCharts() {
             renderPieChart('pekerjaan-chart-container', pekerjaanData, 'Pekerjaan');
             renderPieChart('jenis-kelamin-chart-container', jenisKelaminData, 'Jenis Kelamin');
@@ -1205,18 +947,21 @@
         window.addEventListener('load', initializeCharts);
         window.addEventListener('resize', initializeCharts);
 
+        // Ensure chart containers are visible for D3 to calculate dimensions
+        // This might be needed if they start hidden by default due to animations
         document.querySelectorAll('.chart-section').forEach(el => {
             el.style.opacity = '1';
             el.style.transform = 'translateY(0)';
         });
 
-        // --- Sarana Prasarana Horizontal Scroll Logic (from user's code) ---
+        // --- Sarana Prasarana Horizontal Scroll Logic ---
         const scrollContainer = document.getElementById('sarana-prasarana-scroll-container');
         const slideLeftBtn = document.getElementById('slideLeftBtn');
         const slideRightBtn = document.getElementById('slideRightBtn');
 
+        // Function to scroll the container
         function scrollSaranaPrasarana(direction) {
-            const scrollAmount = 300;
+            const scrollAmount = 300; // Adjust scroll amount as needed
             if (direction === 'left') {
                 scrollContainer.scrollBy({
                     left: -scrollAmount,
@@ -1230,8 +975,14 @@
             }
         }
 
+        // Add event listeners for slide buttons
         slideLeftBtn.addEventListener('click', () => scrollSaranaPrasarana('left'));
         slideRightBtn.addEventListener('click', () => scrollSaranaPrasarana('right'));
+
+        // Optional: Hide/Show buttons based on scroll position (more advanced)
+        // You would need to add an event listener for 'scroll' on scrollContainer
+        // and check scrollLeft and scrollWidth to determine button visibility.
+
     </script>
 </body>
 </html>
