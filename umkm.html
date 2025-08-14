@@ -372,23 +372,22 @@
             <h1 class="section-title">Potensi Kelurahan</h1>
             <p class="text-xl text-gray-600 mt-2 mb-8">Jelajahi berbagai potensi unggulan yang dimiliki Kelurahan Amparita.</p>
 
-            <div class="relative w-full max-w-[888px] mx-auto"> <!-- Added max-w-[888px] and mx-auto for centering -->
-                <div id="potensi-scroll-container" class="flex flex-nowrap overflow-x-auto gap-6 pb-4 scrollbar-hide">
+            <div id="potensi-scroll-container" class="overflow-x-auto scrollbar-hide pb-4">
+                <div class="flex gap-6 justify-center w-fit mx-auto">
                     <!-- Potensi Pertanian Card -->
                     <div class="content-card cursor-pointer" onclick="showDetailModal({
                         type: 'potensi',
-                        title: 'Potensi Pertanian',
+                        title: 'Sawah / Padi',
                         image: 'images/sawah.jpg',
-                        description: 'Kelurahan Amparita memiliki lahan subur yang cocok untuk berbagai jenis pertanian. Komoditas unggulan meliputi padi, jagung, dan sayuran organik. Sistem irigasi yang memadai mendukung produktivitas pertanian sepanjang tahun.',
+                        description: 'Kelurahan Amparita memiliki lahan subur yang cocok untuk berbagai jenis pertanian. Komoditas unggulan meliputi padi. Sistem irigasi yang memadai mendukung produktivitas pertanian sepanjang tahun.',
                         details: [
-                            {label: 'Komoditas Utama', value: 'Padi, Jagung, Sayuran'},
-                            {label: 'Luas Lahan', value: '± 500 Ha'},
+                            {label: 'Komoditas Utama', value: 'Padi, Sawah'},
                             {label: 'Sistem Irigasi', value: 'Terpadu'}
                         ]
                     })">
-                        <img src="images/sawah.jpg" alt="Potensi Pertanian">
+                        <img src="images/sawah.jpg" alt="Potensi Sawah / Padi">
                         <div class="card-content">
-                            <h3>Pertanian</h3>
+                            <h3>Sawah / Padi</h3>
                             <p>Lahan Subur & Komoditas Unggulan</p>
                             <button>Detail</button>
                         </div>
@@ -397,62 +396,22 @@
                     <!-- Potensi Pariwisata Card -->
                     <div class="content-card cursor-pointer" onclick="showDetailModal({
                         type: 'potensi',
-                        title: 'Potensi Pariwisata',
-                        image: 'https://placehold.co/600x400/1C4532/FFFFFF?text=Wisata+Alam',
-                        description: 'Keindahan alam Kelurahan Amparita menawarkan potensi besar untuk pengembangan pariwisata. Terdapat beberapa titik menarik seperti air terjun tersembunyi, pemandangan perbukitan hijau, dan sungai yang jernih cocok untuk ekowisata.',
+                        title: 'Sawah / Padi',
+                        image: 'images/sawah.jpg',
+                        description: 'Kelurahan Amparita memiliki lahan subur yang cocok untuk berbagai jenis pertanian. Selain padi, komoditas unggulan meliputi jagung. Hasilnya dimanfaatkan dengan baik oleh warga.',
                         details: [
-                            {label: 'Jenis Wisata', value: 'Ekowisata, Alam'},
-                            {label: 'Objek Wisata', value: 'Air Terjun, Perbukitan, Sungai'},
-                            {label: 'Aksesibilitas', value: 'Cukup Mudah'}
+                            {label: 'Komoditas Utama', value: 'Padi, Sawah'},
+                            {label: 'Sistem Irigasi', value: 'Terpadu'}
                         ]
                     })">
-                        <img src="https://placehold.co/600x400/1C4532/FFFFFF?text=Pariwisata" alt="Potensi Pariwisata">
+                        <img src="images/sawah.jpg" alt="Potensi Sawah / Padi">
                         <div class="card-content">
-                            <h3>Pariwisata</h3>
-                            <p>Keindahan Alam Tersembunyi</p>
+                            <h3>Jagung</h3>
+                            <p>Lahan Subur & Komoditas Unggulan</p>
                             <button>Detail</button>
                         </div>
                     </div>
 
-                    <!-- Potensi Kerajinan Tangan Card -->
-                    <div class="content-card cursor-pointer" onclick="showDetailModal({
-                        type: 'potensi',
-                        title: 'Potensi Kerajinan Tangan',
-                        image: 'https://placehold.co/600x400/1C4532/FFFFFF?text=Kerajinan+Lokal',
-                        description: 'Masyarakat Amparita memiliki keterampilan turun-temurun dalam membuat kerajinan tangan dari bahan alami seperti anyaman bambu, ukiran kayu, dan tenun tradisional. Produk-produk ini memiliki nilai seni dan ekonomi tinggi.',
-                        details: [
-                            {label: 'Bahan Baku', value: 'Bambu, Kayu, Benang Alami'},
-                            {label: 'Jenis Kerajinan', value: 'Anyaman, Ukiran, Tenun'},
-                            {label: 'Pasar', value: 'Lokal & Potensi Ekspor'}
-                        ]
-                    })">
-                        <img src="https://placehold.co/600x400/1C4532/FFFFFF?text=Kerajinan" alt="Potensi Kerajinan Tangan">
-                        <div class="card-content">
-                            <h3>Kerajinan Tangan</h3>
-                            <p>Karya Seni Lokal Bernilai Tinggi</p>
-                            <button>Detail</button>
-                        </div>
-                    </div>
-
-                    <!-- Potensi Perikanan Card -->
-                    <div class="content-card cursor-pointer" onclick="showDetailModal({
-                        type: 'potensi',
-                        title: 'Potensi Perikanan',
-                        image: 'https://placehold.co/600x400/1C4532/FFFFFF?text=Perikanan+Tambak',
-                        description: 'Dengan adanya sungai dan beberapa tambak, Kelurahan Amparita juga mengembangkan potensi perikanan air tawar. Jenis ikan yang dibudidayakan antara lain lele, nila, dan gurame, yang menjadi sumber protein lokal.',
-                        details: [
-                            {label: 'Jenis Ikan', value: 'Lele, Nila, Gurame'},
-                            {label: 'Sumber Air', value: 'Sungai, Tambak'},
-                            {label: 'Produksi', value: 'Cukup untuk Kebutuhan Lokal'}
-                        ]
-                    })">
-                        <img src="https://placehold.co/600x400/1C4532/FFFFFF?text=Perikanan" alt="Potensi Perikanan">
-                        <div class="card-content">
-                            <h3>Perikanan</h3>
-                            <p>Budidaya Ikan Air Tawar</p>
-                            <button>Detail</button>
-                        </div>
-                    </div>
                 </div>
                 <button id="potensiLeftBtn" class="slide-button left">
                     <i class="fas fa-chevron-left"></i>
@@ -1266,7 +1225,6 @@
                 </button>
             </div>
         </div>
-
     </div>
 
     <!-- Footer Section -->
