@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UMKM & Potensi Desa - Kelurahan Amparita</title>
+    <title>UMKM & Potensi Kelurahan - Kelurahan Amparita</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Font Awesome untuk ikon -->
@@ -232,7 +232,7 @@
 
         /* Hero section specific styles */
         .hero-section {
-            background-image: url('https://placehold.co/1920x600/2B643B/E0FFE0?text=Desa+Amparita+Sejahtera'); /* More vibrant placeholder image */
+            background-image: url('https://placehold.co/1920x600/2B643B/E0FFE0?text=Kelurahan+Amparita+Sejahtera'); /* More vibrant placeholder image */
             background-size: cover;
             background-position: center;
             position: relative;
@@ -290,7 +290,7 @@
     <!-- Header/Navbar -->
     <header class="fixed top-0 left-0 right-0 z-[100] bg-white shadow-lg py-4">
         <nav class="container mx-auto flex items-center justify-between px-4">
-            <!-- Logo, Nama Desa, dan Menu Navigasi (kiri) -->
+            <!-- Logo, Nama Kelurahan, dan Menu Navigasi (kiri) -->
             <div class="flex items-center space-x-6">
                 <!-- Logo berupa gambar -->
                 <img src="https://placehold.co/40x40/1C4532/FFFFFF?text=Logo" alt="Logo Kelurahan Amparita" class="h-10 w-10 rounded-full">
@@ -318,9 +318,9 @@
                     </li>
                 </ul>
             </div>
-            <!-- Tombol Kontak Desa (kanan) -->
+            <!-- Tombol Kontak Kelurahan (kanan) -->
             <button id="openContactModalBtn" class="hidden lg:inline-flex items-center justify-center bg-[#2B643B] text-white font-bold py-2 px-6 rounded-full shadow-lg hover:bg-[#1A3F2A] transition-all duration-300 transform hover:scale-105 group text-sm">
-                Kontak Desa
+                Kontak Kelurahan
                 <i class="fas fa-phone-alt ml-2 group-hover:rotate-6 transition-transform duration-200"></i>
             </button>
             <!-- Mobile Menu Button -->
@@ -348,7 +348,7 @@
                 <li><a class="block font-semibold px-4 py-2 rounded-lg text-gray-800 hover:bg-[#1C4532] hover:text-white transition-all duration-300" href="tentang.html">Tentang</a></li>
                 <li>
                     <button id="openContactModalBtnMobile" class="w-full bg-[#2B643B] text-white font-bold py-2 px-6 rounded-full shadow-lg hover:bg-[#1A3F2A] transition-all duration-300 transform hover:scale-105 group text-sm mt-4">
-                        Kontak Desa
+                        Kontak Kelurahan
                         <i class="fas fa-phone-alt ml-2 group-hover:rotate-6 transition-transform duration-200"></i>
                     </button>
                 </li>
@@ -358,18 +358,18 @@
 
     <div class="relative pt-24 md:pt-32 flex-grow"> <!-- Adjusted padding top for fixed header -->
 
-        <!-- Hero Section for UMKM & Potensi Desa -->
+        <!-- Hero Section for UMKM & Potensi Kelurahan -->
         <div class="hero-section mx-auto container animate-fade-in-up">
             <div class="hero-overlay rounded-lg"></div>
             <div class="hero-content">
-                <h1 class="hero-title">UMKM & Potensi Unggulan Desa</h1>
+                <h1 class="hero-title">UMKM & Potensi Unggulan Kelurahan</h1>
                 <p class="hero-subtitle">Jelajahi kekayaan dan kreativitas lokal Kelurahan Amparita.</p>
             </div>
         </div>
 
-        <!-- Potensi Desa Section -->
-        <div class="container mx-auto px-4 py-8 md:px-8 md:py-12 bg-white rounded-lg shadow-xl my-8">
-            <h1 class="section-title">Potensi Desa</h1>
+        <!-- Potensi Kelurahan Section -->
+        <div class="container mx-auto px-4 py-8 md:px-8 md:py-12 rounded-lg shadow-xl my-8" style="background-color: #E6FFE6;">
+            <h1 class="section-title">Potensi Kelurahan</h1>
             <p class="text-xl text-gray-600 mt-2 mb-8">Jelajahi berbagai potensi unggulan yang dimiliki Kelurahan Amparita.</p>
 
             <div class="relative w-full max-w-[888px] mx-auto"> <!-- Added max-w-[888px] and mx-auto for centering -->
@@ -378,7 +378,7 @@
                     <div class="content-card cursor-pointer" onclick="showDetailModal({
                         type: 'potensi',
                         title: 'Potensi Pertanian',
-                        image: 'https://placehold.co/600x400/1C4532/FFFFFF?text=Pertanian+Amparita',
+                        image: 'images/sawah.jpg',
                         description: 'Kelurahan Amparita memiliki lahan subur yang cocok untuk berbagai jenis pertanian. Komoditas unggulan meliputi padi, jagung, dan sayuran organik. Sistem irigasi yang memadai mendukung produktivitas pertanian sepanjang tahun.',
                         details: [
                             {label: 'Komoditas Utama', value: 'Padi, Jagung, Sayuran'},
@@ -386,7 +386,7 @@
                             {label: 'Sistem Irigasi', value: 'Terpadu'}
                         ]
                     })">
-                        <img src="https://placehold.co/600x400/1C4532/FFFFFF?text=Pertanian" alt="Potensi Pertanian">
+                        <img src="images/sawah.jpg" alt="Potensi Pertanian">
                         <div class="card-content">
                             <h3>Pertanian</h3>
                             <p>Lahan Subur & Komoditas Unggulan</p>
@@ -464,7 +464,7 @@
         </div>
 
         <!-- UMKM Section -->
-        <div class="container mx-auto px-4 py-8 md:px-8 md:py-12 bg-white rounded-lg shadow-xl my-8">
+        <div class="container mx-auto px-4 py-8 md:px-8 md:py-12 rounded-lg shadow-xl my-8" style="background-color: #E6FFE6;">
             <h1 class="section-title">UMKM Unggulan</h1>
             <p class="text-xl text-gray-600 mt-2 mb-8">Dukung usaha mikro, kecil, dan menengah lokal Kelurahan Amparita.</p>
 
@@ -473,21 +473,17 @@
                     <!-- UMKM Makanan 1 Card -->
                     <div class="content-card cursor-pointer" onclick="showDetailModal({
                         type: 'umkm',
-                        title: 'Keripik Singkong Renyah',
-                        image: 'https://placehold.co/600x400/2B643B/FFFFFF?text=Keripik+Singkong',
-                        description: 'UMKM ini memproduksi keripik singkong dengan berbagai varian rasa, diolah secara tradisional dan tanpa bahan pengawet. Cocok sebagai camilan keluarga atau oleh-oleh khas desa.',
+                        title: '41 Cellular',
+                        image: 'umkm/41 Cellular_085825222457_Foto.jpg',
                         details: [
-                            {label: 'Kategori', value: 'Makanan Ringan'},
-                            {label: 'Pemilik', value: 'Ibu Siti'},
-                            {label: 'Produk Unggulan', value: 'Rasa Original, Pedas, Balado'},
-                            {label: 'Status', value: 'Aktif Sejak 2018'},
-                            {label: 'WhatsApp', value: '6281234567890'} // Example WhatsApp number
+                            {label: 'Kategori', value: 'Konter'},
+                            {label: 'WhatsApp', value: '085825222457'} // Example WhatsApp number
                         ]
                     })">
-                        <img src="https://placehold.co/600x400/2B643B/FFFFFF?text=Keripik+Singkong" alt="Keripik Singkong Renyah">
+                        <img src="umkm/41 Cellular_085825222457_Foto.jpg" alt="Keripik Singkong Renyah">
                         <div class="card-content">
-                            <h3>Keripik Singkong Renyah</h3>
-                            <p>Makanan Ringan</p>
+                            <h3>41 Cellular</h3>
+                            <p>Konter</p>
                             <button>Detail</button>
                         </div>
                     </div>
@@ -495,21 +491,17 @@
                     <!-- UMKM Kerajinan 1 Card -->
                     <div class="content-card cursor-pointer" onclick="showDetailModal({
                         type: 'umkm',
-                        title: 'Anyaman Bambu Kreatif',
-                        image: 'https://placehold.co/600x400/2B643B/FFFFFF?text=Anyaman+Bambu',
-                        description: 'UMKM ini menghasilkan berbagai produk anyaman bambu seperti tas, topi, dan dekorasi rumah. Semua produk dibuat secara manual oleh pengrajin lokal dengan desain unik dan ramah lingkungan.',
+                        title: '53 Cell',
+                        image: 'umkm/53 Cell Agen BRILink_081321506249_Foto.jpg',
                         details: [
-                            {label: 'Kategori', value: 'Kerajinan Tangan'},
-                            {label: 'Pemilik', value: 'Bapak Budi'},
-                            {label: 'Produk Unggulan', value: 'Tas Anyaman, Lampu Hias Bambu'},
-                            {label: 'Status', value: 'Aktif Sejak 2015'},
+                            {label: 'Kategori', value: 'Konter dan Agen BRILink'},
                             {label: 'WhatsApp', value: '6281234567891'} // Example WhatsApp number
                         ]
                     })">
-                        <img src="https://placehold.co/600x400/2B643B/FFFFFF?text=Anyaman+Bambu" alt="Anyaman Bambu Kreatif">
+                        <img src="umkm/53 Cell Agen BRILink_081321506249_Foto.jpg" alt="Anyaman Bambu Kreatif">
                         <div class="card-content">
-                            <h3>Anyaman Bambu Kreatif</h3>
-                            <p>Kerajinan Tangan</p>
+                            <h3>53 Cell</h3>
+                            <p>Konter dan Agen BRILink</p>
                             <button>Detail</button>
                         </div>
                     </div>
@@ -517,21 +509,17 @@
                     <!-- UMKM Minuman 1 Card -->
                     <div class="content-card cursor-pointer" onclick="showDetailModal({
                         type: 'umkm',
-                        title: 'Sirup Jahe Merah Tradisional',
-                        image: 'https://placehold.co/600x400/2B643B/FFFFFF?text=Sirup+Jahe',
-                        description: 'Sirup jahe merah ini diolah dari jahe merah pilihan hasil pertanian lokal, tanpa tambahan pengawet dan pemanis buatan. Berkhasiat menghangatkan tubuh dan meningkatkan daya tahan.',
+                        title: 'Kios Manguruseng',
+                        image: 'umkm/Kios Manguruseng_085696196276_Foto.jpg',
                         details: [
-                            {label: 'Kategori', value: 'Minuman Herbal'},
-                            {label: 'Pemilik', value: 'Nenek Aminah'},
-                            {label: 'Produk Unggulan', value: 'Sirup Jahe Merah Original'},
-                            {label: 'Status', value: 'Aktif Sejak 2010'},
-                            {label: 'WhatsApp', value: '6281234567892'} // Example WhatsApp number
+                            {label: 'Kategori', value: 'Kios'},
+                            {label: 'WhatsApp', value: '085696196276'} // Example WhatsApp number
                         ]
                     })">
-                        <img src="https://placehold.co/600x400/2B643B/FFFFFF?text=Sirup+Jahe" alt="Sirup Jahe Merah Tradisional">
+                        <img src="umkm/Kios Manguruseng_085696196276_Foto.jpg" alt="Sirup Jahe Merah Tradisional">
                         <div class="card-content">
-                            <h3>Sirup Jahe Merah Tradisional</h3>
-                            <p>Minuman Herbal</p>
+                            <h3>Kios Manguruseng</h3>
+                            <p>Kios</p>
                             <button>Detail</button>
                         </div>
                     </div>
@@ -539,24 +527,736 @@
                     <!-- UMKM Jasa 1 Card -->
                     <div class="content-card cursor-pointer" onclick="showDetailModal({
                         type: 'umkm',
-                        title: 'Jasa Jahit Pakaian Custom',
-                        image: 'https://placehold.co/600x400/2B643B/FFFFFF?text=Jahit+Pakaian',
-                        description: 'Menyediakan jasa jahit pakaian custom untuk berbagai acara, mulai dari seragam sekolah, baju pesta, hingga pakaian sehari-hari. Kualitas jahitan rapi dan harga terjangkau.',
+                        title: 'Art Coffe',
+                        image: 'umkm/Art Coffe_082193878542_Menu.jpg',
                         details: [
-                            {label: 'Kategori', value: 'Jasa Konveksi'},
-                            {label: 'Pemilik', value: 'Bapak Joko'},
-                            {label: 'Layanan', value: 'Jahit Pakaian, Reparasi, Desain Custom'},
-                            {label: 'Status', value: 'Aktif Sejak 2019'},
-                            {label: 'WhatsApp', value: '6281234567893'} // Example WhatsApp number
+                            {label: 'Kategori', value: 'UMKM Minuman'},
+                            {label: 'WhatsApp', value: '082193878542'} // Example WhatsApp number
                         ]
                     })">
-                        <img src="https://placehold.co/600x400/2B643B/FFFFFF?text=Jahit+Pakaian" alt="Jasa Jahit Pakaian Custom">
+                        <img src="umkm/Art Coffe_082193878542_Foto.jpg" alt="Jasa Jahit Pakaian Custom">
                         <div class="card-content">
-                            <h3>Jasa Jahit Pakaian Custom</h3>
-                            <p>Jasa Konveksi</p>
+                            <h3>Art Coffe</h3>
+                            <p>UMKM Minuman</p>
                             <button>Detail</button>
                         </div>
                     </div>
+
+                    <div class="content-card cursor-pointer" onclick="showDetailModal({
+                        type: 'umkm',
+                        title: 'Chaca Cell',
+                        image: 'umkm/Chaca Cell_081779591337_Foto.jpg',
+                        details: [
+                            {label: 'Kategori', value: 'Konter'},
+                            {label: 'WhatsApp', value: '081779591337'} // Example WhatsApp number
+                        ]
+                    })">
+                        <img src="umkm/Chaca Cell_081779591337_Foto.jpg" alt="Jasa Jahit Pakaian Custom">
+                        <div class="card-content">
+                            <h3>Chaca Cell</h3>
+                            <p>Konter</p>
+                            <button>Detail</button>
+                        </div>
+                    </div>
+
+                    <div class="content-card cursor-pointer" onclick="showDetailModal({
+                        type: 'umkm',
+                        title: 'Corndog.mo',
+                        image: 'umkm/Corndog.mo - 082292337887_Foto.jpg',
+                        details: [
+                            {label: 'Kategori', value: 'UMKM Jajanan'},
+                            {label: 'WhatsApp', value: '082292337887'} // Example WhatsApp number
+                        ]
+                    })">
+                        <img src="umkm/Corndog.mo - 082292337887_Foto.jpg" alt="Jasa Jahit Pakaian Custom">
+                        <div class="card-content">
+                            <h3>Corndog.mo</h3>
+                            <p>UMKM Jajanan</p>
+                            <button>Detail</button>
+                        </div>
+                    </div>
+
+                    <div class="content-card cursor-pointer" onclick="showDetailModal({
+                        type: 'umkm',
+                        title: 'Depot Rina Water RO',
+                        image: 'umkm/Depot Rina Water RO_082246878388_Foto.jpg',
+                        details: [
+                            {label: 'Kategori', value: 'Isi Ulang Galon'},
+                            {label: 'WhatsApp', value: '082246878388'} // Example WhatsApp number
+                        ]
+                    })">
+                        <img src="umkm/Depot Rina Water RO_082246878388_Foto.jpg" alt="Jasa Jahit Pakaian Custom">
+                        <div class="card-content">
+                            <h3>Depot Rina Water RO</h3>
+                            <p>Isi Ulang Galon</p>
+                            <button>Detail</button>
+                        </div>
+                    </div>
+
+                    <div class="content-card cursor-pointer" onclick="showDetailModal({
+                        type: 'umkm',
+                        title: 'Dina Salon',
+                        image: 'umkm/Dina Salon_Foto.jpg',
+                        details: [
+                            {label: 'Kategori', value: 'Salon'},
+                            {label: 'WhatsApp', value: '-'} // Example WhatsApp number
+                        ]
+                    })">
+                        <img src="umkm/Dina Salon_Foto.jpg" alt="Jasa Jahit Pakaian Custom">
+                        <div class="card-content">
+                            <h3>Dina Salon</h3>
+                            <p>Isi Ulang Galon</p>
+                            <button>Detail</button>
+                        </div>
+                    </div>
+
+                    <div class="content-card cursor-pointer" onclick="showDetailModal({
+                        type: 'umkm',
+                        title: 'DK Food and Drink',
+                        image: 'umkm/DK_foodanddrink - 082377774526_Menu (2).png',
+                        details: [
+                            {label: 'Kategori', value: 'Warmindo dan UMKM Minuman'},
+                            {label: 'WhatsApp', value: '082377774526'} // Example WhatsApp number
+                        ]
+                    })">
+                        <img src="umkm/DK_foodanddrink - 082377774526_Foto.jpg" alt="Jasa Jahit Pakaian Custom">
+                        <div class="card-content">
+                            <h3>DK Food and Drink</h3>
+                            <p>Warmindo dan UMKM Minuman</p>
+                            <button>Detail</button>
+                        </div>
+                    </div>
+
+                    <div class="content-card cursor-pointer" onclick="showDetailModal({
+                        type: 'umkm',
+                        title: 'Es Teh.Mo',
+                        image: 'umkm/Es Teh Mo_081935987313_Menu.jpg',
+                        details: [
+                            {label: 'Kategori', value: 'UMKM Minuman'},
+                            {label: 'WhatsApp', value: '081935987313'} // Example WhatsApp number
+                        ]
+                    })">
+                        <img src="umkm/Es Teh Mo_081935987313_Foto.jpg" alt="Jasa Jahit Pakaian Custom">
+                        <div class="card-content">
+                            <h3>Es Teh.Mo</h3>
+                            <p>UMKM Minuman</p>
+                            <button>Detail</button>
+                        </div>
+                    </div>
+
+                    <div class="content-card cursor-pointer" onclick="showDetailModal({
+                        type: 'umkm',
+                        title: 'Foto Copy Sinar Harapan',
+                        image: 'umkm/Foto Copy Sinar Harapan_082217956818_Foto.jpg',
+                        details: [
+                            {label: 'Kategori', value: 'Jasa Foto Copy'},
+                            {label: 'WhatsApp', value: '082377774526'} // Example WhatsApp number
+                        ]
+                    })">
+                        <img src="umkm/Foto Copy Sinar Harapan_082217956818_Foto.jpg" alt="Jasa Jahit Pakaian Custom">
+                        <div class="card-content">
+                            <h3>Foto Copy Sinar Harapan</h3>
+                            <p>Jasa Foto Copy</p>
+                            <button>Detail</button>
+                        </div>
+                    </div>
+
+                    <div class="content-card cursor-pointer" onclick="showDetailModal({
+                        type: 'umkm',
+                        title: 'Gorengan, Martabak dan Terang Bulan 151',
+                        image: 'umkm/Gorengan, Martabak dan Terang Bulan 151_085241307919_Menu (2).png',
+                        details: [
+                            {label: 'Kategori', value: 'UMKM Gorengan, Martabak dan Terang Bulan'},
+                            {label: 'WhatsApp', value: '085241307919'} // Example WhatsApp number
+                        ]
+                    })">
+                        <img src="umkm/Gorengan, Martabak dan Terang Bulan 151_085241307919_Foto.jpg" alt="Jasa Jahit Pakaian Custom">
+                        <div class="card-content">
+                            <h3>Gorengan, Martabak dan Terang Bulan 151</h3>
+                            <p>UMKM Gorengan, Martabak dan Terang Bulan</p>
+                            <button>Detail</button>
+                        </div>
+                    </div>
+
+                    <div class="content-card cursor-pointer" onclick="showDetailModal({
+                        type: 'umkm',
+                        title: 'Indomaret Amparita',
+                        image: 'umkm/Indomaret Amparita_085395613775_Foto.jpg',
+                        details: [
+                            {label: 'Kategori', value: 'Super Market'},
+                            {label: 'WhatsApp', value: '085395613775'} // Example WhatsApp number
+                        ]
+                    })">
+                        <img src="umkm/Indomaret Amparita_085395613775_Foto.jpg" alt="Jasa Jahit Pakaian Custom">
+                        <div class="card-content">
+                            <h3>Indomaret Amparita</h3>
+                            <p>Super Market</p>
+                            <button>Detail</button>
+                        </div>
+                    </div>
+
+                    <div class="content-card cursor-pointer" onclick="showDetailModal({
+                        type: 'umkm',
+                        title: 'Kedai Erlang',
+                        image: 'umkm/Kedai Erlang_085311311255_Foto.jpg',
+                        details: [
+                            {label: 'Kategori', value: 'UMKM Minuman'},
+                            {label: 'WhatsApp', value: '085311311255'} // Example WhatsApp number
+                        ]
+                    })">
+                        <img src="umkm/Kedai Erlang_085311311255_Foto.jpg" alt="Jasa Jahit Pakaian Custom">
+                        <div class="card-content">
+                            <h3>Kedai Erlang</h3>
+                            <p>UMKM Minuman</p>
+                            <button>Detail</button>
+                        </div>
+                    </div>
+
+                    <div class="content-card cursor-pointer" onclick="showDetailModal({
+                        type: 'umkm',
+                        title: 'Kedai Es Teh Jumbo',
+                        image: 'umkm/Kedai Es Teh Jumbo_082156803204_Foto.jpg',
+                        details: [
+                            {label: 'Kategori', value: 'UMKM Minuman'},
+                            {label: 'WhatsApp', value: '082156803204'} // Example WhatsApp number
+                        ]
+                    })">
+                        <img src="umkm/Kedai Es Teh Jumbo_082156803204_Foto.jpg" alt="Jasa Jahit Pakaian Custom">
+                        <div class="card-content">
+                            <h3>Kedai Es Teh Jumbo</h3>
+                            <p>UMKM Minuman</p>
+                            <button>Detail</button>
+                        </div>
+                    </div>
+
+                    <div class="content-card cursor-pointer" onclick="showDetailModal({
+                        type: 'umkm',
+                        title: 'Kedai Gen-Z',
+                        image: 'umkm/Kedai Gen-Z_085341046134_Menu.jpg',
+                        details: [
+                            {label: 'Kategori', value: 'UMKM Minuman'},
+                            {label: 'WhatsApp', value: '085341046134'} // Example WhatsApp number
+                        ]
+                    })">
+                        <img src="umkm/Kedai Gen-Z_085341046134_Foto.jpg" alt="Jasa Jahit Pakaian Custom">
+                        <div class="card-content">
+                            <h3>Kedai Gen-Z</h3>
+                            <p>UMKM Minuman</p>
+                            <button>Detail</button>
+                        </div>
+                    </div>
+
+
+                    <div class="content-card cursor-pointer" onclick="showDetailModal({
+                        type: 'umkm',
+                        title: 'Kedai Love Story',
+                        image: 'umkm/Kedai Love Story_082325577777_Menu.png',
+                        details: [
+                            {label: 'Kategori', value: 'UMKM Minuman'},
+                            {label: 'WhatsApp', value: '082325577777'} // Example WhatsApp number
+                        ]
+                    })">
+                        <img src="umkm/Kedai Love Story_082325577777_Foto.jpg" alt="Jasa Jahit Pakaian Custom">
+                        <div class="card-content">
+                            <h3>Kedai Love Story</h3>
+                            <p>UMKM Minuman</p>
+                            <button>Detail</button>
+                        </div>
+                    </div>
+
+                    <div class="content-card cursor-pointer" onclick="showDetailModal({
+                        type: 'umkm',
+                        title: 'Kedai Moms Dila',
+                        image: 'umkm/Kedai Moms Dila_085242379438_Menu.png',
+                        details: [
+                            {label: 'Kategori', value: 'UMKM Jajanan'},
+                            {label: 'WhatsApp', value: '085242379438'} // Example WhatsApp number
+                        ]
+                    })">
+                        <img src="umkm/Kedai Moms Dila_085242379438_Foto.jpg" alt="Jasa Jahit Pakaian Custom">
+                        <div class="card-content">
+                            <h3>Kedai Mom's Dila</h3>
+                            <p>UMKM Jajanan</p>
+                            <button>Detail</button>
+                        </div>
+                    </div>
+
+                    <div class="content-card cursor-pointer" onclick="showDetailModal({
+                        type: 'umkm',
+                        title: 'Kios Asrina',
+                        image: 'umkm/Kios Asrina_085210256982_Foto.jpg',
+                        details: [
+                            {label: 'Kategori', value: 'Kios'},
+                            {label: 'WhatsApp', value: '085210256982'} // Example WhatsApp number
+                        ]
+                    })">
+                        <img src="umkm/Kios Asrina_085210256982_Foto.jpg" alt="Jasa Jahit Pakaian Custom">
+                        <div class="card-content">
+                            <h3>Kios Asrina</h3>
+                            <p>Kios</p>
+                            <button>Detail</button>
+                        </div>
+                    </div>
+
+                    <div class="content-card cursor-pointer" onclick="showDetailModal({
+                        type: 'umkm',
+                        title: 'Kios Ian',
+                        image: 'umkm/Kios Ian_085395216365 (Nursiah)_Foto.jpg',
+                        details: [
+                            {label: 'Kategori', value: 'Kios'},
+                            {label: 'WhatsApp', value: '085395216365'} // Example WhatsApp number
+                        ]
+                    })">
+                        <img src="umkm/Kios Ian_085395216365 (Nursiah)_Foto.jpg" alt="Jasa Jahit Pakaian Custom">
+                        <div class="card-content">
+                            <h3>Kios Ian</h3>
+                            <p>Kios</p>
+                            <button>Detail</button>
+                        </div>
+                    </div>
+
+                    <div class="content-card cursor-pointer" onclick="showDetailModal({
+                        type: 'umkm',
+                        title: 'Kios Jumriani Saleh',
+                        image: 'umkm/Kios Jumriani Saleh_085242339727_Foto.jpg',
+                        details: [
+                            {label: 'Kategori', value: 'Kios'},
+                            {label: 'WhatsApp', value: '085242339727'} // Example WhatsApp number
+                        ]
+                    })">
+                        <img src="umkm/Kios Jumriani Saleh_085242339727_Foto.jpg" alt="Jasa Jahit Pakaian Custom">
+                        <div class="card-content">
+                            <h3>Kios Jumriani Saleh</h3>
+                            <p>Kios</p>
+                            <button>Detail</button>
+                        </div>
+                    </div>
+
+                    <div class="content-card cursor-pointer" onclick="showDetailModal({
+                        type: 'umkm',
+                        title: 'Kios Tiara Cell',
+                        image: 'umkm/Kios Tiara Cell_082271499409_Foto.jpg',
+                        details: [
+                            {label: 'Kategori', value: 'Kios'},
+                            {label: 'WhatsApp', value: '082271499409'} // Example WhatsApp number
+                        ]
+                    })">
+                        <img src="umkm/Kios Tiara Cell_082271499409_Foto.jpg" alt="Jasa Jahit Pakaian Custom">
+                        <div class="card-content">
+                            <h3>Kios Tiara Cell</h3>
+                            <p>Kios</p>
+                            <button>Detail</button>
+                        </div>
+                    </div>
+
+                    <div class="content-card cursor-pointer" onclick="showDetailModal({
+                        type: 'umkm',
+                        title: 'Kios Tingkah',
+                        image: 'umkm/Kios Tingkah_081230146481_Foto.jpg',
+                        details: [
+                            {label: 'Kategori', value: 'Kios'},
+                            {label: 'WhatsApp', value: '081230146481'} // Example WhatsApp number
+                        ]
+                    })">
+                        <img src="umkm/Kios Tingkah_081230146481_Foto.jpg" alt="Jasa Jahit Pakaian Custom">
+                        <div class="card-content">
+                            <h3>Kios Tingkah</h3>
+                            <p>Kios</p>
+                            <button>Detail</button>
+                        </div>
+                    </div>
+
+                    <div class="content-card cursor-pointer" onclick="showDetailModal({
+                        type: 'umkm',
+                        title: 'Kios Tori Salassa',
+                        image: 'umkm/Kios Tori Salassa_082298160953_Foto.jpg',
+                        details: [
+                            {label: 'Kategori', value: 'Kios'},
+                            {label: 'WhatsApp', value: '082298160953'} // Example WhatsApp number
+                        ]
+                    })">
+                        <img src="umkm/Kios Tori Salassa_082298160953_Foto.jpg" alt="Jasa Jahit Pakaian Custom">
+                        <div class="card-content">
+                            <h3>Kios Tori Salassa</h3>
+                            <p>Kios</p>
+                            <button>Detail</button>
+                        </div>
+                    </div>
+
+                    <div class="content-card cursor-pointer" onclick="showDetailModal({
+                        type: 'umkm',
+                        title: 'Lesehan Abdal',
+                        image: 'umkm/Lesehan Abdal_085396130650_Menu.jpg',
+                        details: [
+                            {label: 'Kategori', value: 'UMKM Makanan'},
+                            {label: 'WhatsApp', value: '085396130650'} // Example WhatsApp number
+                        ]
+                    })">
+                        <img src="umkm/Lesehan Abdal_085396130650_Foto.jpg" alt="Jasa Jahit Pakaian Custom">
+                        <div class="card-content">
+                            <h3>Kedai Moms Dila</h3>
+                            <p>UMKM Makanan</p>
+                            <button>Detail</button>
+                        </div>
+                    </div>
+
+                    <div class="content-card cursor-pointer" onclick="showDetailModal({
+                        type: 'umkm',
+                        title: 'Mala Cell',
+                        image: 'umkm/Mala Cell_085233332547_Foto.jpg',
+                        details: [
+                            {label: 'Kategori', value: 'Konter'},
+                            {label: 'WhatsApp', value: '085233332547'} // Example WhatsApp number
+                        ]
+                    })">
+                        <img src="umkm/Mala Cell_085233332547_Foto.jpg" alt="Jasa Jahit Pakaian Custom">
+                        <div class="card-content">
+                            <h3>Mala Cell</h3>
+                            <p>Konter</p>
+                            <button>Detail</button>
+                        </div>
+                    </div>
+
+                    <div class="content-card cursor-pointer" onclick="showDetailModal({
+                        type: 'umkm',
+                        title: 'Oni Service Elektronik',
+                        image: 'umkm/Oni Service Elektronik_081350250950_Foto.jpg',
+                        details: [
+                            {label: 'Kategori', value: 'Jasa Servis'},
+                            {label: 'WhatsApp', value: '081350250950'} // Example WhatsApp number
+                        ]
+                    })">
+                        <img src="umkm/Oni Service Elektronik_081350250950_Foto.jpg" alt="Jasa Jahit Pakaian Custom">
+                        <div class="card-content">
+                            <h3>Oni Service Elektronik</h3>
+                            <p>Jasa Servis</p>
+                            <button>Detail</button>
+                        </div>
+                    </div>
+
+                    <div class="content-card cursor-pointer" onclick="showDetailModal({
+                        type: 'umkm',
+                        title: 'Sempol Ayam Mas Kirun',
+                        image: 'umkm/Sempol Ayam Mas Kirun_087852175598_Foto.jpg',
+                        details: [
+                            {label: 'Kategori', value: 'UMKM Jajanan'},
+                            {label: 'WhatsApp', value: '087852175598'} // Example WhatsApp number
+                        ]
+                    })">
+                        <img src="umkm/Sempol Ayam Mas Kirun_087852175598_Foto.jpg" alt="Jasa Jahit Pakaian Custom">
+                        <div class="card-content">
+                            <h3>Sempol Ayam Mas Kirun</h3>
+                            <p>UMKM Jajanan</p>
+                            <button>Detail</button>
+                        </div>
+                    </div>
+
+                    <div class="content-card cursor-pointer" onclick="showDetailModal({
+                        type: 'umkm',
+                        title: 'Toko Aneka Jaya',
+                        image: 'umkm/Toko Aneka Jaya_08534442888_Foto.jpg',
+                        details: [
+                            {label: 'Kategori', value: 'Toko Bangunan'},
+                            {label: 'WhatsApp', value: '08534442888'} // Example WhatsApp number
+                        ]
+                    })">
+                        <img src="umkm/Toko Aneka Jaya_08534442888_Foto.jpg" alt="Jasa Jahit Pakaian Custom">
+                        <div class="card-content">
+                            <h3>Toko Aneka Jaya</h3>
+                            <p>Toko Bangunan</p>
+                            <button>Detail</button>
+                        </div>
+                    </div>
+
+                    <div class="content-card cursor-pointer" onclick="showDetailModal({
+                        type: 'umkm',
+                        title: 'Toko Darmi',
+                        image: 'umkm/Toko Darmi_Foto.jpg',
+                        details: [
+                            {label: 'Kategori', value: 'Kios'},
+                            {label: 'WhatsApp', value: '-'} // Example WhatsApp number
+                        ]
+                    })">
+                        <img src="umkm/Toko Darmi_Foto.jpg" alt="Jasa Jahit Pakaian Custom">
+                        <div class="card-content">
+                            <h3>Toko Darmi</h3>
+                            <p>Kios</p>
+                            <button>Detail</button>
+                        </div>
+                    </div>
+
+                    <div class="content-card cursor-pointer" onclick="showDetailModal({
+                        type: 'umkm',
+                        title: 'Toko Hajrawati Minimarket',
+                        image: 'umkm/Toko Hajrawati Minimarket_085953791613_Foto.jpg',
+                        details: [
+                            {label: 'Kategori', value: 'Toko'},
+                            {label: 'WhatsApp', value: '085242379438'} // Example WhatsApp number
+                        ]
+                    })">
+                        <img src="umkm/Toko Hajrawati Minimarket_085953791613_Foto.jpg" alt="Jasa Jahit Pakaian Custom">
+                        <div class="card-content">
+                            <h3>Toko Hajrawati Minimarket</h3>
+                            <p>Toko</p>
+                            <button>Detail</button>
+                        </div>
+                    </div>
+
+                    <div class="content-card cursor-pointer" onclick="showDetailModal({
+                        type: 'umkm',
+                        title: 'Toko Masinnai',
+                        image: 'umkm/Toko Masinnai_085342934164_Foto.jpg',
+                        details: [
+                            {label: 'Kategori', value: 'Toko'},
+                            {label: 'WhatsApp', value: '085342934164'} // Example WhatsApp number
+                        ]
+                    })">
+                        <img src="umkm/Toko Masinnai_085342934164_Foto.jpg" alt="Jasa Jahit Pakaian Custom">
+                        <div class="card-content">
+                            <h3>Toko Masinnai</h3>
+                            <p>Toko</p>
+                            <button>Detail</button>
+                        </div>
+                    </div>
+
+                    <div class="content-card cursor-pointer" onclick="showDetailModal({
+                        type: 'umkm',
+                        title: 'Toko Nadlyne Thrifting',
+                        image: 'umkm/Toko Nadlyne Thrifting_081234540972_Foto.jpg',
+                        details: [
+                            {label: 'Kategori', value: 'Toko Pakaian'},
+                            {label: 'WhatsApp', value: '085342934164'} // Example WhatsApp number
+                        ]
+                    })">
+                        <img src="umkm/Toko Nadlyne Thrifting_081234540972_Foto.jpg" alt="Jasa Jahit Pakaian Custom">
+                        <div class="card-content">
+                            <h3>Toko Nadlyne Thrifting</h3>
+                            <p>Toko Pakaian</p>
+                            <button>Detail</button>
+                        </div>
+                    </div>
+
+                    <div class="content-card cursor-pointer" onclick="showDetailModal({
+                        type: 'umkm',
+                        title: 'Toko Paisah Minimarket',
+                        image: 'umkm/Toko Paisah Minimarket_081340712509_Foto.jpg',
+                        details: [
+                            {label: 'Kategori', value: 'Toko'},
+                            {label: 'WhatsApp', value: '081340712509'} // Example WhatsApp number
+                        ]
+                    })">
+                        <img src="umkm/Toko Paisah Minimarket_081340712509_Foto.jpg" alt="Jasa Jahit Pakaian Custom">
+                        <div class="card-content">
+                            <h3>Toko Paisah Minimarket</h3>
+                            <p>Toko</p>
+                            <button>Detail</button>
+                        </div>
+                    </div>
+
+                    <div class="content-card cursor-pointer" onclick="showDetailModal({
+                        type: 'umkm',
+                        title: 'Toko Salma',
+                        image: 'umkm/Toko Salma_082252928262_Foto.jpg',
+                        details: [
+                            {label: 'Kategori', value: 'Toko'},
+                            {label: 'WhatsApp', value: '082252928262'} // Example WhatsApp number
+                        ]
+                    })">
+                        <img src="umkm/Toko Salma_082252928262_Foto.jpg" alt="Jasa Jahit Pakaian Custom">
+                        <div class="card-content">
+                            <h3>Toko Salma</h3>
+                            <p>Toko</p>
+                            <button>Detail</button>
+                        </div>
+                    </div>
+
+                    <div class="content-card cursor-pointer" onclick="showDetailModal({
+                        type: 'umkm',
+                        title: 'Toko Shofyya',
+                        image: 'umkm/Toko Shofyya_081242538407_Foto.jpg',
+                        details: [
+                            {label: 'Kategori', value: 'Toko'},
+                            {label: 'WhatsApp', value: '081242538407'} // Example WhatsApp number
+                        ]
+                    })">
+                        <img src="umkm/Toko Shofyya_081242538407_Foto.jpg" alt="Jasa Jahit Pakaian Custom">
+                        <div class="card-content">
+                            <h3>Toko Shofyya</h3>
+                            <p>Toko</p>
+                            <button>Detail</button>
+                        </div>
+                    </div>
+
+                    <div class="content-card cursor-pointer" onclick="showDetailModal({
+                        type: 'umkm',
+                        title: 'Toko Zaenab',
+                        image: 'umkm/Toko Zaenab_Foto.jpg',
+                        details: [
+                            {label: 'Kategori', value: 'Toko'},
+                            {label: 'WhatsApp', value: '-'} // Example WhatsApp number
+                        ]
+                    })">
+                        <img src="umkm/Toko Zaenab_Foto.jpg" alt="Jasa Jahit Pakaian Custom">
+                        <div class="card-content">
+                            <h3>Toko Zaenab</h3>
+                            <p>Toko</p>
+                            <button>Detail</button>
+                        </div>
+                    </div>
+
+                    <div class="content-card cursor-pointer" onclick="showDetailModal({
+                        type: 'umkm',
+                        title: 'Warnet Aksha',
+                        image: 'umkm/Warnet Aksha_085299489772_Foto.jpg',
+                        details: [
+                            {label: 'Kategori', value: 'Warung Internet'},
+                            {label: 'WhatsApp', value: '085299489772'} // Example WhatsApp number
+                        ]
+                    })">
+                        <img src="umkm/Warnet Aksha_085299489772_Foto.jpg" alt="Jasa Jahit Pakaian Custom">
+                        <div class="card-content">
+                            <h3>Warnet Aksha</h3>
+                            <p>Warung Internet</p>
+                            <button>Detail</button>
+                        </div>
+                    </div>
+
+                    <div class="content-card cursor-pointer" onclick="showDetailModal({
+                        type: 'umkm',
+                        title: 'Warung Demistin',
+                        image: 'umkm/Warung Demistin_082292373003_Foto.jpg',
+                        details: [
+                            {label: 'Kategori', value: 'Warung'},
+                            {label: 'WhatsApp', value: '082292373003'} // Example WhatsApp number
+                        ]
+                    })">
+                        <img src="umkm/Warung Demistin_082292373003_Foto.jpg" alt="Jasa Jahit Pakaian Custom">
+                        <div class="card-content">
+                            <h3>Warung Demistin</h3>
+                            <p>Warung</p>
+                            <button>Detail</button>
+                        </div>
+                    </div>
+
+                    <div class="content-card cursor-pointer" onclick="showDetailModal({
+                        type: 'umkm',
+                        title: 'Warung Ilham',
+                        image: 'umkm/Warung Ilham_Foto.jpg',
+                        details: [
+                            {label: 'Kategori', value: 'Warung'},
+                            {label: 'WhatsApp', value: '-'} // Example WhatsApp number
+                        ]
+                    })">
+                        <img src="umkm/Warung Ilham_Foto.jpg" alt="Jasa Jahit Pakaian Custom">
+                        <div class="card-content">
+                            <h3>Warung Ilham</h3>
+                            <p>Warung</p>
+                            <button>Detail</button>
+                        </div>
+                    </div>
+
+                    <div class="content-card cursor-pointer" onclick="showDetailModal({
+                        type: 'umkm',
+                        title: 'Warung Kopi Pak Rusdi',
+                        image: 'umkm/Warung Kopi Pak Rusdi_085343584171_Menu.png',
+                        details: [
+                            {label: 'Kategori', value: 'Warung Kopi'},
+                            {label: 'WhatsApp', value: '085343584171'} // Example WhatsApp number
+                        ]
+                    })">
+                        <img src="umkm/Warung Kopi Pak Rusdi_085343584171_Foto.jpg" alt="Jasa Jahit Pakaian Custom">
+                        <div class="card-content">
+                            <h3>Warung Kopi Pak Rusdi</h3>
+                            <p>Warung Kopi</p>
+                            <button>Detail</button>
+                        </div>
+                    </div>
+
+                    <div class="content-card cursor-pointer" onclick="showDetailModal({
+                        type: 'umkm',
+                        title: 'Warung Makan Raja Rasa',
+                        image: 'umkm/Warung Makan Raja Rasa_085393153445_081253733123_Foto.jpg',
+                        details: [
+                            {label: 'Kategori', value: 'Warung Makan'},
+                            {label: 'WhatsApp', value: '085393153445, 081253733123'} // Example WhatsApp number
+                        ]
+                    })">
+                        <img src="umkm/Warung Makan Raja Rasa_085393153445_081253733123_Foto.jpg" alt="Jasa Jahit Pakaian Custom">
+                        <div class="card-content">
+                            <h3>Warung Makan Raja Rasa</h3>
+                            <p>Warung Makan</p>
+                            <button>Detail</button>
+                        </div>
+                    </div>
+
+                    <div class="content-card cursor-pointer" onclick="showDetailModal({
+                        type: 'umkm',
+                        title: 'Warung Pile',
+                        image: 'umkm/Warung Pile_085240112698_Foto.jpg',
+                        details: [
+                            {label: 'Kategori', value: 'Warung'},
+                            {label: 'WhatsApp', value: '085240112698'} // Example WhatsApp number
+                        ]
+                    })">
+                        <img src="umkm/Warung Pile_085240112698_Foto.jpg" alt="Jasa Jahit Pakaian Custom">
+                        <div class="card-content">
+                            <h3>Warung Pile</h3>
+                            <p>Warung</p>
+                            <button>Detail</button>
+                        </div>
+                    </div>
+
+                    <div class="content-card cursor-pointer" onclick="showDetailModal({
+                        type: 'umkm',
+                        title: 'Warung Sipurengnue',
+                        image: 'umkm/Warung Sipurengnue_085340406397_Foto.jpg',
+                        details: [
+                            {label: 'Kategori', value: 'Warung'},
+                            {label: 'WhatsApp', value: '085340406397'} // Example WhatsApp number
+                        ]
+                    })">
+                        <img src="umkm/Warung Sipurengnue_085340406397_Foto.jpg" alt="Jasa Jahit Pakaian Custom">
+                        <div class="card-content">
+                            <h3>Warung Sipurengnue</h3>
+                            <p>Warung</p>
+                            <button>Detail</button>
+                        </div>
+                    </div>
+
+                    <div class="content-card cursor-pointer" onclick="showDetailModal({
+                        type: 'umkm',
+                        title: 'Wika Kentaki',
+                        image: 'umkm/Wika Kentaki_082333339277_Menu.jpg',
+                        details: [
+                            {label: 'Kategori', value: 'UMKM Ayam Goreng'},
+                            {label: 'WhatsApp', value: '082333339277'} // Example WhatsApp number
+                        ]
+                    })">
+                        <img src="umkm/Wika Kentaki_082333339277_Foto.jpg" alt="Jasa Jahit Pakaian Custom">
+                        <div class="card-content">
+                            <h3>Wika Kentaki</h3>
+                            <p>UMKM Ayam Goreng</p>
+                            <button>Detail</button>
+                        </div>
+                    </div>
+
+                    <div class="content-card cursor-pointer" onclick="showDetailModal({
+                        type: 'umkm',
+                        title: 'Yusher Digital Printing',
+                        image: 'umkm/Yusher Digital Printing_085242580579_Foto.jpg',
+                        details: [
+                            {label: 'Kategori', value: 'Pertecakan'},
+                            {label: 'WhatsApp', value: '085242580579'} // Example WhatsApp number
+                        ]
+                    })">
+                        <img src="umkm/Yusher Digital Printing_085242580579_Foto.jpg" alt="Jasa Jahit Pakaian Custom">
+                        <div class="card-content">
+                            <h3>Yusher Digital Printing</h3>
+                            <p>Pertecakan</p>
+                            <button>Detail</button>
+                        </div>
+                    </div>
+
                 </div>
                 <button id="umkmLeftBtn" class="slide-button left">
                     <i class="fas fa-chevron-left"></i>
@@ -575,7 +1275,7 @@
             <div class="flex flex-col items-center">
                 <div class="text-center">
                     <h1 class="text-xl md:text-2xl text-white font-bold">Kelurahan Amparita</h1>
-                    <p class="text-sm text-gray-300 mt-1">Kec. Bontotiro, Kab. Bulukumba, Sulawesi Selatan</p>
+                    <p class="text-sm text-gray-300 mt-1">Kec. Tellu Limpoe, Kab. Sidenreng Rappang, Sulawesi Selatan</p>
                 </div>
             </div>
             <div class="text-center mt-6 pt-6 border-t border-gray-700">
@@ -595,7 +1295,7 @@
             </button>
             <h2 class="text-3xl font-bold text-[#1C4532] mb-6 text-center">Kontak Kami</h2>
             <div class="space-y-4 text-gray-700">
-                <p><i class="fas fa-map-marker-alt mr-3 text-[#2B643B]"></i> Jl. Utama Desa Bontomarannu, Kec. Bontotiro, Kab. Bulukumba</p>
+                <p><i class="fas fa-map-marker-alt mr-3 text-[#2B643B]"></i>Kelurahan Amparita, Kec. Tellu Limpoe, Kab. Sidenreng Rappang</p>
                 <p><i class="fas fa-phone mr-3 text-[#2B643B]"></i> (0413) 1234567</p>
                 <p><i class="fas fa-envelope mr-3 text-[#2B643B]"></i> info.amparita@email.com</p>
                 <p><i class="fab fa-whatsapp mr-3 text-[#2B643B]"></i> +62 812-3456-7890</p>
@@ -724,7 +1424,7 @@
             detailModal.classList.add('hidden');
         }
 
-        // --- Horizontal Scroll Logic for Potensi Desa ---
+        // --- Horizontal Scroll Logic for Potensi Kelurahan ---
         const potensiScrollContainer = document.getElementById('potensi-scroll-container');
         const potensiLeftBtn = document.getElementById('potensiLeftBtn');
         const potensiRightBtn = document.getElementById('potensiRightBtn');

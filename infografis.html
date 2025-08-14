@@ -338,7 +338,7 @@
     <!-- Header/Navbar -->
     <header class="fixed top-0 left-0 right-0 z-[100] bg-white shadow-lg py-4">
         <nav class="container mx-auto flex items-center justify-between px-4">
-            <!-- Logo, Nama Desa, dan Menu Navigasi (kiri) -->
+            <!-- Logo, Nama Kelurahan, dan Menu Navigasi (kiri) -->
             <div class="flex items-center space-x-6">
                 <!-- Logo berupa gambar -->
                 <img src="https://placehold.co/40x40/1C4532/FFFFFF?text=Logo" alt="Logo Kelurahan Amparita" class="h-10 w-10 rounded-full">
@@ -367,7 +367,7 @@
                 </ul>
             </div>
             <button id="openContactModalBtn" class="hidden lg:inline-flex items-center justify-center bg-[#2B643B] text-white font-bold py-2 px-6 rounded-full shadow-lg hover:bg-[#1A3F2A] transition-all duration-300 transform hover:scale-105 group text-sm">
-                Kontak Desa
+                Kontak Kelurahan
                 <i class="fas fa-phone-alt ml-2 group-hover:rotate-6 transition-transform duration-200"></i>
             </button>
             <button id="mobile-menu-button" class="lg:hidden text-gray-800 focus:outline-none">
@@ -394,7 +394,7 @@
                 <li><a class="block font-semibold px-4 py-2 rounded-lg text-gray-800 hover:bg-[#1C4532] hover:text-white transition-all duration-300" href="tentang.html">Tentang</a></li>
                 <li>
                     <button id="openContactModalBtnMobile" class="w-full bg-[#2B643B] text-white font-bold py-2 px-6 rounded-full shadow-lg hover:bg-[#1A3F2A] transition-all duration-300 transform hover:scale-105 group text-sm mt-4">
-                        Kontak Desa
+                        Kontak Kelurahan
                         <i class="fas fa-phone-alt ml-2 group-hover:rotate-6 transition-transform duration-200"></i>
                     </button>
                 </li>
@@ -405,7 +405,7 @@
     <div class="relative pt-24 md:pt-32 flex-grow"> <!-- Adjusted padding top for fixed header -->
         <!-- Data Monografi Section -->
         <div class="px-4 py-8 md:px-8 md:py-10 bg-gradient-to-br from-[#F0FFF0] to-[#E0FFE0] text-gray-800 rounded-xl shadow-2xl my-12 text-center animate-on-scroll">
-            <h1 class="text-3xl md:text-5xl font-extrabold text-[#1A3F2A] mb-10 leading-tight">Data Monografi Desa</h1>
+            <h1 class="text-3xl md:text-5xl font-extrabold text-[#1A3F2A] mb-10 leading-tight">Data Monografi Kelurahan</h1>
             <div class="grid grid-cols-2 md:grid-cols-5 gap-8 max-w-6xl mx-auto">
                 <div class="data-card text-center flex flex-col items-center p-4 bg-white rounded-lg shadow-md">
                     <i class="fas fa-map-marker-alt text-5xl mb-3"></i>
@@ -428,9 +428,9 @@
                     <p class="text-gray-700 text-lg font-medium">Kepala Keluarga</p>
                 </div>
                 <div class="data-card text-center flex flex-col items-center p-4 bg-white rounded-lg shadow-md">
-                    <i class="fas fa-list-ol text-5xl mb-3"></i>
-                    <p class="text-4xl md:text-5xl font-extrabold">12</p>
-                    <p class="text-gray-700 text-lg font-medium">Rukun Keluarga (RK)</p>
+                    <i class="fas fa-inbox text-5xl mb-3"></i>
+                    <p class="text-4xl md:text-5xl font-extrabold">91662</p>
+                    <p class="text-gray-700 text-lg font-medium">Kode Pos</p>
                 </div>
             </div>
             <div class="mt-12">
@@ -445,7 +445,7 @@
         <div class="container mx-auto px-4 py-8 md:px-8 md:py-12 bg-white rounded-lg shadow-xl my-8">
             <div class="mb-8">
                 <h1 class="section-title">Statistik Demografi Penduduk</h1>
-                <p class="text-xl text-gray-600 mt-2 mb-8">Data pekerjaan dan jenis kelamin masyarakat Desa Bontomarannu.</p>
+                <p class="text-xl text-gray-600 mt-2 mb-8">Data pekerjaan dan jenis kelamin masyarakat Kelurahan Amparita.</p>
             </div>
 
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 bg-gradient-to-br from-[#F0FFF0] to-[#E0FFE0] p-8 rounded-xl shadow-lg">
@@ -474,102 +474,147 @@
 
                         <!-- Example cards for Sarana & Prasarana -->
                         <div class="min-w-[280px] bg-gray-50 rounded-xl shadow-md overflow-hidden flex-shrink-0">
-                            <img src="images/kantor.jpg" alt="Kantor Desa" class="w-full h-40 object-cover">
+                            <img src="images/kantor.jpg" alt="Kantor Kelurahan" class="w-full h-40 object-cover">
                             <div class="p-4">
-                                <h3 class="text-xl font-bold text-[#1A3F2A]">Kantor Desa</h3>
+                                <h3 class="text-xl font-bold text-[#1A3F2A]">Kantor Kelurahan</h3>
                                 <p class="text-sm text-gray-600 mb-4">Jl. Bau Massepe, No. 2</p>
-                                <button onclick="openSaranaDetailModal('Kantor Desa', 'images/kantor.jpg', 'Jl. Bau Massepe, No. 2')" class="w-full bg-[#2B643B] text-white font-bold py-2 rounded-full hover:bg-[#1A3F2A] transition-colors duration-300">Detail</button>
+                                <button onclick="openSaranaDetailModal('Kantor Kelurahan', 'images/kantor.jpg', 'Jl. Bau Massepe, No. 2')" class="w-full bg-[#2B643B] text-white font-bold py-2 rounded-full hover:bg-[#1A3F2A] transition-colors duration-300">Detail</button>
                             </div>
                         </div>
 
                         <div class="min-w-[280px] bg-gray-50 rounded-xl shadow-md overflow-hidden flex-shrink-0">
-                            <img src="images/masjid ar rahman.jpg" alt="Masjid Ar Rahmah" class="w-full h-40 object-cover">
+                            <img src="images/Masjid Ar-Rahmah Amparita.jpg" alt="Masjid Ar Rahmah" class="w-full h-40 object-cover">
                             <div class="p-4">
                                 <h3 class="text-xl font-bold text-[#1A3F2A]">Masjid Ar Rahmah</h3>
                                 <p class="text-sm text-gray-600 mb-4">Jl. Abu Bakar</p>
-                                <button onclick="openSaranaDetailModal('Masjid Ar Rahmah', 'images/masjid ar rahman.jpg', 'Jl. Abu Bakar')" class="w-full bg-[#2B643B] text-white font-bold py-2 rounded-full hover:bg-[#1A3F2A] transition-colors duration-300">Detail</button>
+                                <button onclick="openSaranaDetailModal('Masjid Ar Rahmah', 'images/Masjid Ar-Rahmah Amparita.jpg', 'Jl. Abu Bakar')" class="w-full bg-[#2B643B] text-white font-bold py-2 rounded-full hover:bg-[#1A3F2A] transition-colors duration-300">Detail</button>
                             </div>
                         </div>
 
                         <div class="min-w-[280px] bg-gray-50 rounded-xl shadow-md overflow-hidden flex-shrink-0">
-                            <img src="images/masjid nurul marhamah.jpg" alt="Masjid Nurul Marhamah" class="w-full h-40 object-cover">
+                            <img src="images/Masjid Nurul Marhamah Kelurahan Amparita.jpg" alt="Masjid Nurul Marhamah" class="w-full h-40 object-cover">
                             <div class="p-4">
                                 <h3 class="text-xl font-bold text-[#1A3F2A]">Masjid Nurul Marhamah</h3>
                                 <p class="text-sm text-gray-600 mb-4">Lingkungan II</p>
-                                <button onclick="openSaranaDetailModal('Masjid Nurul Marhamah', 'images/masjid nurul marhamah.jpg', 'Lingkungan II')" class="w-full bg-[#2B643B] text-white font-bold py-2 rounded-full hover:bg-[#1A3F2A] transition-colors duration-300">Detail</button>
+                                <button onclick="openSaranaDetailModal('Masjid Nurul Marhamah', 'images/Masjid Nurul Marhamah Kelurahan Amparita.jpg', 'Lingkungan II')" class="w-full bg-[#2B643B] text-white font-bold py-2 rounded-full hover:bg-[#1A3F2A] transition-colors duration-300">Detail</button>
                             </div>
                         </div>
 
                         <div class="min-w-[280px] bg-gray-50 rounded-xl shadow-md overflow-hidden flex-shrink-0">
-                            <img src="images/tk negri dharma wanita amparita.jpg" alt="TK/PAUD/RA" class="w-full h-40 object-cover">
+                            <img src="images/TK Negeri Dharma Wanita Amparita.jpg" alt="TK/PAUD/RA" class="w-full h-40 object-cover">
                             <div class="p-4">
                                 <h3 class="text-xl font-bold text-[#1A3F2A]">TK Dharma Wanita</h3>
                                 <p class="text-sm text-gray-600 mb-4">Jl. Abu Bakar</p>
-                                <button onclick="openSaranaDetailModal('TK Dharma Wanita', 'images/tk negri dharma wanita amparita.jpg', 'Jl. Abu Bakar')" class="w-full bg-[#2B643B] text-white font-bold py-2 rounded-full hover:bg-[#1A3F2A] transition-colors duration-300">Detail</button>
+                                <button onclick="openSaranaDetailModal('TK Dharma Wanita', 'images/TK Negeri Dharma Wanita Amparita.jpg', 'Jl. Abu Bakar')" class="w-full bg-[#2B643B] text-white font-bold py-2 rounded-full hover:bg-[#1A3F2A] transition-colors duration-300">Detail</button>
                             </div>
                         </div>
 
                         <div class="min-w-[280px] bg-gray-50 rounded-xl shadow-md overflow-hidden flex-shrink-0">
-                            <img src="images/raudhatul athfal ddi amparita.jpg" alt="TK/PAUD/RA" class="w-full h-40 object-cover">
+                            <img src="images/Raudhatul Athfal (RA) DDI Amparita.jpg" alt="TK/PAUD/RA" class="w-full h-40 object-cover">
                             <div class="p-4">
-                                <h3 class="text-xl font-bold text-[#1A3F2A]">Raudhatul Athfal DDI Amparita</h3>
+                                <h3 class="text-xl font-bold text-[#1A3F2A]">Raudhatul Athfal (RA) DDI Amparita</h3>
                                 <p class="text-sm text-gray-600 mb-4">Jl. Abu Bakar</p>
-                                <button onclick="openSaranaDetailModal('Raudhatul Athfal DDI Amparita', 'images/raudhatul athfal ddi amparita.jpg', 'Jl. Abu Bakar')" class="w-full bg-[#2B643B] text-white font-bold py-2 rounded-full hover:bg-[#1A3F2A] transition-colors duration-300">Detail</button>
+                                <button onclick="openSaranaDetailModal('Raudhatul Athfal (RA) DDI Amparita', 'images/Raudhatul Athfal (RA) DDI Amparita.jpg', 'Jl. Abu Bakar')" class="w-full bg-[#2B643B] text-white font-bold py-2 rounded-full hover:bg-[#1A3F2A] transition-colors duration-300">Detail</button>
                             </div>
                         </div>
 
                         <div class="min-w-[280px] bg-gray-50 rounded-xl shadow-md overflow-hidden flex-shrink-0">
-                            <img src="images/up ima putri.jpg" alt="TK/PAUD/RA" class="w-full h-40 object-cover">
+                            <img src="images/Sentra Layanan Universitas Terbuka IMA Putri Sidrap.jpg" alt="UT" class="w-full h-40 object-cover">
                             <div class="p-4">
-                                <h3 class="text-xl font-bold text-[#1A3F2A]">Paud KBM IMA PUTRI</h3>
+                                <h3 class="text-xl font-bold text-[#1A3F2A]">Sentra Layanan Universitas Terbuka IMA Putri Sidrap</h3>
                                 <p class="text-sm text-gray-600 mb-4">Jl. Teteaji, Lrg. 4, No. 77</p>
-                                <button onclick="openSaranaDetailModal('Paud KBM IMA PUTRI', 'images/up ima putri.jpg', 'Jl. Teteaji, Lrg. 4, No. 77')" class="w-full bg-[#2B643B] text-white font-bold py-2 rounded-full hover:bg-[#1A3F2A] transition-colors duration-300">Detail</button>
+                                <button onclick="openSaranaDetailModal('Sentra Layanan Universitas Terbuka IMA Putri Sidrap', 'images/Sentra Layanan Universitas Terbuka IMA Putri Sidrap.jpg', 'Jl. Teteaji, Lrg. 4, No. 77')" class="w-full bg-[#2B643B] text-white font-bold py-2 rounded-full hover:bg-[#1A3F2A] transition-colors duration-300">Detail</button>
                             </div>
                         </div>
 
                         
                         <div class="min-w-[280px] bg-gray-50 rounded-xl shadow-md overflow-hidden flex-shrink-0">
-                            <img src="images/mis ddi amparira.jpg" alt="SD/Madrasah Ibtidaiyah" class="w-full h-40 object-cover">
+                            <img src="images/Madrasah Ibtidaiyah Swasta (MIS) DDI Amparita.jpg" alt="SD/Madrasah Ibtidaiyah" class="w-full h-40 object-cover">
                             <div class="p-4">
-                                <h3 class="text-xl font-bold text-[#1A3F2A]">MIS DDI Amparita</h3>
+                                <h3 class="text-xl font-bold text-[#1A3F2A]">Madrasah Ibtidaiyah Swasta (MIS) DDI Amparita</h3>
                                 <p class="text-sm text-gray-600 mb-4">Lingkungan II</p>
-                                <button onclick="openSaranaDetailModal('MIS DDI Amparita', 'images/mis ddi amparira.jpg', 'Lingkungan II')" class="w-full bg-[#2B643B] text-white font-bold py-2 rounded-full hover:bg-[#1A3F2A] transition-colors duration-300">Detail</button>
+                                <button onclick="openSaranaDetailModal('Madrasah Ibtidaiyah Swasta (MIS) DDI Amparita', 'images/Madrasah Ibtidaiyah Swasta (MIS) DDI Amparita.jpg', 'Lingkungan II')" class="w-full bg-[#2B643B] text-white font-bold py-2 rounded-full hover:bg-[#1A3F2A] transition-colors duration-300">Detail</button>
                             </div>
                         </div>
 
                         <div class="min-w-[280px] bg-gray-50 rounded-xl shadow-md overflow-hidden flex-shrink-0">
-                            <img src="images/sdn 3 amparita.jpg" alt="SD/Madrasah Ibtidaiyah" class="w-full h-40 object-cover">
+                            <img src="images/SD Negeri 3 Amparita.jpg" alt="SD/Madrasah Ibtidaiyah" class="w-full h-40 object-cover">
                             <div class="p-4">
                                 <h3 class="text-xl font-bold text-[#1A3F2A]">SD Negri 3 Amparita</h3>
                                 <p class="text-sm text-gray-600 mb-4">Jl. Bau Massepe, No. 57</p>
-                                <button onclick="openSaranaDetailModal('SD Negri 3 Amparita', 'images/sdn 3 amparita.jpg', 'Jl. Bau Massepe, No. 57')" class="w-full bg-[#2B643B] text-white font-bold py-2 rounded-full hover:bg-[#1A3F2A] transition-colors duration-300">Detail</button>
+                                <button onclick="openSaranaDetailModal('SD Negri 3 Amparita', 'images/SD Negeri 3 Amparita.jpg', 'Jl. Bau Massepe, No. 57')" class="w-full bg-[#2B643B] text-white font-bold py-2 rounded-full hover:bg-[#1A3F2A] transition-colors duration-300">Detail</button>
                             </div>
                         </div>
 
                         <div class="min-w-[280px] bg-gray-50 rounded-xl shadow-md overflow-hidden flex-shrink-0">
-                            <img src="images/madrasah ddi amparita.jpg" alt="SMP/MTs" class="w-full h-40 object-cover">
+                            <img src="images/Madrasah Tsanawiyah (MTs) DDI Amparita.jpg" alt="SMP/MTs" class="w-full h-40 object-cover">
                             <div class="p-4">
-                                <h3 class="text-xl font-bold text-[#1A3F2A]">Madrasah Tsanawiyah Amparita</h3>
+                                <h3 class="text-xl font-bold text-[#1A3F2A]">Madrasah Tsanawiyah (MTs) DDI Amparita</h3>
                                 <p class="text-sm text-gray-600 mb-4">Lingkungan II</p>
-                                <button onclick="openSaranaDetailModal('Madrasah Tsanawiyah Amparita', 'images/madrasah ddi amparita.jpg', 'Lingkungan II')" class="w-full bg-[#2B643B] text-white font-bold py-2 rounded-full hover:bg-[#1A3F2A] transition-colors duration-300">Detail</button>
+                                <button onclick="openSaranaDetailModal('Madrasah Tsanawiyah Amparita', 'images/Madrasah Tsanawiyah (MTs) DDI Amparita.jpg', 'Lingkungan II')" class="w-full bg-[#2B643B] text-white font-bold py-2 rounded-full hover:bg-[#1A3F2A] transition-colors duration-300">Detail</button>
                             </div>
                         </div>
 
                         <div class="min-w-[280px] bg-gray-50 rounded-xl shadow-md overflow-hidden flex-shrink-0">
-                            <img src="images/smpn 1 tellu limpoe.jpg" alt="SMP/MTs" class="w-full h-40 object-cover">
+                            <img src="images/SMP Negeri 1 Tellu Limpoe.jpg" alt="SMP/MTs" class="w-full h-40 object-cover">
                             <div class="p-4">
                                 <h3 class="text-xl font-bold text-[#1A3F2A]">SMP Negeri 1 Tellu Limpoe</h3>
                                 <p class="text-sm text-gray-600 mb-4">Jl. Bau Massepe No. 77 </p>
-                                <button onclick="openSaranaDetailModal('SMP Negeri 1 Tellu Limpoe', 'images/smpn 1 tellu limpoe.jpg', 'Jl. Bau Massepe No. 77 ')" class="w-full bg-[#2B643B] text-white font-bold py-2 rounded-full hover:bg-[#1A3F2A] transition-colors duration-300">Detail</button>
+                                <button onclick="openSaranaDetailModal('SMP Negeri 1 Tellu Limpoe', 'images/SMP Negeri 1 Tellu Limpoe.jpg', 'Jl. Bau Massepe No. 77 ')" class="w-full bg-[#2B643B] text-white font-bold py-2 rounded-full hover:bg-[#1A3F2A] transition-colors duration-300">Detail</button>
                             </div>
                         </div>
 
                         <div class="min-w-[280px] bg-gray-50 rounded-xl shadow-md overflow-hidden flex-shrink-0">
-                            <img src="images/madrasah ddi tellu limpoe.jpg" alt="SMA/MA" class="w-full h-40 object-cover">
+                            <img src="images/Madrasah Aliyah (MA) DDI Tellu Limpoe.jpg" alt="SMA/MA" class="w-full h-40 object-cover">
                             <div class="p-4">
-                                <h3 class="text-xl font-bold text-[#1A3F2A]">Madrasah Aliyah Amparita</h3>
+                                <h3 class="text-xl font-bold text-[#1A3F2A]">Madrasah Aliyah (MA) DDI Tellu Limpoe</h3>
                                 <p class="text-sm text-gray-600 mb-4">Lingkungan II</p>
-                                <button onclick="openSaranaDetailModal('Madrasah Aliyah Amparita (SMA/MA)', 'images/madrasah ddi tellu limpoe.jpg', 'Lingkungan II')" class="w-full bg-[#2B643B] text-white font-bold py-2 rounded-full hover:bg-[#1A3F2A] transition-colors duration-300">Detail</button>
+                                <button onclick="openSaranaDetailModal('Madrasah Aliyah (MA) DDI Tellu Limpoe (SMA/MA)', 'images/Madrasah Aliyah (MA) DDI Tellu Limpoe.jpg', 'Lingkungan II')" class="w-full bg-[#2B643B] text-white font-bold py-2 rounded-full hover:bg-[#1A3F2A] transition-colors duration-300">Detail</button>
+                            </div>
+                        </div>
+
+                        <div class="min-w-[280px] bg-gray-50 rounded-xl shadow-md overflow-hidden flex-shrink-0">
+                            <img src="images/Kantor Pos Amparita.jpg" alt="SMA/MA" class="w-full h-40 object-cover">
+                            <div class="p-4">
+                                <h3 class="text-xl font-bold text-[#1A3F2A]">Kantor Pos Amparita</h3>
+                                <p class="text-sm text-gray-600 mb-4">Lingkungan II</p>
+                                <button onclick="openSaranaDetailModal('Kantor Pos Amparita', 'images/Kantor Pos Amparita.jpg', 'Lingkungan II')" class="w-full bg-[#2B643B] text-white font-bold py-2 rounded-full hover:bg-[#1A3F2A] transition-colors duration-300">Detail</button>
+                            </div>
+                        </div>
+
+                        <div class="min-w-[280px] bg-gray-50 rounded-xl shadow-md overflow-hidden flex-shrink-0">
+                            <img src="images/Kantor Polsek Tellu Limpoe.jpg" alt="SMA/MA" class="w-full h-40 object-cover">
+                            <div class="p-4">
+                                <h3 class="text-xl font-bold text-[#1A3F2A]">Kantor Polsek Tellu Limpoe</h3>
+                                <p class="text-sm text-gray-600 mb-4">Lingkungan II</p>
+                                <button onclick="openSaranaDetailModal('Kantor Polsek Tellu Limpoe', 'images/Kantor Polsek Tellu Limpoe.jpg', 'Lingkungan II')" class="w-full bg-[#2B643B] text-white font-bold py-2 rounded-full hover:bg-[#1A3F2A] transition-colors duration-300">Detail</button>
+                            </div>
+                        </div> 
+
+                        <div class="min-w-[280px] bg-gray-50 rounded-xl shadow-md overflow-hidden flex-shrink-0">
+                            <img src="images/Jembatan.jpg" alt="SMA/MA" class="w-full h-40 object-cover">
+                            <div class="p-4">
+                                <h3 class="text-xl font-bold text-[#1A3F2A]">Jembatan</h3>
+                                <p class="text-sm text-gray-600 mb-4">Lingkungan II</p>
+                                <button onclick="openSaranaDetailModal('Jembatan', 'images/Jembatan.jpg', 'Lingkungan II')" class="w-full bg-[#2B643B] text-white font-bold py-2 rounded-full hover:bg-[#1A3F2A] transition-colors duration-300">Detail</button>
+                            </div>
+                        </div>
+
+                        <div class="min-w-[280px] bg-gray-50 rounded-xl shadow-md overflow-hidden flex-shrink-0">
+                            <img src="images/Irigasi.jpg" alt="SMA/MA" class="w-full h-40 object-cover">
+                            <div class="p-4">
+                                <h3 class="text-xl font-bold text-[#1A3F2A]">Irigasi</h3>
+                                <p class="text-sm text-gray-600 mb-4">Lingkungan II</p>
+                                <button onclick="openSaranaDetailModal('Irigasi', 'images/Irigasi.jpg', 'Lingkungan II')" class="w-full bg-[#2B643B] text-white font-bold py-2 rounded-full hover:bg-[#1A3F2A] transition-colors duration-300">Detail</button>
+                            </div>
+                        </div>
+
+                        <div class="min-w-[280px] bg-gray-50 rounded-xl shadow-md overflow-hidden flex-shrink-0">
+                            <img src="images/UPT Dinas Pengelolaan Sumber Daya Air.jpg" alt="SMA/MA" class="w-full h-40 object-cover">
+                            <div class="p-4">
+                                <h3 class="text-xl font-bold text-[#1A3F2A]">UPT Dinas Pengelolaan Sumber Daya Air</h3>
+                                <p class="text-sm text-gray-600 mb-4">Lingkungan II</p>
+                                <button onclick="openSaranaDetailModal('UPT Dinas Pengelolaan Sumber Daya Air', 'images/UPT Dinas Pengelolaan Sumber Daya Air.jpg', 'Lingkungan II')" class="w-full bg-[#2B643B] text-white font-bold py-2 rounded-full hover:bg-[#1A3F2A] transition-colors duration-300">Detail</button>
                             </div>
                         </div>
 
@@ -673,7 +718,7 @@
             <div class="flex flex-col items-center">
                 <div class="text-center">
                     <h1 class="text-xl md:text-2xl text-white font-bold">Kelurahan Amparita</h1>
-                    <p class="text-sm text-gray-300 mt-1">Kec. Bontotiro, Kab. Bulukumba, Sulawesi Selatan</p>
+                    <p class="text-sm text-gray-300 mt-1">Kec. Tellu Limpoe, Kab. Sidenreng Rappang, Sulawesi Selatan</p>
                 </div>
             </div>
             <div class="text-center mt-6 pt-6 border-t border-gray-700">
@@ -693,7 +738,7 @@
             </button>
             <h2 class="text-3xl font-bold text-[#1C4532] mb-6 text-center">Kontak Kami</h2>
             <div class="space-y-4 text-gray-700">
-                <p><i class="fas fa-map-marker-alt mr-3 text-[#2B643B]"></i> Jl. Utama Desa Bontomarannu, Kec. Bontotiro, Kab. Bulukumba</p>
+                <p><i class="fas fa-map-marker-alt mr-3 text-[#2B643B]"></i> Jl. Utama Kelurahan Amparita, Kec. Tellu Limpoe, Kab. Sidenreng Rappang</p>
                 <p><i class="fas fa-phone mr-3 text-[#2B643B]"></i> (0413) 1234567</p>
                 <p><i class="fas fa-envelope mr-3 text-[#2B643B]"></i> info.amparita@email.com</p>
                 <p><i class="fab fa-whatsapp mr-3 text-[#2B643B]"></i> +62 812-3456-7890</p>
@@ -786,9 +831,9 @@
             <button class="absolute top-4 right-4 text-gray-600 hover:text-gray-900 text-2xl" onclick="closeMonographyModal()">
                 <i class="fas fa-times"></i>
             </button>
-            <h2 class="text-3xl font-bold text-[#1C4532] mb-6 text-center">Detail Monografi Desa</h2>
+            <h2 class="text-3xl font-bold text-[#1C4532] mb-6 text-center">Detail Monografi Kelurahan</h2>
             <div class="space-y-4 text-gray-700 text-left">
-                <h3 class="text-2xl font-bold text-[#1A3F2A] mb-4">Informasi Umum Desa</h3>
+                <h3 class="text-2xl font-bold text-[#1A3F2A] mb-4">Informasi Umum Kelurahan</h3>
                 <dl class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4">
                     <div>
                         <dt class="font-semibold text-gray-600">Kecamatan</dt>
@@ -812,11 +857,7 @@
                     </div>
                     <div>
                         <dt class="font-semibold text-gray-600">Jumlah Lingkungan</dt>
-                        <dd class="text-gray-800">3</dd>
-                    </div>
-                    <div>
-                        <dt class="font-semibold text-gray-600">Jumlah RK</dt>
-                        <dd class="text-gray-800">12</dd>
+                        <dd class="text-gray-800">2</dd>
                     </div>
                 </dl>
                 <h3 class="text-2xl font-bold text-[#1A3F2A] mt-8 mb-4">Data Kependudukan & Wilayah</h3>
